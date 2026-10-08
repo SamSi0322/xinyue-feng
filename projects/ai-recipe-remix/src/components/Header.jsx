@@ -12,7 +12,7 @@ export default function Header() {
             AI Recipe Remix
           </h1>
           <p className="mt-0.5 text-[0.95rem] text-ink-muted sm:text-base">
-            Turn what’s in your kitchen into three recipes, each with its own AI-made photo.
+            Turn what’s in your kitchen into three recipes, each with its own AI-generated photo.
           </p>
         </div>
       </div>

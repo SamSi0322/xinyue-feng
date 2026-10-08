@@ -2,7 +2,7 @@
 //
 // Ported from the Java/Swing original by Xinyue (Lily) Feng (CPS 2231,
 // Wenzhou-Kean University, 2024). Speeds, jump timing, collision checks, enemy
-// behaviour and the level layouts follow the Java classes of the same names
+// behavior and the level layouts follow the Java classes of the same names
 // (Edgeworth, Enemy, Obstruction, NPC, BackGround, and the loop in MyFrame).
 // In Java each object ran on its own thread; here one World.step() is one
 // 50 ms tick, and enemies move on every second tick (their threads slept 100 ms).

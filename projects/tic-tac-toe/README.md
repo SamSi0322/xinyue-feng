@@ -3,16 +3,19 @@
 Tic-tac-toe against three AI opponents, from coin-flip to unbeatable, with a
 live view of how the AI scores every square.
 
-By **Xinyue (Lily) Feng**. Built for Unit 10 AS1 “Play with AI” and polished
-for her portfolio. Plain HTML, CSS and JavaScript: no frameworks, no build
-step, no external requests.
+By **Xinyue (Lily) Feng**, for Unit 10 AS1 “Play with AI” (April 2026), and
+extended for her portfolio with AI coding tools (see [Credits](#credits)).
+Plain HTML, CSS and JavaScript: no frameworks, no build step, no external
+requests.
 
-![The game on Medium with “Show AI thinking” on: after a corner, centre and opposite corner, the overlay shows the one square that wins for X](docs/screenshot.jpg)
+**Play it:** https://samsi0322.github.io/xinyue-feng/play/tic-tac-toe/
+
+![The game on Medium with “Show AI thinking” on: after X takes a corner, O the center, X the opposite corner and O another corner, the overlay shows the one square that wins for X](docs/screenshot.jpg)
 
 ## Features
 
 - **Three opponents.** Easy (mostly random), Medium (Lily’s original
-  rule-based AI, unchanged) and Hard (minimax with alpha-beta pruning, which
+  rule-based AI, rule for rule) and Hard (minimax with alpha-beta pruning, which
   never loses).
 - **Show AI thinking.** Every empty square shows its minimax score from the
   AI’s point of view (positive: AI wins, 0: draw, negative: AI loses),
@@ -46,7 +49,7 @@ never blocks you.
 
 ### Medium: Lily’s original (`ruleBasedMove`)
 
-This is the AI from the Unit 10 assignment, preserved line for line with its
+This is the AI from the Unit 10 assignment, preserved rule for rule with its
 original comments. Only the plumbing changed: the board and players come in
 as arguments instead of globals, moves are tried on a copy of the board, and
 the random source can be swapped out for tests. It tries five rules in
@@ -68,7 +71,7 @@ only stop one.
 Minimax imagines every way the game could continue. On the AI’s turns it
 assumes the AI picks the highest-scoring move; on yours it assumes you pick
 the lowest, which is your best reply. Finished games are scored +10 for an AI
-win, −10 for a loss and 0 for a draw, minus one point per move, so a quick
+win, −10 for a loss and 0 for a draw, one point closer to zero per move, so a quick
 win beats a slow one and a slow loss beats a quick one. Alpha-beta pruning
 skips any branch the other side would never allow: the answer is the same,
 but far fewer positions are searched. Tic-tac-toe is small enough (5,478
@@ -127,7 +130,7 @@ footer, leaving the game and its controls with no outer margin. Below 600 px
 wide it stacks into one column.
 
 ```html
-<iframe id="tic-tac-toe" src="/projects/tic-tac-toe/?embed=1"
+<iframe id="tic-tac-toe" src="https://samsi0322.github.io/xinyue-feng/play/tic-tac-toe/?embed=1"
         title="Tic-tac-toe: play with AI" loading="lazy"
         style="display:block; width:100%; height:600px; border:0"></iframe>
 <script>
@@ -167,7 +170,7 @@ ai.js               the three AIs and board helpers (pure functions, no DOM)
 tests/ai.test.js    node:test suite for ai.js
 package.json        "type": "module" and the test script (no dependencies)
 favicon.svg
-fonts/              self-hosted Playfair Display, IBM Plex Sans and IBM Plex Mono, with their licences
+fonts/              self-hosted Playfair Display, IBM Plex Sans and IBM Plex Mono, with their licenses
 original/           the original Unit 10 files, untouched
 ```
 
@@ -176,6 +179,8 @@ original/           the original Unit 10 files, untouched
 - Originally created by Xinyue (Lily) Feng for Unit 10 AS1 “Play with AI”,
   April 2026. The original files are preserved in [`original/`](original/),
   and her AI lives on as Medium.
+- 2026 portfolio edition (Easy and Hard, “Show AI thinking”, the redesign and
+  the tests): built with AI coding tools.
 - Fonts: [Playfair Display](https://github.com/clauseggers/Playfair-Display)
   and [IBM Plex](https://github.com/IBM/plex) Sans and Mono, under the SIL
   Open Font License 1.1 (see `fonts/LICENSE-*.txt`).

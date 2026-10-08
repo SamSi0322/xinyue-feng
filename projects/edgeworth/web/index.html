@@ -7,6 +7,14 @@
   <meta name="description" content="An Ace Attorney fan platformer by Xinyue (Lily) Feng, originally written in Java Swing and ported to the browser. Six levels, hand-drawn pixel sprites.">
   <meta name="theme-color" content="#121212">
   <link rel="icon" type="image/png" href="assets/img/ob12.png">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="The Adventures of Edgeworth: play in the browser">
+  <meta property="og:description" content="An Ace Attorney fan platformer by Xinyue (Lily) Feng, written in Java Swing and ported to the browser.">
+  <meta property="og:url" content="https://samsi0322.github.io/xinyue-feng/play/edgeworth/">
+  <meta property="og:image" content="https://samsi0322.github.io/xinyue-feng/assets/img/og/edgeworth.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary_large_image">
   <link rel="preload" href="fonts/press-start-2p-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="fonts/fonts.css">
   <link rel="stylesheet" href="style.css">
@@ -27,8 +35,8 @@
   <main class="game" data-game data-state="loading">
     <div class="stage">
       <div class="frame" tabindex="0" role="application" aria-roledescription="game" aria-label="The Adventures of Edgeworth. Arrow keys move and jump, P pauses, M toggles sound.">
-        <img class="bg-forest" src="assets/img/forest.gif" alt="" hidden>
-        <img class="bg-full" src="assets/img/start.webp" alt="">
+        <img class="bg-forest" src="assets/img/forest.gif" alt="" hidden loading="lazy" decoding="async">
+        <img class="bg-full" src="assets/img/start.webp" alt="" fetchpriority="high">
         <canvas aria-hidden="true"></canvas>
 
         <div class="screen screen--loading" data-screen="loading">
@@ -52,9 +60,12 @@
 
         <div class="screen screen--dim" data-screen="gameover" hidden>
           <p class="big big--red">Game over</p>
-          <p class="hint">Edgeworth's dead.</p>
+          <p class="hint">Edgeworth’s dead.</p>
           <p class="score">Score <span data-score>0</span></p>
-          <button class="pill" type="button" data-action="restart">Play again</button>
+          <div class="screen__actions">
+            <button class="pill" type="button" data-action="retry">Retry scene <span data-retry-scene>1</span></button>
+            <button class="pill pill--ghost" type="button" data-action="restart">Start over</button>
+          </div>
         </div>
 
         <div class="screen screen--ending" data-screen="cleared" hidden>
@@ -113,8 +124,8 @@
       <h2>How to play</h2>
       <ul class="cast">
         <li><img src="assets/img/Winston1.png" alt="" width="60" height="60"><p><strong>Winston Payne</strong> walks back and forth. Land on his head to knock him out.</p></li>
-        <li><img src="assets/img/Karma4.png" alt="" width="60" height="60"><p><strong>Manfred von Karma</strong> can't be stomped. Jump over him.</p></li>
-        <li><img src="assets/img/Oldbag1.png" alt="" width="60" height="60"><p><strong>Wendy Oldbag</strong> rises out of pipes and floats away. Don't touch her.</p></li>
+        <li><img src="assets/img/Karma4.png" alt="" width="60" height="60"><p><strong>Manfred von Karma</strong> can’t be stomped. Jump over him.</p></li>
+        <li><img src="assets/img/Oldbag1.png" alt="" width="60" height="60"><p><strong>Wendy Oldbag</strong> rises out of pipes and floats away. Don’t touch her.</p></li>
         <li><img src="assets/img/ob5.png" alt="" width="60" height="60"><p><strong>Phoenix blocks</strong> are worth 10 points. Hit them from below.</p></li>
         <li><img src="assets/img/npc2.png" alt="" width="60" height="60"><p><strong>Detective Gumshoe</strong> knows where an invisible block is hidden.</p></li>
       </ul>
@@ -124,8 +135,8 @@
     <div class="note">
       <h2>About this edition</h2>
       <p>Xinyue (Lily) Feng made the game in Java Swing for CPS 2231 at Wenzhou-Kean University (April–May 2024). She laid the levels out on a grid in Excel and made the sprites in Aseprite, based on characters from the <em>Ace Attorney</em> games.</p>
-      <p>This web edition ports her game logic from Java to JavaScript and the HTML canvas, keeping the movement speeds, jump timing, collision rules and all six levels unchanged. It also finishes two things she wrote about in her project report: the forest background is now animated, and sound effects play once, on cue.</p>
-      <p class="small">Also fixed: after a death, a level now resets cleanly (the original duplicated defeated enemies), and the falling and "knocked out" sprites she drew are shown in play.</p>
+      <p>This web edition ports her game logic from Java to JavaScript and the HTML canvas, keeping the movement speeds, jump timing, collision rules and all six levels unchanged. It also solves two problems she described in her project report: the forest background is now animated, and sound effects play once, on cue.</p>
+      <p class="small">Also changed: after a death, a level now resets cleanly (the original duplicated defeated enemies), and two sprites she drew that the original never showed, a fallen Edgeworth and a knocked-out Winston, now appear in play.</p>
     </div>
 
     <div class="note note--credits">
@@ -136,6 +147,7 @@
         <dt>Title-screen art</dt><dd><em>Ace Attorney</em> © Capcom</dd>
         <dt>Forest animation</dt><dd>Pixel art by Anas Abdin (@anasabdin)</dd>
         <dt>Music &amp; sound effects</dt><dd>Third-party audio chosen by the author. All rights belong to their owners.</dd>
+        <dt>Web edition (2026)</dt><dd>Ported with AI coding tools</dd>
       </dl>
       <p class="small">A non-commercial student fan project, not affiliated with Capcom.</p>
     </div>

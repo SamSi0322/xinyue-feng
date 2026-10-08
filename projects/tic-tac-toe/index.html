@@ -12,6 +12,14 @@
   <meta property="og:title" content="Play with AI — Tic-Tac-Toe" />
   <meta property="og:description" content="Three AI opponents, from coin-flip to unbeatable minimax, with a live view of the AI’s thinking." />
   <link rel="icon" href="favicon.svg" type="image/svg+xml" />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Tic-Tac-Toe vs. AI" />
+  <meta property="og:description" content="Three AI opponents, from mostly random to unbeatable minimax, with a live view of how the AI scores every square." />
+  <meta property="og:url" content="https://samsi0322.github.io/xinyue-feng/play/tic-tac-toe/" />
+  <meta property="og:image" content="https://samsi0322.github.io/xinyue-feng/assets/img/og/tic-tac-toe.jpg" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta name="twitter:card" content="summary_large_image" />
   <link rel="preload" href="fonts/playfair-display-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin />
   <link rel="preload" href="fonts/ibm-plex-mono-latin-500-normal.woff2" as="font" type="font/woff2" crossorigin />
   <link rel="stylesheet" href="fonts/fonts.css" />
@@ -244,77 +252,77 @@
       </aside>
     </main>
 
-    <details class="explainer" id="how-the-ai-works">
-      <summary class="explainer__summary">
-        <span class="explainer__heading">
-          <span class="label">Three opponents, one game tree</span>
-          <h2 class="explainer__title">How the AI works</h2>
-        </span>
-        <span class="explainer__icon" aria-hidden="true"></span>
-      </summary>
+    <section class="explainer" aria-labelledby="explainer-title">
+      <details class="explainer__details" id="how-the-ai-works">
+        <summary class="explainer__summary">
+          <span class="label explainer__kicker">Three opponents, one game tree</span>
+          <h2 class="explainer__title" id="explainer-title">How the AI works</h2>
+          <span class="explainer__icon" aria-hidden="true"></span>
+        </summary>
 
-      <div class="explainer__body">
-        <p class="explainer__intro">
-          All three opponents look at the same board. What changes is how far ahead
-          they look before they move.
-        </p>
-
-        <div class="explainer__grid">
-          <article class="strategy">
-            <p class="label strategy__num">01 · Easy</p>
-            <h3 class="strategy__name">Mostly random</h3>
-            <p>
-              Easy picks a random empty square. About half the time it first checks
-              whether any square wins on the spot, and takes it if one does, so it can
-              still pounce. It never blocks you.
-            </p>
-          </article>
-
-          <article class="strategy">
-            <p class="label strategy__num">02 · Medium</p>
-            <h3 class="strategy__name">Lily’s original</h3>
-            <p>
-              This is the rule-based AI from Lily’s Unit 10 “Play with AI” assignment,
-              kept exactly as she wrote it. It runs down five rules in order: win if it
-              can, block your winning move, take the center, take a random corner, take
-              a side. It only ever looks one move ahead, so it can’t see a fork coming:
-              start in a corner, answer its center with the opposite corner, then block
-              the corner it takes. That block gives you two ways to win, and it can only
-              stop one.
-            </p>
-          </article>
-
-          <article class="strategy">
-            <p class="label strategy__num">03 · Hard</p>
-            <h3 class="strategy__name">Minimax · unbeatable</h3>
-            <p>
-              Hard searches the whole game tree with minimax: it plays out every
-              possible continuation, assuming you always find your best reply. Each
-              finished game scores +10 for a win, −10 for a loss and 0 for a draw,
-              minus a point per move, so quicker wins and slower losses rank higher.
-              Alpha-beta pruning skips branches that can’t change its decision, so the
-              search takes milliseconds. Perfect play from both sides is a draw, so
-              against Hard the best you can do is draw.
-            </p>
-          </article>
-        </div>
-
-        <div class="explainer__scores">
-          <h3 class="label">Reading the scores</h3>
-          <p>
-            With <strong>Show AI thinking</strong> on, every empty square shows the
-            minimax score of the next move going there, from the AI’s side: positive
-            means the AI can force a win, 0 a draw, negative a loss. On its turn the AI
-            is the maximizer, and Hard always plays a top score while Easy and Medium
-            may not. On your turn you are the minimizer: the lowest number is your best
-            reply.
+        <div class="explainer__body">
+          <p class="explainer__intro">
+            All three opponents look at the same board. What changes is how far ahead
+            they look before they move.
           </p>
+
+          <div class="explainer__grid">
+            <article class="strategy">
+              <p class="label strategy__num">01 · Easy</p>
+              <h3 class="strategy__name">Mostly random</h3>
+              <p>
+                Easy picks a random empty square. About half the time it first checks
+                whether any square wins on the spot, and takes it if one does, so it can
+                still pounce. It never blocks you.
+              </p>
+            </article>
+
+            <article class="strategy">
+              <p class="label strategy__num">02 · Medium</p>
+              <h3 class="strategy__name">Lily’s original</h3>
+              <p>
+                This is the rule-based AI from Lily’s Unit 10 “Play with AI” assignment,
+                kept rule for rule as she wrote it. It runs down five rules in order: win if it
+                can, block your winning move, take the center, take a random corner, take
+                a side. It only ever looks one move ahead, so it can’t see a fork coming:
+                start in a corner, answer its center with the opposite corner, then block
+                the corner it takes. That block gives you two ways to win, and it can only
+                stop one.
+              </p>
+            </article>
+
+            <article class="strategy">
+              <p class="label strategy__num">03 · Hard</p>
+              <h3 class="strategy__name">Minimax · unbeatable</h3>
+              <p>
+                Hard searches ahead to the end of the game with minimax, assuming you
+                always find your best reply. Each finished game scores +10 for an AI
+                win, −10 for a loss and 0 for a draw, one point closer to zero for every
+                move it took, so quicker wins and slower losses rank higher.
+                Alpha-beta pruning skips branches that can’t change its decision, so the
+                search takes milliseconds. Perfect play from both sides is a draw, so
+                against Hard the best you can do is draw.
+              </p>
+            </article>
+          </div>
+
+          <div class="explainer__scores">
+            <h3 class="label">Reading the scores</h3>
+            <p>
+              With <strong>Show AI thinking</strong> on, every empty square shows the
+              minimax score of the next move going there, from the AI’s side: positive
+              means the AI can force a win, 0 a draw, negative a loss. On its turn the AI
+              is the maximizer, and Hard always plays a top score while Easy and Medium
+              may not. On your turn you are the minimizer: the lowest number is your best
+              reply.
+            </p>
+          </div>
         </div>
-      </div>
-    </details>
+      </details>
+    </section>
 
     <footer class="colophon">
-      <p>Built by Xinyue (Lily) Feng · Unit 10 — Play with AI</p>
+      <p>Original game by Xinyue (Lily) Feng for Unit 10 “Play with AI” · 2026 edition built with AI coding tools</p>
       <span class="colophon__links">
         <a class="colophon__link" href="../../work/tic-tac-toe/">About this project</a>
         <a class="colophon__link" href="https://github.com/SamSi0322/xinyue-feng/tree/main/projects/tic-tac-toe" target="_blank" rel="noopener noreferrer">Source<svg viewBox="0 0 16 16" aria-hidden="true" focusable="false"><path d="M5 11 11 5M6 5h5v5" /></svg><span class="sr-only"> (opens in a new tab)</span></a>

@@ -26,7 +26,7 @@ const LEVELS = {
   hard: { name: "Hard" }
 };
 
-const AI_DELAY = 450; // ms: the AI's short "thinking" pause, as in the original
+const AI_DELAY = 450; // ms: the AI's short "thinking" pause (the original used 500 ms)
 const AI_DELAY_THINKING = 1000; // ms: a longer pause while its scores are on screen, so you can read them
 const STORAGE_KEY = "play-with-ai:tic-tac-toe";
 
@@ -80,7 +80,7 @@ let gameActive = true;
 let currentPlayer = HUMAN;
 let round = 0; // goes up with every new round, so a stale AI move is ignored
 let aiTimer = 0;
-let focusIndex = 4; // the square Tab lands on (the centre: at most two arrow presses to anywhere)
+let focusIndex = 4; // the square Tab lands on (the center: at most two arrow presses to anywhere)
 let lastAiMove = null; // what the AI just did and why, for the thinking panel
 let evaluation = null; // minimax scores for the current position (cached)
 
@@ -368,9 +368,9 @@ function makeMove(index, player) {
 }
 
 function drawStrike(line) {
-  const centre = index => [50 + (index % 3) * 100, 50 + Math.floor(index / 3) * 100];
-  const [x1, y1] = centre(line[0]);
-  const [x2, y2] = centre(line[2]);
+  const center = index => [50 + (index % 3) * 100, 50 + Math.floor(index / 3) * 100];
+  const [x1, y1] = center(line[0]);
+  const [x2, y2] = center(line[2]);
   const length = Math.hypot(x2 - x1, y2 - y1);
   const ux = (x2 - x1) / length;
   const uy = (y2 - y1) / length;

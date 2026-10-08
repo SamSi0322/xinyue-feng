@@ -6,16 +6,26 @@
   <title>AI Recipe Remix — Xinyue Feng</title>
   <meta name="description" content="A full-stack React and Express app that turns the ingredients you have into three recipes, each with an AI-generated photo of the dish.">
   <meta name="theme-color" content="#121212">
+  <link rel="icon" href="../../favicon.ico" sizes="48x48">
   <link rel="icon" href="../../favicon.svg" type="image/svg+xml">
-  <link rel="apple-touch-icon" href="../../assets/brand/apple-touch-icon.png">
+  <link rel="canonical" href="https://samsi0322.github.io/xinyue-feng/work/recipe-remix/">
   <meta property="og:type" content="article">
-  <meta property="og:title" content="AI Recipe Remix — from leftovers to plated recipes">
-  <meta property="og:description" content="React + Express + OpenAI: three recipes from what's in your kitchen, each with a photo of the dish.">
-  <meta property="og:image" content="https://samsi0322.github.io/xinyue-feng/assets/img/recipe/cover.webp">
+  <meta property="og:site_name" content="Xinyue Feng">
+  <meta property="og:title" content="AI Recipe Remix">
+  <meta property="og:description" content="A full-stack React and Express app that turns the ingredients you have into three recipes, each with an AI-generated photo of the dish.">
+  <meta property="og:url" content="https://samsi0322.github.io/xinyue-feng/work/recipe-remix/">
+  <meta property="og:image" content="https://samsi0322.github.io/xinyue-feng/assets/img/og/recipe-remix.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="AI Recipe Remix: skillet tomato eggs with toast soldiers">
+  <meta name="twitter:image:alt" content="AI Recipe Remix: skillet tomato eggs with toast soldiers">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="apple-touch-icon" href="../../assets/brand/apple-touch-icon.png">
   <link rel="preload" href="../../assets/fonts/playfair-display-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="../../assets/fonts/ibm-plex-sans-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="../../assets/fonts/fonts.css">
   <link rel="stylesheet" href="../../assets/css/site.css">
-  <script>document.documentElement.classList.add('js');</script>
+  <script>document.documentElement.classList.add('js');setTimeout(function(){if(!window.__siteReady)document.documentElement.classList.remove('js')},3000);</script>
   <script type="module" src="../../assets/js/site.js"></script>
 </head>
 <body>
@@ -28,9 +38,10 @@
       </a>
       <nav aria-label="Main">
         <ul class="nav">
-          <li><a href="../../#work" aria-current="page">Work</a></li>
+          <li><a href="../../#work" class="is-active">Work</a></li>
           <li><a href="../../about/">About</a></li>
           <li><a href="../../#contact">Contact</a></li>
+          <li><a href="https://github.com/lillly1" aria-label="GitHub profile"><svg viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0 0 16 8c0-4.42-3.58-8-8-8Z"/></svg></a></li>
         </ul>
       </nav>
     </div>
@@ -38,84 +49,85 @@
 
   <main id="main">
     <header class="case-hero wrap">
-      <a class="crumb label" href="../../#work">← All work</a>
+      <a class="crumb label" href="../../#work"><span aria-hidden="true">←</span> All work</a>
       <p class="label label--gold">03 · Full-stack web · CPS 3500 · February 2026</p>
       <h1 class="display">AI Recipe Remix</h1>
       <p class="lede">A web app that turns whatever is in your kitchen into three recipes, each with a photo of the finished dish. React and Tailwind on the front end; a small Express server talks to OpenAI, so the API key never reaches the browser.</p>
       <div class="buttons">
         <a class="btn btn--solid" href="../../play/recipe-remix/">Try the demo</a>
-        <a class="btn" href="https://github.com/SamSi0322/xinyue-feng/tree/main/projects/ai-recipe-remix">Source code ↗</a>
+        <a class="btn" href="https://github.com/SamSi0322/xinyue-feng/tree/main/projects/ai-recipe-remix">Source code <span aria-hidden="true">↗</span></a>
       </div>
       <dl class="facts">
-        <div><dt class="label">Role</dt><dd>Solo: front end, back end, prompts</dd></div>
+        <div><dt class="label">Role</dt><dd>Solo: front end, back end, prompts. The 2026 redesign was built with AI coding tools.</dd></div>
         <div><dt class="label">Timeline</dt><dd>February 2026</dd></div>
         <div><dt class="label">Context</dt><dd>CPS 3500 Project 1, Kean University</dd></div>
-        <div><dt class="label">Stack</dt><dd>React, Vite, Tailwind CSS, Express, OpenAI API</dd></div>
+        <div><dt class="label">Built with</dt><dd>React, Vite, Tailwind CSS, Express, OpenAI API</dd></div>
       </dl>
     </header>
 
     <div class="wrap">
       <figure class="showcase">
-        <img src="../../assets/img/recipe/cover.webp" alt="AI Recipe Remix showing three recipe cards with photos for eggs, tomato and bread" width="1600" height="1000">
+        <img fetchpriority="high" src="../../assets/img/recipe/cover.webp" srcset="../../assets/img/recipe/cover-800.webp 800w, ../../assets/img/recipe/cover.webp 1600w" sizes="(max-width: 1232px) calc(100vw - 32px), 1200px" alt="AI Recipe Remix with eggs, tomato and bread entered, showing the first of three recipes and its photo" width="1600" height="1000">
         <figcaption>The app after a run with eggs, tomato and bread.</figcaption>
       </figure>
     </div>
 
     <div class="wrap story">
-      <section class="chapter reveal" aria-labelledby="r-idea">
+      <section class="chapter reveal">
         <h2 id="r-idea" class="label">The idea</h2>
         <div class="prose">
           <p>Most recipe sites start from a dish. This one starts from your fridge. Type the ingredients you have, choose a diet (vegetarian, vegan, halal or gluten-free) and a time limit, and the app suggests three realistic recipes that use as much of what you have as possible, with quantities, steps, substitutions, allergens and tips.</p>
           <div class="gallery gallery--3">
-            <figure class="figure"><img src="../../assets/img/recipe/dish-breakfast-2.webp" alt="Skillet tomato eggs with toast soldiers" width="800" height="800" loading="lazy"><figcaption>Skillet Tomato Eggs with Toast Soldiers</figcaption></figure>
-            <figure class="figure"><img src="../../assets/img/recipe/dish-chicken-1.webp" alt="Garlic soy chicken and broccoli rice bowl" width="800" height="800" loading="lazy"><figcaption>Garlic Soy Chicken and Broccoli Rice Bowls</figcaption></figure>
-            <figure class="figure"><img src="../../assets/img/recipe/dish-tofu-2.webp" alt="Tofu, spinach and mushroom noodle soup" width="800" height="800" loading="lazy"><figcaption>Tofu, Spinach and Mushroom Noodle Soup</figcaption></figure>
+            <figure class="figure"><img src="../../assets/img/recipe/dish-breakfast-2.webp" srcset="../../assets/img/recipe/dish-breakfast-2-400.webp 400w, ../../assets/img/recipe/dish-breakfast-2.webp 800w" sizes="(max-width: 700px) calc(100vw - 32px), 230px" alt="Skillet tomato eggs with toast soldiers" width="800" height="800" loading="lazy"><figcaption>Skillet Tomato Eggs with Toast Soldiers</figcaption></figure>
+            <figure class="figure"><img src="../../assets/img/recipe/dish-chicken-1.webp" srcset="../../assets/img/recipe/dish-chicken-1-400.webp 400w, ../../assets/img/recipe/dish-chicken-1.webp 800w" sizes="(max-width: 700px) calc(100vw - 32px), 230px" alt="Garlic soy chicken and broccoli rice bowl" width="800" height="800" loading="lazy"><figcaption>Garlic Soy Chicken and Broccoli Rice Bowls</figcaption></figure>
+            <figure class="figure"><img src="../../assets/img/recipe/dish-tofu-2.webp" srcset="../../assets/img/recipe/dish-tofu-2-400.webp 400w, ../../assets/img/recipe/dish-tofu-2.webp 800w" sizes="(max-width: 700px) calc(100vw - 32px), 230px" alt="Tofu, spinach and mushroom noodle soup" width="800" height="800" loading="lazy"><figcaption>Tofu, Spinach, and Mushroom Noodle Soup</figcaption></figure>
           </div>
-          <p class="caption">Dishes from the demo. Recipes and photos were generated by OpenAI models from the app’s own prompts.</p>
+          <p class="caption">Dishes from the demo, generated in October 2026 by OpenAI models from the app’s own prompts (not by a live run of the app).</p>
         </div>
       </section>
 
-      <section class="chapter reveal" aria-labelledby="r-how">
+      <section class="chapter reveal">
         <h2 id="r-how" class="label">How it works</h2>
         <div class="prose">
-          <p>Two requests, kept apart on purpose. Recipe text comes back in a few seconds; photos take longer. So the cards appear as soon as the recipes arrive, and each photo fades in when it is ready.</p>
-<pre><code>Browser (React)              Express server              OpenAI
+          <p>The design is from Xinyue (Lily) Feng’s original: two requests, kept apart on purpose. Recipe text comes back in a few seconds and photos take longer, so the cards appear as soon as the recipes arrive and the photos follow. Since 2026, each photo also fades in on its own as soon as it is ready.</p>
+<!-- [html-validate-disable-next prefer-native-element -- a scrollable pre must be a named, focusable region] -->
+<pre tabindex="0" role="region" aria-label="Request flow diagram"><code>Browser (React)              Express server              OpenAI
 ───────────────              ──────────────              ──────
-ingredients, diet, time ──▶  POST /api/recipes
-                             validate input ───────────▶ text model + JSON schema
+ingredients, diet, time ──<span aria-hidden="true">▶</span>  POST /api/recipes
+                             validate input ───────────<span aria-hidden="true">▶</span> text model + JSON schema
                              ◀──────────────────────────── 3 recipes as JSON
 show three recipe cards ◀──
 for each recipe:
-  dish description ──────▶  POST /api/image ──────────▶ image model
-                             ◀──────────────────────────── PNG
+  dish description ──────<span aria-hidden="true">▶</span>  POST /api/image ──────────<span aria-hidden="true">▶</span> image model
+                             ◀──────────────────────────── image
   photo fades into its card ◀──</code></pre>
           <ul>
-            <li><strong>Structured output.</strong> The server asks the model for JSON that must match a schema (title, time, servings, ingredients, steps…), so the interface never has to guess its way through prose.</li>
+            <li><strong>Structured output.</strong> The server asks the model for JSON in a fixed shape (title, time, servings, ingredients, steps…), so the interface never has to guess its way through prose. The original spelled the shape out in the prompt; since 2026 the server enforces it with a strict JSON schema.</li>
             <li><strong>The key stays private.</strong> The browser only ever talks to the Express server, which holds the OpenAI key in an environment variable.</li>
             <li><strong>Food-photo prompts.</strong> Each image request asks for a single plated dish with realistic lighting and no text, written from the recipe’s own title and summary.</li>
           </ul>
         </div>
       </section>
 
-      <section class="chapter reveal" aria-labelledby="r-demo">
+      <section class="chapter reveal">
         <h2 id="r-demo" class="label">The public demo</h2>
         <div class="prose">
-          <p>Putting a paid API key on the open web would invite abuse, so the demo on this site runs without one. It replays pre-generated results for three sample kitchens, in exactly the format the server returns, and pauses the way the live app does, so the experience matches. Enter different ingredients and it shows the closest sample and says so. To generate new recipes live, run the project locally with your own key; the README explains how.</p>
+          <p>Putting a paid API key on the open web would invite abuse, so the demo on this site runs without one. It replays pre-generated results for three sample kitchens, in exactly the format the server returns and with similar pauses. Enter different ingredients and it shows the closest sample and says so. To generate new recipes live, run the project locally with your own key; the README explains how.</p>
           <div class="buttons"><a class="btn btn--solid" href="../../play/recipe-remix/">Open the demo</a></div>
         </div>
       </section>
 
-      <section class="chapter reveal" aria-labelledby="r-2026">
+      <section class="chapter reveal">
         <h2 id="r-2026" class="label">Portfolio edition · 2026</h2>
         <div class="prose">
-          <p>The app was revisited for this portfolio. The idea, stack and API design stayed the same; the rest was tightened:</p>
+          <p>The app was revisited for this portfolio with AI coding tools. The idea, stack and API design stayed the same; the rest was tightened:</p>
           <ul>
-            <li><strong>Interface.</strong> A new warm, food-friendly design; ingredients entered as removable chips; a time slider; loading skeletons; friendly errors with a retry button; better accessibility (labels, focus styles, status announcements).</li>
-            <li><strong>“In your kitchen” vs. “to buy”.</strong> Each card compares its ingredient list with what you entered; pantry staples like salt and pepper are listed separately.</li>
-            <li><strong>Tips.</strong> The model always returned cooking tips; they are now shown.</li>
-            <li><strong>Photos load independently.</strong> The original waited for all three images at once, so one slow image held up the rest.</li>
+            <li><strong>Interface.</strong> A new design; ingredients entered as removable chips; a time slider instead of a number box; plain-language errors with a retry button; better accessibility (labels, focus styles, status announcements, WCAG AA contrast).</li>
+            <li><strong>“In your kitchen” vs. “To buy.”</strong> Each card compares its ingredient list with what you entered; pantry staples like salt and pepper are listed separately.</li>
+            <li><strong>Tips.</strong> The original prompt asked for cooking tips, but the page never showed them; now it does.</li>
+            <li><strong>Photos load independently.</strong> The original waited for all three images at once, so one slow image held up the rest and one failed image hid all three.</li>
             <li><strong>A safer server.</strong> Input validation, per-visitor rate limits, an allow-list of origins, JSON-schema output and error messages that don’t leak internals.</li>
-            <li><strong>Tests.</strong> Unit tests for ingredient parsing, matching and server validation.</li>
+            <li><strong>Tests.</strong> Automated tests for both halves: ingredient parsing and matching, demo playback, input validation, CORS, rate limits and every API endpoint, run against a fake OpenAI client so no key is needed.</li>
           </ul>
         </div>
       </section>
@@ -123,14 +135,14 @@ for each recipe:
 
     <a class="next wrap" href="../tic-tac-toe/">
       <span class="label">Next project</span>
-      <span class="display" style="display:block">Tic-Tac-Toe vs. AI →</span>
+      <span class="display" style="display:block">Tic-Tac-Toe vs. AI&nbsp;<span aria-hidden="true">→</span></span>
     </a>
   </main>
 
   <footer class="site-footer">
     <div class="wrap">
       <p>© 2026 Xinyue Feng</p>
-      <p>Fan projects are non-commercial and not affiliated with the rights holders. This site and the 2026 updates to these projects were made with the help of AI coding tools.</p>
+      <p>Fan projects are non-commercial and not affiliated with the rights holders. This site and the 2026 updates to these projects were built with AI coding tools; the original coursework is Xinyue’s own.</p>
     </div>
   </footer>
 </body>

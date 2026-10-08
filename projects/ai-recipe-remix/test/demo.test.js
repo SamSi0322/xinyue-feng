@@ -70,7 +70,7 @@ describe('demo presets', () => {
 });
 
 describe('findClosestPreset', () => {
-  test('recognises a preset regardless of case, plurals and order', () => {
+  test('recognizes a preset regardless of case, plurals and order', () => {
     const match = findClosestPreset({ ingredients: ['BREAD', 'Eggs', 'tomatoes'], diet: 'vegetarian', time: 20 }, presets);
     assert.equal(match.preset.id, 'breakfast');
     assert.equal(match.exact, true);

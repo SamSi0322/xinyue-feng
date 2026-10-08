@@ -1,7 +1,7 @@
 /**
  * Pure helpers for ingredient lists:
  *   - parsing what people type or paste ("eggs, tomato", one per line, Chinese "，"),
- *   - normalising names so "Eggs" and "egg" count as the same thing,
+ *   - normalizing names so "Eggs" and "egg" count as the same thing,
  *   - deciding which recipe ingredients are already "in your kitchen" and which are "to buy".
  *
  * No DOM or React in here, so it is all unit-tested with node:test (see test/).
@@ -56,7 +56,7 @@ export function splitDraft(text) {
 }
 
 /* ---------------------------------------------------------------------------
- * Normalisation
+ * Normalization
  * ------------------------------------------------------------------------- */
 
 const IRREGULAR_SINGULARS = new Map([

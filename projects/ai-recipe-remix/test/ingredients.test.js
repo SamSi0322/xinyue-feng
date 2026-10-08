@@ -88,7 +88,7 @@ describe('singularize and ingredientKey', () => {
     for (const [plural, singular] of Object.entries(cases)) assert.equal(singularize(plural), singular, plural);
   });
 
-  test('cookie and cookies normalise to the same key', () => {
+  test('cookie and cookies normalize to the same key', () => {
     assert.equal(ingredientKey('cookie'), ingredientKey('cookies'));
   });
 

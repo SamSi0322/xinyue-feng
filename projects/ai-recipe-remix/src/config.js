@@ -11,3 +11,5 @@ export const IS_DEV = import.meta.env.DEV;
 export const SOURCE_URL = 'https://github.com/SamSi0322/xinyue-feng/tree/main/projects/ai-recipe-remix';
 export const README_SETUP_URL =
   'https://github.com/SamSi0322/xinyue-feng/blob/main/projects/ai-recipe-remix/README.md#local-setup';
+/** The project's page in Xinyue Feng's portfolio (linked from the demo banner). */
+export const PROJECT_PAGE_URL = 'https://samsi0322.github.io/xinyue-feng/work/recipe-remix/';

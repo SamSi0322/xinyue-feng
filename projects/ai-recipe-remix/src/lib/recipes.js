@@ -1,5 +1,5 @@
 /**
- * Defensive normalisation of recipe objects coming from the API (or demo data),
+ * Defensive normalization of recipe objects coming from the API (or demo data),
  * so a slightly odd response never crashes the UI. The shape matches the server
  * schema in server/src/recipe-schema.js:
  *

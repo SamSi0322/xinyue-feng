@@ -6,7 +6,7 @@ export default function Footer() {
     <footer className="border-t border-line">
       <div className="mx-auto flex max-w-6xl flex-col gap-3 px-4 py-7 text-sm text-ink-soft sm:flex-row sm:items-start sm:justify-between sm:px-6 lg:px-8">
         <div className="space-y-1">
-          <p>Built by Xinyue (Lily) Feng · CPS 3500 Project 1 · React + Express + OpenAI</p>
+          <p>Original by Xinyue (Lily) Feng for CPS 3500 Project 1 · 2026 edition built with AI coding tools · React + Express + OpenAI</p>
           <p className="text-xs">Recipes and photos are AI-generated. Double-check allergens and cooking times.</p>
         </div>
         <a

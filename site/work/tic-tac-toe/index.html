@@ -4,18 +4,28 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Tic-Tac-Toe vs. AI — Xinyue Feng</title>
-  <meta name="description" content="A browser tic-tac-toe game with three AI opponents: random, a rule-based AI and an unbeatable minimax search, with an overlay that shows how the AI scores each move.">
+  <meta name="description" content="A browser tic-tac-toe game with three AI opponents: a mostly random player, a rule-based AI and an unbeatable minimax search, with an overlay that shows how the AI scores each move.">
   <meta name="theme-color" content="#121212">
+  <link rel="icon" href="../../favicon.ico" sizes="48x48">
   <link rel="icon" href="../../favicon.svg" type="image/svg+xml">
-  <link rel="apple-touch-icon" href="../../assets/brand/apple-touch-icon.png">
+  <link rel="canonical" href="https://samsi0322.github.io/xinyue-feng/work/tic-tac-toe/">
   <meta property="og:type" content="article">
-  <meta property="og:title" content="Tic-Tac-Toe vs. AI — three opponents, one unbeatable">
-  <meta property="og:description" content="Rule-based AI vs. minimax, with an overlay that shows how the AI thinks.">
-  <meta property="og:image" content="https://samsi0322.github.io/xinyue-feng/assets/img/ttt/cover.webp">
+  <meta property="og:site_name" content="Xinyue Feng">
+  <meta property="og:title" content="Tic-Tac-Toe vs. AI">
+  <meta property="og:description" content="A browser tic-tac-toe game with three AI opponents: a mostly random player, a rule-based AI and an unbeatable minimax search, with an overlay that shows how the AI scores each move.">
+  <meta property="og:url" content="https://samsi0322.github.io/xinyue-feng/work/tic-tac-toe/">
+  <meta property="og:image" content="https://samsi0322.github.io/xinyue-feng/assets/img/og/tic-tac-toe.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Tic-Tac-Toe vs. AI: a board showing the AI’s minimax scores">
+  <meta name="twitter:image:alt" content="Tic-Tac-Toe vs. AI: a board showing the AI’s minimax scores">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="apple-touch-icon" href="../../assets/brand/apple-touch-icon.png">
   <link rel="preload" href="../../assets/fonts/playfair-display-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="../../assets/fonts/ibm-plex-sans-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="../../assets/fonts/fonts.css">
   <link rel="stylesheet" href="../../assets/css/site.css">
-  <script>document.documentElement.classList.add('js');</script>
+  <script>document.documentElement.classList.add('js');setTimeout(function(){if(!window.__siteReady)document.documentElement.classList.remove('js')},3000);</script>
   <script type="module" src="../../assets/js/site.js"></script>
 </head>
 <body>
@@ -28,9 +38,10 @@
       </a>
       <nav aria-label="Main">
         <ul class="nav">
-          <li><a href="../../#work" aria-current="page">Work</a></li>
+          <li><a href="../../#work" class="is-active">Work</a></li>
           <li><a href="../../about/">About</a></li>
           <li><a href="../../#contact">Contact</a></li>
+          <li><a href="https://github.com/lillly1" aria-label="GitHub profile"><svg viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0 0 16 8c0-4.42-3.58-8-8-8Z"/></svg></a></li>
         </ul>
       </nav>
     </div>
@@ -38,19 +49,19 @@
 
   <main id="main">
     <header class="case-hero wrap">
-      <a class="crumb label" href="../../#work">← All work</a>
+      <a class="crumb label" href="../../#work"><span aria-hidden="true">←</span> All work</a>
       <p class="label label--gold">04 · Game AI · Unit 10 “Play with AI” · April 2026</p>
       <h1 class="display">Tic-Tac-Toe vs. AI</h1>
-      <p class="lede">A small browser game made for a class unit on playing against AI, and a neat way to compare three kinds of opponent: one that plays loosely, one that follows a few good rules, and one that searches every possible game and never loses.</p>
+      <p class="lede">A small browser game made for a class unit on playing against AI, since extended into a side-by-side comparison of three opponents: one that plays loosely, one that follows five fixed rules, and one that searches ahead to the end of the game and never loses.</p>
       <div class="buttons">
-        <a class="btn btn--solid" href="../../play/tic-tac-toe/">▶ Play full screen</a>
-        <a class="btn" href="https://github.com/SamSi0322/xinyue-feng/tree/main/projects/tic-tac-toe">Source code ↗</a>
+        <a class="btn btn--solid" href="../../play/tic-tac-toe/"><span aria-hidden="true">▶</span> Play full screen</a>
+        <a class="btn" href="https://github.com/SamSi0322/xinyue-feng/tree/main/projects/tic-tac-toe">Source code <span aria-hidden="true">↗</span></a>
       </div>
       <dl class="facts">
-        <div><dt class="label">Role</dt><dd>Solo: design and code</dd></div>
+        <div><dt class="label">Role</dt><dd>Solo: design and code. The 2026 extension was built with AI coding tools.</dd></div>
         <div><dt class="label">Timeline</dt><dd>April 2026, extended for this portfolio</dd></div>
-        <div><dt class="label">Context</dt><dd>Class activity “Play with AI”, Unit 10</dd></div>
-        <div><dt class="label">Stack</dt><dd>HTML, CSS, JavaScript; no libraries</dd></div>
+        <div><dt class="label">Context</dt><dd>Unit 10 class activity, “Play with AI”</dd></div>
+        <div><dt class="label">Built with</dt><dd>HTML, CSS, JavaScript; no libraries</dd></div>
       </dl>
     </header>
 
@@ -58,8 +69,8 @@
       <figure class="showcase">
         <div class="embed embed--tall">
           <button class="embed__poster" type="button" data-src="../../play/tic-tac-toe/?embed=1" data-small-href="../../play/tic-tac-toe/" data-title="Tic-Tac-Toe vs. AI">
-            <img src="../../assets/img/ttt/cover.webp" alt="" width="1600" height="1000" style="image-rendering: auto">
-            <span>▶ Play here</span>
+            <img fetchpriority="high" src="../../assets/img/ttt/cover.webp" srcset="../../assets/img/ttt/cover-800.webp 800w, ../../assets/img/ttt/cover.webp 1600w" sizes="(max-width: 1232px) calc(100vw - 32px), 1200px" alt="" width="1600" height="1000">
+            <span><span aria-hidden="true">▶</span> Play here</span>
           </button>
         </div>
         <figcaption>The game, embedded. Pick a difficulty, then switch on “Show AI thinking” to see how it scores every square.</figcaption>
@@ -67,11 +78,12 @@
     </div>
 
     <div class="wrap story">
-      <section class="chapter reveal" aria-labelledby="t-orig">
+      <section class="chapter reveal">
         <h2 id="t-orig" class="label">The original</h2>
         <div class="prose">
-          <p>The assignment was to build a game you play against an AI and put it online. Lily’s version gives the computer five rules, checked in order: win if it can, block you if you’re about to win, take the centre, take a free corner, otherwise take a side.</p>
-<pre><code><span class="c">// 3. Take center</span>
+          <p>For the class activity “Play with AI,” Xinyue (Lily) Feng built a browser game against a computer opponent with five rules, checked in order: win if it can, block you if you’re about to win, take the center, take a free corner, otherwise take a side.</p>
+<!-- [html-validate-disable-next prefer-native-element -- a scrollable pre must be a named, focusable region] -->
+<pre tabindex="0" role="region" aria-label="JavaScript code: rules 3 and 4 of the original getBestMove()"><code><span class="c">// 3. Take center</span>
 <span class="k">if</span> (board[4] === <span class="k">""</span>) {
   <span class="k">return</span> 4;
 }
@@ -80,39 +92,39 @@
 <span class="k">const</span> corners = [0, 2, 6, 8];
 <span class="k">const</span> availableCorners = corners.filter(index =&gt; board[index] === <span class="k">""</span>);</code></pre>
           <p class="caption">From her original <code>getBestMove()</code>, which the game still uses as its Medium opponent.</p>
-          <p>It plays sensibly and is fun to beat, and it <em>can</em> be beaten. Take a corner; when it takes the centre, take the opposite corner. Its next move is always a corner, and that leaves you a <strong>fork</strong>: two lines that each need one more X. It can only block one of them.</p>
+          <p>It plays sensibly and is fun to beat, and it <em>can</em> be beaten. Take a corner; when it takes the center, take the opposite corner. Its next move is always a corner, which threatens a line; block it, and your block creates a <strong>fork</strong>: two lines that each need one more X. It can only block one of them.</p>
         </div>
       </section>
 
-      <section class="chapter reveal" aria-labelledby="t-three">
+      <section class="chapter reveal">
         <h2 id="t-three" class="label">Three opponents</h2>
         <div class="prose">
           <ul>
             <li><strong>Easy</strong> mostly picks a random free square, but grabs a winning move about half the time, so it still feels like it’s trying.</li>
-            <li><strong>Medium</strong> is the original rule-based AI, kept as written.</li>
-            <li><strong>Hard</strong> uses minimax. On each turn it plays out every possible continuation of the game, assumes you will always make your best move, and picks the move with the best guaranteed result. Faster wins score higher than slower ones. Alpha–beta pruning skips branches that can’t change the answer, so the search takes milliseconds. The best you can do against it is a draw.</li>
+            <li><strong>Medium</strong> is her original rule-based AI, kept rule for rule; a test checks that it makes the same move as the untouched original in every reachable position.</li>
+            <li><strong>Hard</strong> uses minimax. On each turn it searches ahead to the end of the game, assumes you will always make your best move, and picks the move with the best guaranteed result, preferring faster wins. Alpha-beta pruning skips branches that can’t change the answer, so each search takes a few milliseconds. The best you can do against it is a draw.</li>
           </ul>
         </div>
       </section>
 
-      <section class="chapter reveal" aria-labelledby="t-explain">
+      <section class="chapter reveal">
         <h2 id="t-explain" class="label">Seeing the AI think</h2>
         <div class="prose">
-          <p>With <em>Show AI thinking</em> switched on, every empty square shows the minimax verdict for it, from the computer’s side: a forced win, a draw, or a square that would let you win. It makes the algorithm visible. You can watch a move go from “draw” to “loss” for the AI the moment you set up a fork, and see why Medium’s corner move is a mistake.</p>
+          <p>With “Show AI thinking” switched on, every empty square shows the minimax verdict for it, from the computer’s side: a forced win, a draw, or a square that would let you win. It makes the algorithm visible. You can watch a move go from “draw” to “loss” for the AI the moment you set up a fork, and see why Medium’s corner move is a mistake.</p>
           <p>After each AI move, a short note says which of Lily’s rules it just followed, or how minimax chose, and points out when the move was a mistake.</p>
         </div>
       </section>
 
-      <section class="chapter reveal" aria-labelledby="t-2026">
+      <section class="chapter reveal">
         <h2 id="t-2026" class="label">Portfolio edition · 2026</h2>
         <div class="prose">
-          <p>The game was extended for this portfolio. Her rule-based AI and the original files are kept in the repository; the additions are:</p>
+          <p>The game was extended for this portfolio with AI coding tools. Her rule-based AI and the original files are kept in the repository; the additions are:</p>
           <ul>
             <li>Easy and Hard opponents, a choice of who moves first, and separate scores for each difficulty.</li>
             <li>The “Show AI thinking” overlay, a note explaining each AI move, and a short explainer for each strategy.</li>
             <li>A redesign that matches this site, with drawn-on X and O marks and an animated winning line.</li>
             <li>Full keyboard play and screen-reader labels for every square.</li>
-            <li>Automated tests, including one that plays every possible game against Hard, with you moving first and with the AI moving first, and checks that it never loses.</li>
+            <li>Automated tests, including an exhaustive check that Hard never loses: they play all 16,752 possible games against it (6,112 with you moving first, 10,640 with the AI first).</li>
           </ul>
         </div>
       </section>
@@ -120,14 +132,14 @@
 
     <a class="next wrap" href="../wizarding-world/">
       <span class="label">Next project</span>
-      <span class="display" style="display:block">Wizarding World →</span>
+      <span class="display" style="display:block">Wizarding World&nbsp;<span aria-hidden="true">→</span></span>
     </a>
   </main>
 
   <footer class="site-footer">
     <div class="wrap">
       <p>© 2026 Xinyue Feng</p>
-      <p>Fan projects are non-commercial and not affiliated with the rights holders. This site and the 2026 updates to these projects were made with the help of AI coding tools.</p>
+      <p>Fan projects are non-commercial and not affiliated with the rights holders. This site and the 2026 updates to these projects were built with AI coding tools; the original coursework is Xinyue’s own.</p>
     </div>
   </footer>
 </body>

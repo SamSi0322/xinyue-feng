@@ -16,7 +16,7 @@ function contrast(a, b) {
   return (light + 0.05) / (dark + 0.05);
 }
 
-// Every text colour / background pair used in the components.
+// Every text color / background pair used in the components.
 const textPairs = [
   ['body text on cream', colors.ink.DEFAULT, colors.cream.DEFAULT],
   ['body text on cards', colors.ink.DEFAULT, colors.paper],
@@ -37,7 +37,7 @@ const textPairs = [
   ['demo banner', colors.cream.DEFAULT, colors.ink.DEFAULT],
 ];
 
-test('text colours meet WCAG AA (4.5:1)', () => {
+test('text colors meet WCAG AA (4.5:1)', () => {
   for (const [name, fg, bg] of textPairs) {
     const ratio = contrast(fg, bg);
     assert.ok(ratio >= 4.5, `${name}: ${fg} on ${bg} is ${ratio.toFixed(2)}:1`);

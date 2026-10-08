@@ -23,7 +23,8 @@ changed. The `.java` files keep their original CRLF line endings, formatting and
   of that call, and they can no longer take a step between `t.start()` and `t.suspend()`.
 - `reset()`: a type 3 enemy (Karma) now gets `allKarmaImage.get(0)`. Before, the code was
   `type == 2 || type == 3`, which gave it `allOldbagImage.get(0)`.
-  Reason: Karma was drawn with the Oldbag sprite after Edgeworth respawned.
+  Reason: after Edgeworth respawned, Karma was drawn with the Oldbag sprite until his own
+  thread replaced it on its next 100 ms step.
 - `reset()`: restores the starting direction (`isLeftOrUp`) from a new field
   `startLeftOrUp`, which both constructors set.
   Reason: an Oldbag that was moving down when Edgeworth died restarted at `downMax` still

@@ -31,7 +31,7 @@ html {
 
 body {
   margin: 0;
-  padding: 0 16px 64px;
+  padding: 0 max(16px, env(safe-area-inset-right)) 64px max(16px, env(safe-area-inset-left));
   background: var(--bg);
   color: var(--ink);
   font: 16px/1.65 var(--sans);
@@ -56,6 +56,8 @@ a:hover {
   position: absolute;
   width: 1px;
   height: 1px;
+  margin: 0;
+  padding: 0;
   overflow: hidden;
   clip: rect(0 0 0 0);
   white-space: nowrap;
@@ -177,7 +179,10 @@ h1 {
 }
 
 .frame.night .bg-full,
-.bg-forest {
+.bg-forest,
+.cast img {
+  image-rendering: -webkit-optimize-contrast;
+  image-rendering: crisp-edges;
   image-rendering: pixelated;
 }
 
@@ -259,7 +264,7 @@ h1 {
 
 .hint {
   max-width: 34em;
-  font-size: clamp(9px, 1.45cqw, 13px);
+  font-size: clamp(10px, 1.45cqw, 13px);
   line-height: 1.8;
   color: rgba(243, 239, 231, 0.8);
 }
@@ -279,10 +284,22 @@ h1 {
   border-radius: 999px;
   background: rgba(0, 0, 0, 0.7);
   color: var(--ink);
-  font: 400 clamp(9px, 1.5cqw, 14px)/1.2 var(--pixel);
+  font: 400 clamp(10px, 1.5cqw, 14px)/1.2 var(--pixel);
   text-transform: uppercase;
   cursor: pointer;
   transition: background-color 0.15s, color 0.15s, border-color 0.15s;
+}
+
+.pill--ghost {
+  background: transparent;
+  border-color: rgba(243, 239, 231, 0.55);
+}
+
+.screen__actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1.4cqw;
 }
 
 .pill:hover,
@@ -324,7 +341,7 @@ h1 {
   border-radius: 10px;
   background: linear-gradient(to bottom, rgba(24, 33, 74, 0.94), rgba(10, 14, 38, 0.94));
   box-shadow: inset 0 0 0 3px rgba(0, 0, 0, 0.5);
-  font-size: clamp(9px, 1.75cqw, 17px);
+  font-size: clamp(10px, 1.75cqw, 17px);
   line-height: 1.9;
   text-align: left;
 }
@@ -522,6 +539,21 @@ html.embed .rotate-hint {
   }
 }
 
+/* Embedded on a touch screen: pads over the bottom corners of the frame. */
+html.embed .game.touch .pads {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: calc(var(--bar) + 8px);
+  padding: 0 8px;
+  pointer-events: none;
+}
+
+html.embed .game.touch .pad {
+  pointer-events: auto;
+  background: rgba(0, 0, 0, 0.35);
+}
+
 /* ---------- notes */
 
 .notes {
@@ -575,7 +607,6 @@ html.embed .rotate-hint {
 .cast img {
   width: 44px;
   height: 44px;
-  image-rendering: pixelated;
   object-fit: contain;
 }
 

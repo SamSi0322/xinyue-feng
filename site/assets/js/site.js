@@ -1,4 +1,5 @@
 // Small enhancements for the portfolio. Everything works without this file.
+window.__siteReady = true;
 
 const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
 
@@ -26,10 +27,23 @@ if ('IntersectionObserver' in window && revealables.length) {
   revealables.forEach((el) => el.classList.add('is-in'));
 }
 
+// Gameplay clips play only while on screen, and never with reduced motion.
+const clips = document.querySelectorAll('video[data-autoplay]');
+if (clips.length && 'IntersectionObserver' in window) {
+  const watcher = new IntersectionObserver((entries) => {
+    for (const { target, isIntersecting } of entries) {
+      if (isIntersecting && !reduceMotion.matches) target.play().catch(() => {});
+      else target.pause();
+    }
+  }, { threshold: 0.35 });
+  clips.forEach((clip) => watcher.observe(clip));
+}
+
 // Embedded demos load only when asked for, so the page stays light.
 for (const poster of document.querySelectorAll('.embed__poster')) {
   poster.addEventListener('click', () => {
-    const small = window.matchMedia('(max-width: 700px)').matches;
+    // Phones and touch tablets get the full-page game, with room for its touch controls.
+    const small = window.matchMedia('(max-width: 700px), (pointer: coarse)').matches;
     if (small && poster.dataset.smallHref) {
       window.location.href = poster.dataset.smallHref;
       return;
@@ -37,8 +51,7 @@ for (const poster of document.querySelectorAll('.embed__poster')) {
     const frame = document.createElement('iframe');
     frame.src = poster.dataset.src;
     frame.title = poster.dataset.title || 'Embedded demo';
-    frame.allow = 'fullscreen; autoplay';
-    frame.setAttribute('allowfullscreen', '');
+    frame.allow = 'fullscreen';
     poster.replaceWith(frame);
     frame.addEventListener('load', () => frame.focus(), { once: true });
   });
@@ -86,12 +99,16 @@ function runParade(canvas) {
   let height = 0;
   let dpr = 1;
 
+  let lastTime = 0;
   const resize = () => {
     dpr = Math.min(window.devicePixelRatio || 1, 2);
     width = canvas.clientWidth;
     height = canvas.clientHeight;
     canvas.width = Math.round(width * dpr);
     canvas.height = Math.round(height * dpr);
+    // Resizing a canvas clears it, so draw the current frame again straight away
+    // (with reduced motion there is no animation loop to do it).
+    if (loaded === names.length) draw(lastTime);
   };
 
   const hero = { x: -60, jumpAt: -1, frame: 0 };
@@ -142,6 +159,7 @@ function runParade(canvas) {
   }
 
   function draw(time) {
+    lastTime = time;
     ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
     ctx.clearRect(0, 0, width, height);
     ctx.imageSmoothingEnabled = false;

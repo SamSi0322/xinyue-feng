@@ -49,9 +49,7 @@ async function loadAssets(onProgress) {
       jobs.push(loadImage(`assets/img/${name}.png`).then((img) => { IMG[group][i] = img; }));
     });
   }
-  for (const src of ['assets/img/start.webp', 'assets/img/ending.webp', 'assets/img/forest.gif']) {
-    jobs.push(loadImage(src));
-  }
+  jobs.push(loadImage('assets/img/start.webp'));
   let done = 0;
   await Promise.all(jobs.map((job) => job.then(() => onProgress(++done / jobs.length))));
   if (document.fonts && document.fonts.load) {
@@ -260,10 +258,14 @@ class Game {
     this.newRun();
     this.setState('title');
     requestAnimationFrame((t) => this.loop(t));
+    // Not needed for the title screen (the forest <img> is loading="lazy" and
+    // hidden): fetch both while the player reads it.
+    new Image().src = this.bgForest.src;
+    new Image().src = 'assets/img/ending.webp';
   }
 
-  newRun() {
-    this.world = new World({ startScene: START_SCENE, events: this.events });
+  newRun(startScene = START_SCENE) {
+    this.world = new World({ startScene, events: this.events });
     this.effects.length = 0;
     this.acc = 0;
     this.freezeUntil = 0;
@@ -274,6 +276,28 @@ class Game {
     this.sound.unlock();
     if (this.state === 'gameover' || this.state === 'cleared') this.newRun();
     if (this.state === 'playing' || this.state === 'dying' || !this.world) return;
+    this.world.start();
+    this.setState('playing');
+    this.showBanner();
+    this.sound.music(true);
+    this.bringIntoView();
+  }
+
+  // On the full page, make sure the whole game and its controls are on screen.
+  bringIntoView() {
+    if (EMBED || document.fullscreenElement) return;
+    const stage = this.root.querySelector('.stage');
+    const rect = stage.getBoundingClientRect();
+    if (rect.top < 0 || rect.bottom > window.innerHeight) {
+      stage.scrollIntoView({ block: 'center', behavior: reducedMotion.matches ? 'auto' : 'smooth' });
+    }
+  }
+
+  // After a game over: same scene, fresh lives, score from zero.
+  retry() {
+    this.sound.unlock();
+    if (this.state !== 'gameover') return;
+    this.newRun(this.scene.sort);
     this.world.start();
     this.setState('playing');
     this.showBanner();
@@ -402,7 +426,8 @@ class Game {
     if (this.state === 'dying' && time >= this.dyingUntil) {
       this.setState('gameover');
       this.screens.gameover.querySelector('[data-score]').textContent = String(this.hero.score);
-      this.announce(`Game over. Score ${this.hero.score}.`);
+      this.screens.gameover.querySelector('[data-retry-scene]').textContent = String(this.scene.sort);
+      this.announce(`Game over. Score ${this.hero.score}. Press R to retry scene ${this.scene.sort}.`);
       this.focusScreenButton('gameover');
     }
 
@@ -588,7 +613,14 @@ class Game {
         }
         return;
       }
-      if (this.state === 'gameover' || this.state === 'cleared') {
+      if (this.state === 'gameover') {
+        if (e.code === 'KeyR' || ((e.code === 'Enter' || e.code === 'Space') && !onButton)) {
+          e.preventDefault();
+          this.retry();
+        }
+        return;
+      }
+      if (this.state === 'cleared') {
         if (e.code === 'KeyR' || ((e.code === 'Enter' || e.code === 'Space') && !onButton)) {
           e.preventDefault();
           this.start();
@@ -638,11 +670,12 @@ class Game {
       if (!button) return;
       const action = button.dataset.action;
       if (action === 'start' || action === 'restart') this.start();
+      else if (action === 'retry') this.retry();
       else if (action === 'mute') this.toggleMute();
       else if (action === 'pause') this.setPaused(!this.paused);
       else if (action === 'resume') this.setPaused(false);
       else if (action === 'fullscreen') this.toggleFullscreen();
-      if (action === 'start' || action === 'restart' || action === 'resume') {
+      if (action === 'start' || action === 'restart' || action === 'retry' || action === 'resume') {
         this.frame.focus({ preventScroll: true });
       }
     });
@@ -655,7 +688,10 @@ class Game {
         if (pad.setPointerCapture) pad.setPointerCapture(e.pointerId);
         this.sound.unlock();
         if (this.state === 'title' || this.state === 'gameover' || this.state === 'cleared') {
-          if (dir === 'jump') this.start();
+          if (dir === 'jump') {
+            if (this.state === 'gameover') this.retry();
+            else this.start();
+          }
           return;
         }
         if (this.paused) this.setPaused(false);

@@ -52,7 +52,6 @@ body {
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  overflow-x: hidden;
 }
 
 img,
@@ -150,6 +149,24 @@ h3 {
   text-transform: uppercase;
   letter-spacing: 0.035em;
   line-height: 1.02;
+  text-wrap: balance;
+}
+
+.prose p,
+.lede,
+.desc {
+  text-wrap: pretty;
+}
+
+.pixel img,
+img.pixelated,
+.cast img,
+.route img,
+.cover__sprite,
+.parade canvas {
+  image-rendering: -webkit-optimize-contrast;
+  image-rendering: crisp-edges;
+  image-rendering: pixelated;
 }
 
 /* Small-caps subtitle with a double rule, after the reference site */
@@ -176,6 +193,10 @@ h3 {
   flex-wrap: wrap;
   gap: 12px;
   margin: 28px 0 0;
+}
+
+.buttons--center {
+  justify-content: center;
 }
 
 .btn {
@@ -228,7 +249,7 @@ h3 {
   top: 0;
   z-index: 50;
   height: var(--header);
-  background: rgba(18, 18, 18, 0.82);
+  background: rgba(18, 18, 18, 0.94);
   border-bottom: 1px solid transparent;
   backdrop-filter: saturate(140%) blur(12px);
   -webkit-backdrop-filter: saturate(140%) blur(12px);
@@ -283,7 +304,8 @@ h3 {
 }
 
 .nav a:hover,
-.nav a[aria-current="page"] {
+.nav a[aria-current="page"],
+.nav a.is-active {
   color: var(--ink);
 }
 
@@ -367,7 +389,8 @@ h3 {
 .parade__link {
   position: absolute;
   right: var(--gutter);
-  bottom: 148px;
+  bottom: 136px;
+  padding: 12px 0;
   font: 500 11px/1.3 var(--mono);
   letter-spacing: 0.14em;
   text-transform: uppercase;
@@ -449,7 +472,8 @@ h3 {
   aspect-ratio: 16 / 10;
 }
 
-.band__media img {
+.band__media img,
+.band__media video {
   width: 100%;
   height: 100%;
   object-fit: cover;
@@ -460,8 +484,11 @@ h3 {
   image-rendering: pixelated;
 }
 
-.band__media:hover img {
-  transform: scale(1.035);
+@media (prefers-reduced-motion: no-preference) {
+  .band__media:hover img,
+  .band__media:hover video {
+    transform: scale(1.035);
+  }
 }
 
 .band__num {
@@ -562,7 +589,7 @@ h3 {
 
 .cover__name {
   position: relative;
-  font: 800 clamp(48px, 7.4vw, 92px)/0.86 var(--serif);
+  font: 800 clamp(40px, 6vw, 78px)/0.9 var(--serif);
   letter-spacing: 0.02em;
   text-transform: uppercase;
 }
@@ -580,17 +607,20 @@ h3 {
   position: absolute;
   left: clamp(22px, 3vw, 34px);
   bottom: clamp(22px, 3vw, 34px);
-  max-width: 55%;
-  font: italic 400 clamp(22px, 2.6vw, 32px)/1.15 var(--serif);
+  max-width: 48%;
+  font: italic 400 clamp(20px, 2.3vw, 30px)/1.15 var(--serif);
 }
 
 .cover__sprite {
   position: absolute;
-  right: 6%;
-  bottom: 7%;
-  width: 46%;
-  image-rendering: pixelated;
+  right: 5%;
+  bottom: 6%;
+  width: 40%;
   filter: drop-shadow(0 12px 18px rgba(0, 0, 0, 0.5));
+}
+
+.cover__sprite--flip {
+  transform: scaleX(-1);
 }
 
 @media (max-width: 860px) {
@@ -663,7 +693,8 @@ h3 {
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  margin-bottom: 36px;
+  min-height: 44px;
+  margin-bottom: 24px;
   color: var(--ink-muted);
   text-decoration: none;
 }
@@ -676,6 +707,12 @@ h3 {
   max-width: 14ch;
   margin: 18px 0 0;
   font-size: clamp(42px, 7.2vw, 96px);
+}
+
+.aka {
+  margin: 14px 0 0;
+  font: italic 400 clamp(20px, 2.4vw, 28px)/1.3 var(--serif);
+  color: var(--gold-bright);
 }
 
 .case-hero .lede {
@@ -759,9 +796,10 @@ h3 {
   padding-top: calc(66.6667% + 52px);
 }
 
+/* Until the embedded page reports its real height, keep the poster's own shape. */
 .embed--tall {
   padding-top: 0;
-  height: min(820px, 92vh);
+  aspect-ratio: 16 / 10;
 }
 
 .embed iframe,
@@ -790,13 +828,17 @@ h3 {
   height: 100%;
   object-fit: cover;
   opacity: 0.55;
-  image-rendering: pixelated;
   transition: opacity 0.3s, transform 0.8s var(--ease);
 }
 
 .embed__poster:hover img {
   opacity: 0.4;
-  transform: scale(1.02);
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .embed__poster:hover img {
+    transform: scale(1.02);
+  }
 }
 
 .embed__poster span {
@@ -926,7 +968,7 @@ h3 {
 
 @media (max-width: 860px) {
   .chapter {
-    grid-template-columns: 1fr;
+    grid-template-columns: minmax(0, 1fr);
   }
 
   .chapter > .label {
@@ -978,6 +1020,12 @@ h3 {
   margin: 0;
 }
 
+.stack {
+  display: grid;
+  align-content: start;
+  gap: 20px;
+}
+
 .figure img {
   width: 100%;
   border: 1px solid var(--rule);
@@ -990,6 +1038,15 @@ h3 {
 
 .figure--span {
   grid-column: 1 / -1;
+}
+
+.figure--narrow img {
+  max-width: 240px;
+  margin-inline: auto;
+}
+
+pre:focus-visible {
+  outline-offset: 2px;
 }
 
 @media (max-width: 700px) {
@@ -1097,7 +1154,10 @@ h3 {
   color: var(--ink-muted);
 }
 
-.compare td:first-child {
+.compare th[scope="row"] {
+  font: inherit;
+  letter-spacing: normal;
+  text-transform: none;
   color: var(--ink);
   white-space: nowrap;
 }

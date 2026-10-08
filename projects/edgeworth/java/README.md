@@ -59,9 +59,10 @@ build.sh, run.sh    build and start scripts
 ## Credits
 
 - Game, code and level design: Xinyue (Lily) Feng.
-- Sprites: drawn by Xinyue Feng in Aseprite, based on Capcom's Ace Attorney characters.
+- Sprites: drawn by Xinyue (Lily) Feng in Aseprite, based on Capcom's Ace Attorney characters.
 - Title-screen art: from Ace Attorney (© Capcom).
 - Music and sound effects: third-party audio chosen by the author; all rights belong to their owners.
 - Forest background animation: pixel artist Anas Abdin (@anasabdin).
+- 2026 update for current Java: made with AI coding tools.
 
 This is a non-commercial fan project.

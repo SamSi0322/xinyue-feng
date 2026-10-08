@@ -64,7 +64,7 @@ export default function App() {
       <Header />
 
       <main id="main" className="mx-auto w-full max-w-6xl flex-1 px-4 pb-16 sm:px-6 lg:px-8">
-        <div className="grid gap-8 lg:grid-cols-12 lg:items-start lg:gap-10">
+        <div className="grid grid-cols-1 gap-8 lg:grid-cols-12 lg:items-start lg:gap-10">
           <div className="lg:col-span-5 lg:[@media(min-height:780px)]:sticky lg:[@media(min-height:780px)]:top-6">
             <RecipeForm
               initial={defaultPreset}

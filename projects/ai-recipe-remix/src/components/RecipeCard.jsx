@@ -160,17 +160,16 @@ function Fact({ icon, label, children }) {
 }
 
 function Ingredients({ analysis }) {
-  const headingId = useId();
   return (
-    <section aria-labelledby={headingId} className="mt-7">
+    <section className="mt-7">
       <div className="flex flex-wrap items-baseline justify-between gap-x-4 gap-y-1">
-        <h4 id={headingId} className="font-display text-lg font-semibold">
+        <h4 className="font-display text-lg font-semibold">
           Ingredients
         </h4>
         <p className="text-sm text-ink-muted">{describeUsage(analysis)}</p>
       </div>
 
-      <div className="mt-3 grid gap-3 sm:grid-cols-2">
+      <div className="mt-3 grid grid-cols-1 gap-3 sm:grid-cols-2">
         <IngredientGroup
           title="In your kitchen"
           icon={<KitchenIcon className="h-4 w-4" />}

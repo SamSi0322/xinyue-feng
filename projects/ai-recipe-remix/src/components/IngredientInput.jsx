@@ -201,7 +201,7 @@ export default function IngredientInput({ value, onChange, draft, onDraftChange,
           autoComplete="off"
           autoCapitalize="none"
           enterKeyHint="enter"
-          className="min-w-[9rem] flex-1 bg-transparent px-1.5 py-1.5 text-base text-ink placeholder:text-ink-soft focus:outline-none sm:text-[0.95rem]"
+          className="w-0 min-w-[9rem] flex-1 bg-transparent px-1.5 py-1.5 text-base text-ink placeholder:text-ink-soft focus:outline-none sm:text-[0.95rem]"
         />
       </div>
 

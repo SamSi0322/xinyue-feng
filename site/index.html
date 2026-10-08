@@ -4,19 +4,29 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Xinyue Feng — games, mods &amp; interactive web</title>
-  <meta name="description" content="Portfolio of Xinyue (Lily) Feng, Computer Science student at Kean University: a Harry Potter mod for Terraria, an Ace Attorney platformer in Java, an AI recipe web app and an explainable tic-tac-toe AI.">
+  <meta name="description" content="Portfolio of Xinyue (Lily) Feng, Computer Science student at Kean University: games, a Terraria mod, an AI recipe app and a tic-tac-toe AI.">
   <meta name="theme-color" content="#121212">
+  <link rel="icon" href="favicon.ico" sizes="48x48">
   <link rel="icon" href="favicon.svg" type="image/svg+xml">
-  <link rel="apple-touch-icon" href="assets/brand/apple-touch-icon.png">
+  <link rel="canonical" href="https://samsi0322.github.io/xinyue-feng/">
   <meta property="og:type" content="website">
-  <meta property="og:title" content="Xinyue Feng — games, mods & interactive web">
-  <meta property="og:description" content="A Harry Potter mod for Terraria, an Ace Attorney platformer you can play in the browser, an AI recipe app and an explainable tic-tac-toe AI.">
+  <meta property="og:site_name" content="Xinyue Feng">
+  <meta property="og:title" content="Xinyue Feng — games, mods &amp; interactive web">
+  <meta property="og:description" content="Portfolio of Xinyue (Lily) Feng, Computer Science student at Kean University: games, a Terraria mod, an AI recipe app and a tic-tac-toe AI.">
+  <meta property="og:url" content="https://samsi0322.github.io/xinyue-feng/">
   <meta property="og:image" content="https://samsi0322.github.io/xinyue-feng/assets/img/og.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Xinyue Feng: portfolio cover with Wizarding World and Edgeworth artwork">
+  <meta name="twitter:image:alt" content="Xinyue Feng: portfolio cover with Wizarding World and Edgeworth artwork">
   <meta name="twitter:card" content="summary_large_image">
+  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "Person", "name": "Xinyue Feng", "alternateName": "Lily Feng", "url": "https://samsi0322.github.io/xinyue-feng/", "email": "mailto:fengxin@kean.edu", "jobTitle": "Computer Science student", "affiliation": {"@type": "CollegeOrUniversity", "name": "Kean University"}, "sameAs": ["https://github.com/lillly1"], "knowsAbout": ["Human-computer interaction", "Game development", "Web development", "Java", "JavaScript", "React"]}</script>
+  <link rel="apple-touch-icon" href="assets/brand/apple-touch-icon.png">
   <link rel="preload" href="assets/fonts/playfair-display-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="assets/fonts/ibm-plex-sans-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="assets/fonts/fonts.css">
   <link rel="stylesheet" href="assets/css/site.css">
-  <script>document.documentElement.classList.add('js');</script>
+  <script>document.documentElement.classList.add('js');setTimeout(function(){if(!window.__siteReady)document.documentElement.classList.remove('js')},3000);</script>
   <script type="module" src="assets/js/site.js"></script>
 </head>
 <body>
@@ -48,39 +58,39 @@
       <div class="hero__inner wrap">
         <img class="seal" src="assets/brand/seal-light.svg" alt="" width="88" height="88">
         <h1 id="name" class="display">Xinyue Feng</h1>
-        <p class="hero__role">Computer Science · Human–Computer Interaction</p>
-        <p class="hero__lede">I build games, mods and small AI tools, and I care most about how they feel to use. Computer Science student at Kean University, class of 2027.</p>
+        <p class="hero__role">Computer Science student · HCI &amp; user-centered design</p>
+        <p class="hero__lede">I make games and interactive web apps, and I care most about how they feel to use. Kean University, class of 2027.</p>
         <div class="buttons">
           <a class="btn btn--solid" href="#work">See the work</a>
           <a class="btn" href="about/">About me</a>
         </div>
       </div>
       <div class="parade" aria-hidden="true"><canvas data-sprites="assets/img/pixel/"></canvas></div>
-      <a class="parade__link" href="play/edgeworth/">▶ Play <span class="long">The Adventures of Edgeworth</span><span class="short">the game</span></a>
+      <a class="parade__link" href="play/edgeworth/"><span aria-hidden="true">▶</span> Play <span class="long">The Adventures of Edgeworth</span><span class="short">the game</span></a>
     </section>
 
     <section id="work" aria-labelledby="work-title">
       <div class="wrap section-head">
         <h2 id="work-title" class="display">Selected work</h2>
-        <p class="label">2024 — 2026</p>
+        <p class="label">2024–2026</p>
       </div>
 
       <article class="band" aria-labelledby="p-ww">
         <div class="wrap reveal">
           <a class="band__media" href="work/wizarding-world/" tabindex="-1" aria-hidden="true">
-            <img src="assets/img/ww/cover.webp" alt="" width="1600" height="900" loading="lazy">
+            <img src="assets/img/ww/cover.webp" srcset="assets/img/ww/cover-800.webp 800w, assets/img/ww/cover.webp 1600w" sizes="(max-width: 860px) calc(100vw - 32px), 640px" alt="" width="1600" height="900" loading="lazy">
           </a>
           <div class="band__text">
             <p class="label label--gold band__num">01 · Terraria mod · 2026</p>
             <h3 id="p-ww" class="display">Wizarding World</h3>
             <p class="subtitle">A Harry Potter mod for Terraria</p>
-            <p class="desc">A full adventure mod for Terraria: twelve boss fights from the Mountain Troll to Lord Voldemort, 24 wands across nine spell schools, a Horcrux hunt, and text in English, Simplified and Traditional Chinese.</p>
-            <ul class="tags"><li>C#</li><li>tModLoader</li><li>.NET 8</li><li>Python tooling</li><li>AI-assisted</li></ul>
+            <p class="desc">An adventure mod built with AI coding tools: 12 boss fights from the Mountain Troll to Lord Voldemort, 24 wands across 9 spell schools, a Horcrux hunt, and text in English, Simplified Chinese and Traditional Chinese.</p>
+            <ul class="tags"><li>C#</li><li>tModLoader</li><li>.NET 8</li><li>Python tooling</li><li>Claude Code</li></ul>
             <div class="buttons">
-              <a class="btn btn--solid" href="work/wizarding-world/">View project</a>
-              <a class="btn" href="https://github.com/SamSi0322/WizardingWorld">GitHub ↗</a>
+              <a class="btn btn--solid" href="work/wizarding-world/">View project<span class="sr-only">: Wizarding World</span></a>
+              <a class="btn" href="https://github.com/SamSi0322/WizardingWorld">GitHub<span class="sr-only"> repository for Wizarding World</span> <span aria-hidden="true">↗</span></a>
             </div>
-            <p class="caption">Release candidate, playtested from the first wand to the final battle.</p>
+            <p class="caption">1.0 release candidate, smoke-tested route by route from the first wand to the final battle.</p>
           </div>
         </div>
       </article>
@@ -88,19 +98,21 @@
       <article class="band band--flip" aria-labelledby="p-ed">
         <div class="wrap reveal">
           <a class="band__media pixel" href="play/edgeworth/" tabindex="-1" aria-hidden="true">
-            <img src="assets/img/edgeworth/cover.webp" alt="" width="1800" height="1200" loading="lazy">
+            <video muted loop playsinline preload="none" poster="assets/video/edgeworth-demo-poster.webp" width="1440" height="960" data-autoplay>
+              <source src="assets/video/edgeworth-demo.mp4" type="video/mp4">
+            </video>
           </a>
           <div class="band__text">
             <p class="label label--gold band__num">02 · Java game · 2024</p>
             <h3 id="p-ed" class="display">The Adventures of Edgeworth</h3>
             <p class="subtitle">An Ace Attorney platformer</p>
-            <p class="desc">A six-level platformer starring Miles Edgeworth, written from scratch in Java Swing. The sprites were made in Aseprite and the levels were laid out cell by cell in Excel. You can now play it in the browser.</p>
+            <p class="desc">My 2024 Java course project: a six-level platformer starring Miles Edgeworth, written from scratch in Swing, with sprites I drew in Aseprite and levels I laid out cell by cell in Excel. A 2026 web port lets you play it in the browser.</p>
             <ul class="tags"><li>Java</li><li>Swing</li><li>Multithreading</li><li>Aseprite</li><li>HTML canvas port</li></ul>
             <div class="buttons">
-              <a class="btn btn--solid" href="play/edgeworth/">▶ Play</a>
-              <a class="btn" href="work/edgeworth/">View project</a>
+              <a class="btn btn--solid" href="play/edgeworth/"><span aria-hidden="true">▶</span> Play<span class="sr-only"> The Adventures of Edgeworth</span></a>
+              <a class="btn" href="work/edgeworth/">View project<span class="sr-only">: The Adventures of Edgeworth</span></a>
             </div>
-            <p class="caption">Stomp Winston, dodge von Karma, find Gumshoe's hidden block.</p>
+            <p class="caption">Stomp Winston, dodge von Karma, find Gumshoe’s hidden block.</p>
           </div>
         </div>
       </article>
@@ -108,17 +120,17 @@
       <article class="band" aria-labelledby="p-rr">
         <div class="wrap reveal">
           <a class="band__media" href="work/recipe-remix/" tabindex="-1" aria-hidden="true">
-            <img src="assets/img/recipe/cover.webp" alt="" width="1600" height="1000" loading="lazy">
+            <img src="assets/img/recipe/cover.webp" srcset="assets/img/recipe/cover-800.webp 800w, assets/img/recipe/cover.webp 1600w" sizes="(max-width: 860px) calc(100vw - 32px), 640px" alt="" width="1600" height="1000" loading="lazy">
           </a>
           <div class="band__text">
             <p class="label label--gold band__num">03 · Full-stack web · 2026</p>
             <h3 id="p-rr" class="display">AI Recipe Remix</h3>
             <p class="subtitle">From leftovers to plated recipes</p>
-            <p class="desc">Tell it what's in your kitchen, your diet and how much time you have; it suggests three recipes and generates a photo of each dish. Built with React and Tailwind on the front end and an Express server that keeps the OpenAI key private.</p>
+            <p class="desc">My February 2026 class project: tell it what’s in your kitchen, your diet and how much time you have, and it suggests three recipes and generates a photo of each dish. A React and Tailwind front end talks to an Express server that keeps the OpenAI key private.</p>
             <ul class="tags"><li>React</li><li>Tailwind CSS</li><li>Express</li><li>OpenAI API</li><li>Vite</li></ul>
             <div class="buttons">
-              <a class="btn btn--solid" href="play/recipe-remix/">Try the demo</a>
-              <a class="btn" href="work/recipe-remix/">View project</a>
+              <a class="btn btn--solid" href="play/recipe-remix/">Try the demo<span class="sr-only"> of AI Recipe Remix</span></a>
+              <a class="btn" href="work/recipe-remix/">View project<span class="sr-only">: AI Recipe Remix</span></a>
             </div>
             <p class="caption">It also marks which ingredients you already have and which you still need to buy.</p>
           </div>
@@ -128,17 +140,17 @@
       <article class="band band--flip" aria-labelledby="p-ttt">
         <div class="wrap reveal">
           <a class="band__media" href="play/tic-tac-toe/" tabindex="-1" aria-hidden="true">
-            <img src="assets/img/ttt/cover.webp" alt="" width="1600" height="1000" loading="lazy">
+            <img src="assets/img/ttt/cover.webp" srcset="assets/img/ttt/cover-800.webp 800w, assets/img/ttt/cover.webp 1600w" sizes="(max-width: 860px) calc(100vw - 32px), 640px" alt="" width="1600" height="1000" loading="lazy">
           </a>
           <div class="band__text">
             <p class="label label--gold band__num">04 · Game AI · 2026</p>
             <h3 id="p-ttt" class="display">Tic-Tac-Toe vs. AI</h3>
             <p class="subtitle">Three opponents, one unbeatable</p>
-            <p class="desc">A browser game that shows how the computer thinks. Easy plays loosely, Medium is the rule-based AI from the original class assignment, and Hard is a minimax search that cannot lose. Switch on “Show AI thinking” to see its score for every square.</p>
-            <ul class="tags"><li>JavaScript</li><li>Minimax</li><li>Alpha–beta pruning</li><li>Accessibility</li></ul>
+            <p class="desc">A browser game that shows how the computer thinks. Easy plays loosely, Medium is my rule-based AI from the original class assignment, and Hard is a minimax search that cannot lose. Switch on “Show AI thinking” to see its score for every square.</p>
+            <ul class="tags"><li>JavaScript</li><li>Minimax</li><li>Alpha-beta pruning</li><li>Accessibility</li></ul>
             <div class="buttons">
-              <a class="btn btn--solid" href="play/tic-tac-toe/">▶ Play</a>
-              <a class="btn" href="work/tic-tac-toe/">View project</a>
+              <a class="btn btn--solid" href="play/tic-tac-toe/"><span aria-hidden="true">▶</span> Play<span class="sr-only"> Tic-Tac-Toe vs. AI</span></a>
+              <a class="btn" href="work/tic-tac-toe/">View project<span class="sr-only">: Tic-Tac-Toe vs. AI</span></a>
             </div>
             <p class="caption">Beat Medium with a fork. Then try Hard.</p>
           </div>
@@ -151,16 +163,16 @@
         <div class="statement">
           <p class="label label--gold">About</p>
           <h2 id="about-title" class="display">“Player one”</h2>
-          <p>I’m Xinyue; most people call me Lily. I study Computer Science at Kean University, and I’m most interested in human–computer interaction: the point where software meets the person using it.</p>
-          <p class="muted">A lot of my projects start with something I love. <em>Ace Attorney</em> turned into a Java platformer; <em>Harry Potter</em> turned into a Terraria mod. Outside class I’ve interned in computer-vision data processing and at a game technology company, contributed to two published papers on medical image classification, and helped ship a prototype in a 48-hour game jam.</p>
+          <p>I’m Xinyue Feng, also known as Lily. I study Computer Science at Kean University, and I’m most interested in human–computer interaction: the point where software meets the person using it.</p>
+          <p class="muted">My Java platformer grew out of two things I loved: the little adventure games on 4399 that I played as a kid, and Capcom’s <em>Ace Attorney</em>. Outside class I’ve interned in computer-vision data processing and at a game technology company, co-authored two published papers on medical image classification, and helped ship a prototype in a 48-hour game jam.</p>
           <div class="buttons"><a class="btn" href="about/">More about me</a></div>
         </div>
         <div class="cover" aria-hidden="true">
           <div class="cover__frame"></div>
-          <p class="cover__name">Xin<br>yue<br>Feng</p>
+          <p class="cover__name">Xinyue<br>Feng</p>
           <p class="cover__meta">Computer Science<br>Kean University · 2027</p>
           <p class="cover__line">games, mods &amp; small AI tools</p>
-          <img class="cover__sprite" src="assets/img/pixel/ob5.png" alt="" width="60" height="60" style="transform: scaleX(-1)">
+          <img class="cover__sprite cover__sprite--flip" src="assets/img/pixel/ob5.png" alt="" width="60" height="60">
         </div>
       </div>
     </section>
@@ -171,7 +183,7 @@
         <h2 id="contact-title" class="display">Say hello</h2>
         <a class="mail" href="mailto:fengxin@kean.edu">fengxin@kean.edu</a>
         <div class="buttons">
-          <a class="btn" href="https://github.com/lillly1">GitHub ↗</a>
+          <a class="btn" href="https://github.com/lillly1">GitHub<span class="sr-only"> profile</span> <span aria-hidden="true">↗</span></a>
           <a class="btn" href="about/">Experience &amp; awards</a>
         </div>
       </div>
@@ -181,7 +193,7 @@
   <footer class="site-footer">
     <div class="wrap">
       <p>© 2026 Xinyue Feng</p>
-      <p>Fan projects are non-commercial and not affiliated with the rights holders: <em>Ace Attorney</em> © Capcom, <em>Harry Potter</em> © Warner Bros. Entertainment / J.K. Rowling, <em>Terraria</em> © Re-Logic. This site and the 2026 updates to these projects were made with the help of AI coding tools.</p>
+      <p>Fan projects are non-commercial and not affiliated with the rights holders: <em>Ace Attorney</em> © Capcom, <em>Harry Potter</em> © Warner Bros. Entertainment / J.K. Rowling, <em>Terraria</em> © Re-Logic. This site and the 2026 updates to these projects were built with AI coding tools; the original coursework is Xinyue’s own.</p>
     </div>
   </footer>
 </body>

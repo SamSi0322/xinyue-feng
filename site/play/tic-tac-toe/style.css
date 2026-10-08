@@ -1088,10 +1088,13 @@ a.masthead__author:hover {
 }
 
 .explainer__summary {
-  display: flex;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  grid-template-areas:
+    "kicker icon"
+    "title icon";
   align-items: center;
-  justify-content: space-between;
-  gap: 20px;
+  gap: 6px 20px;
   padding: 22px 0;
   list-style: none;
   cursor: pointer;
@@ -1110,12 +1113,12 @@ a.masthead__author:hover {
   outline-offset: 4px;
 }
 
-.explainer__heading {
-  display: grid;
-  gap: 6px;
+.explainer__kicker {
+  grid-area: kicker;
 }
 
 .explainer__title {
+  grid-area: title;
   margin: 0;
   font-family: var(--font-display);
   font-weight: 600;
@@ -1126,6 +1129,7 @@ a.masthead__author:hover {
 }
 
 .explainer__icon {
+  grid-area: icon;
   position: relative;
   width: 44px;
   height: 44px;
@@ -1152,7 +1156,7 @@ a.masthead__author:hover {
   transform: translate(-50%, -50%) rotate(90deg);
 }
 
-.explainer[open] .explainer__icon::after {
+.explainer__details[open] .explainer__icon::after {
   transform: translate(-50%, -50%) rotate(0deg);
 }
 
@@ -1164,7 +1168,7 @@ a.masthead__author:hover {
   padding: 4px 0 40px;
 }
 
-.explainer[open] .explainer__body {
+.explainer__details[open] .explainer__body {
   animation: rise 0.5s var(--ease);
 }
 
@@ -1342,7 +1346,7 @@ a.masthead__author:hover {
 /* ---------- High-contrast (forced colors) ---------------------------------------- */
 
 /* SVG strokes and box-shadows aren't recoloured by the system, so map them to
-   system colours; otherwise a light high-contrast theme would hide the board. */
+   system colors; otherwise a light high-contrast theme would hide the board. */
 @media (forced-colors: active) {
   .board__grid path,
   .mark--x,

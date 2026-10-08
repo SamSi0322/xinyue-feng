@@ -1,9 +1,9 @@
-import { README_SETUP_URL } from '../config.js';
+import { PROJECT_PAGE_URL, README_SETUP_URL } from '../config.js';
 import { ArrowUpRightIcon } from './icons.jsx';
 
 export default function DemoBanner() {
   return (
-    <div className="bg-ink text-cream">
+    <div className="bg-ink text-cream" role="region" aria-label="Demo notice">
       <p className="mx-auto max-w-6xl px-4 py-2.5 text-center text-sm leading-snug sm:px-6 lg:px-8">
         <strong className="font-semibold">Demo mode</strong> — showing pre-generated results. Run it locally with
         your own OpenAI key for live generation.{' '}
@@ -16,6 +16,13 @@ export default function DemoBanner() {
           How to run it
           <ArrowUpRightIcon className="h-3.5 w-3.5" />
           <span className="sr-only">(README, opens in a new tab)</span>
+        </a>
+        <span aria-hidden="true"> · </span>
+        <a
+          href={PROJECT_PAGE_URL}
+          className="whitespace-nowrap font-medium underline decoration-cream/50 underline-offset-2 hover:decoration-cream focus-visible:outline-cream"
+        >
+          About this project
         </a>
       </p>
     </div>
