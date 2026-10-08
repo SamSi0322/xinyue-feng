@@ -1,0 +1,14 @@
+{
+  "name": "play-with-ai-tic-tac-toe",
+  "version": "2.0.0",
+  "description": "Tic-tac-toe against three AIs: random, Lily's original rule-based AI, and unbeatable minimax.",
+  "author": "Xinyue (Lily) Feng",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "test": "node --test"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}

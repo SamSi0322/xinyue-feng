@@ -1,0 +1,5 @@
+# ./build.sh output
+out/
+*.jar
+# Eclipse build output
+bin/

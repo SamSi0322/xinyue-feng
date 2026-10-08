@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Play with AI — Tic-Tac-Toe · Xinyue (Lily) Feng</title>
+  <meta name="description" content="Tic-tac-toe against three AIs: a mostly random player, Lily’s original rule-based AI, and an unbeatable minimax search. Switch on “Show AI thinking” to see how it scores every square." />
+  <meta name="author" content="Xinyue (Lily) Feng" />
+  <meta name="color-scheme" content="dark" />
+  <meta name="theme-color" content="#121212" />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Play with AI — Tic-Tac-Toe" />
+  <meta property="og:description" content="Three AI opponents, from coin-flip to unbeatable minimax, with a live view of the AI’s thinking." />
+  <link rel="icon" href="favicon.svg" type="image/svg+xml" />
+  <link rel="preload" href="fonts/playfair-display-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin />
+  <link rel="preload" href="fonts/ibm-plex-mono-latin-500-normal.woff2" as="font" type="font/woff2" crossorigin />
+  <link rel="stylesheet" href="fonts/fonts.css" />
+  <link rel="stylesheet" href="style.css" />
+  <script>
+    // ?embed=1 shows just the game (for an iframe); add &bg=transparent to drop
+    // the page background. Flagged before first paint so the header never flashes.
+    if (/[?&]embed=(1|true)(&|$)/.test(location.search)) {
+      document.documentElement.classList.add("is-embed");
+      if (/[?&]bg=transparent(&|$)/.test(location.search)) {
+        document.documentElement.classList.add("is-transparent");
+      }
+    }
+  </script>
+  <script type="module" src="script.js"></script>
+</head>
+<body>
+  <div class="page">
+    <header class="masthead">
+      <div class="masthead__top">
+        <p class="label">Unit 10 · Class activity</p>
+        <a class="label masthead__author" href="../../">Xinyue (Lily) Feng</a>
+      </div>
+      <h1 class="masthead__title">Play with AI</h1>
+      <p class="masthead__subtitle">Tic-Tac-Toe</p>
+      <p class="masthead__dek">
+        You are X. The AI is O. Choose how clever it is — from coin-flip to
+        unbeatable — and switch on <strong>Show AI thinking</strong> to see how it
+        scores every square.
+      </p>
+    </header>
+
+    <main class="game" id="game">
+      <div class="game__play">
+        <p class="notice" id="bootNotice" role="alert" hidden></p>
+        <noscript><p class="notice">This game needs JavaScript to play.</p></noscript>
+
+        <div class="status" id="status" role="status" aria-live="polite" aria-atomic="true" data-state="human">
+          <span class="status__glyph" aria-hidden="true">
+            <svg class="glyph glyph--x" viewBox="0 0 24 24" focusable="false"><path d="M6.5 6.5 17.5 17.5M17.5 6.5 6.5 17.5" /></svg>
+            <svg class="glyph glyph--o" viewBox="0 0 24 24" focusable="false"><circle cx="12" cy="12" r="7" /></svg>
+          </span>
+          <span class="status__text"><span class="sr-only" id="statusDetail"></span><span class="status__message" id="statusText">Your turn</span></span>
+        </div>
+
+        <div class="board" id="board" role="grid" aria-label="Tic-tac-toe board" aria-describedby="boardHelp" data-turn="human" data-thinking="off">
+          <svg class="board__grid" viewBox="0 0 300 300" aria-hidden="true" focusable="false">
+            <path style="--i: 0" pathLength="1" d="M100.5 8C98.8 80 101.6 200 99.6 292" />
+            <path style="--i: 1" pathLength="1" d="M200 10C201.6 90 198.6 210 200.6 293" />
+            <path style="--i: 2" pathLength="1" d="M8 100.2C90 98.6 210 101.8 292 99.4" />
+            <path style="--i: 3" pathLength="1" d="M9 199.6C100 201.4 200 198.4 293 200.4" />
+          </svg>
+
+          <div class="board__row" role="row">
+            <div class="board__cell" role="gridcell">
+              <button type="button" class="cell" data-index="0" aria-label="Row 1, column 1, empty" tabindex="-1">
+                <span class="cell__mark" aria-hidden="true"></span>
+                <span class="cell__eval" aria-hidden="true"><span class="eval__score"></span><span class="eval__label"></span></span>
+              </button>
+            </div>
+            <div class="board__cell" role="gridcell">
+              <button type="button" class="cell" data-index="1" aria-label="Row 1, column 2, empty" tabindex="-1">
+                <span class="cell__mark" aria-hidden="true"></span>
+                <span class="cell__eval" aria-hidden="true"><span class="eval__score"></span><span class="eval__label"></span></span>
+              </button>
+            </div>
+            <div class="board__cell" role="gridcell">
+              <button type="button" class="cell" data-index="2" aria-label="Row 1, column 3, empty" tabindex="-1">
+                <span class="cell__mark" aria-hidden="true"></span>
+                <span class="cell__eval" aria-hidden="true"><span class="eval__score"></span><span class="eval__label"></span></span>
+              </button>
+            </div>
+          </div>
+          <div class="board__row" role="row">
+            <div class="board__cell" role="gridcell">
+              <button type="button" class="cell" data-index="3" aria-label="Row 2, column 1, empty" tabindex="-1">
+                <span class="cell__mark" aria-hidden="true"></span>
+                <span class="cell__eval" aria-hidden="true"><span class="eval__score"></span><span class="eval__label"></span></span>
+              </button>
+            </div>
+            <div class="board__cell" role="gridcell">
+              <button type="button" class="cell" data-index="4" aria-label="Row 2, column 2, empty" tabindex="0">
+                <span class="cell__mark" aria-hidden="true"></span>
+                <span class="cell__eval" aria-hidden="true"><span class="eval__score"></span><span class="eval__label"></span></span>
+              </button>
+            </div>
+            <div class="board__cell" role="gridcell">
+              <button type="button" class="cell" data-index="5" aria-label="Row 2, column 3, empty" tabindex="-1">
+                <span class="cell__mark" aria-hidden="true"></span>
+                <span class="cell__eval" aria-hidden="true"><span class="eval__score"></span><span class="eval__label"></span></span>
+              </button>
+            </div>
+          </div>
+          <div class="board__row" role="row">
+            <div class="board__cell" role="gridcell">
+              <button type="button" class="cell" data-index="6" aria-label="Row 3, column 1, empty" tabindex="-1">
+                <span class="cell__mark" aria-hidden="true"></span>
+                <span class="cell__eval" aria-hidden="true"><span class="eval__score"></span><span class="eval__label"></span></span>
+              </button>
+            </div>
+            <div class="board__cell" role="gridcell">
+              <button type="button" class="cell" data-index="7" aria-label="Row 3, column 2, empty" tabindex="-1">
+                <span class="cell__mark" aria-hidden="true"></span>
+                <span class="cell__eval" aria-hidden="true"><span class="eval__score"></span><span class="eval__label"></span></span>
+              </button>
+            </div>
+            <div class="board__cell" role="gridcell">
+              <button type="button" class="cell" data-index="8" aria-label="Row 3, column 3, empty" tabindex="-1">
+                <span class="cell__mark" aria-hidden="true"></span>
+                <span class="cell__eval" aria-hidden="true"><span class="eval__score"></span><span class="eval__label"></span></span>
+              </button>
+            </div>
+          </div>
+
+          <svg class="board__strike" id="strike" viewBox="0 0 300 300" aria-hidden="true" focusable="false"></svg>
+        </div>
+        <p class="sr-only" id="boardHelp">Arrow keys move between squares. Enter or Space places your X.</p>
+
+        <div class="actions">
+          <button type="button" class="btn btn--primary" id="restartBtn">New round</button>
+          <button type="button" class="btn btn--quiet" id="resetScoreBtn">Reset scores<span class="sr-only" id="resetScope"> for Medium</span></button>
+        </div>
+
+        <section class="thinking" id="thinking" aria-labelledby="thinkingTitle" hidden>
+          <div class="thinking__head">
+            <h2 class="label thinking__title" id="thinkingTitle">AI thinking</h2>
+            <p class="thinking__mode" id="thinkingMode"></p>
+          </div>
+
+          <div class="lastmove" id="lastMove" hidden>
+            <h3 class="label">Last AI move</h3>
+            <p class="lastmove__text" id="lastMoveText"></p>
+          </div>
+
+          <figure class="scale">
+            <div class="scale__bar" aria-hidden="true"><span class="scale__zero"></span></div>
+            <figcaption class="scale__labels">
+              <span class="scale__stop scale__stop--loss"><b>−9</b> AI loses</span>
+              <span class="scale__stop scale__stop--draw"><b>0</b> Draw</span>
+              <span class="scale__stop scale__stop--win">AI wins <b>+9</b></span>
+            </figcaption>
+          </figure>
+
+          <p class="thinking__note">
+            Each number is the minimax score of moving there: how the game ends if both
+            sides then play perfectly, counted from the AI’s side. A win is worth 10,
+            minus one for every move it takes.
+            <span class="thinking__key"><span class="best-mark" aria-hidden="true"></span> minimax’s pick: the highest score on the AI’s turn, the lowest on yours.</span>
+          </p>
+        </section>
+      </div>
+
+      <aside class="game__panel" aria-label="Score and settings">
+        <section class="scoreboard" aria-labelledby="scoreTitle">
+          <h2 class="scoreboard__title" id="scoreTitle">
+            <span class="label">Score</span>
+            <span class="label scoreboard__level" id="scoreLevel">Medium</span>
+          </h2>
+          <dl class="scoreboard__grid">
+            <div class="scoreboard__item scoreboard__item--you">
+              <dt><svg class="glyph glyph--x" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M6.5 6.5 17.5 17.5M17.5 6.5 6.5 17.5" /></svg>You</dt>
+              <dd id="playerScore">0</dd>
+            </div>
+            <div class="scoreboard__item scoreboard__item--ai">
+              <dt><svg class="glyph glyph--o" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="7" /></svg>AI</dt>
+              <dd id="aiScore">0</dd>
+            </div>
+            <div class="scoreboard__item scoreboard__item--draws">
+              <dt>Draws</dt>
+              <dd id="drawScore">0</dd>
+            </div>
+          </dl>
+        </section>
+
+        <fieldset class="control">
+          <legend class="label control__legend">Difficulty</legend>
+          <div class="segmented" style="--segments: 3">
+            <label class="segment">
+              <input type="radio" name="difficulty" value="easy" />
+              <span class="segment__face">
+                <span class="segment__name">Easy</span>
+                <span class="segment__caption">Mostly random</span>
+              </span>
+            </label>
+            <label class="segment">
+              <input type="radio" name="difficulty" value="medium" checked />
+              <span class="segment__face">
+                <span class="segment__name">Medium</span>
+                <span class="segment__caption">Lily’s original</span>
+              </span>
+            </label>
+            <label class="segment">
+              <input type="radio" name="difficulty" value="hard" />
+              <span class="segment__face">
+                <span class="segment__name">Hard</span>
+                <span class="segment__caption">Minimax · unbeatable</span>
+              </span>
+            </label>
+          </div>
+        </fieldset>
+
+        <fieldset class="control">
+          <legend class="label control__legend">First move</legend>
+          <div class="segmented" style="--segments: 2">
+            <label class="segment">
+              <input type="radio" name="firstMove" value="you" checked />
+              <span class="segment__face segment__face--row">
+                <svg class="glyph glyph--x" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M6.5 6.5 17.5 17.5M17.5 6.5 6.5 17.5" /></svg>
+                <span class="segment__name">You</span>
+              </span>
+            </label>
+            <label class="segment">
+              <input type="radio" name="firstMove" value="ai" />
+              <span class="segment__face segment__face--row">
+                <svg class="glyph glyph--o" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="7" /></svg>
+                <span class="segment__name">AI</span>
+              </span>
+            </label>
+          </div>
+        </fieldset>
+
+        <div class="control switch">
+          <input class="switch__input" type="checkbox" role="switch" id="thinkingToggle" aria-describedby="thinkingHint" />
+          <label class="switch__label" for="thinkingToggle">
+            <span class="switch__track" aria-hidden="true"><span class="switch__thumb"></span></span>
+            <span class="switch__text">Show AI thinking</span>
+          </label>
+          <p class="switch__hint" id="thinkingHint">Minimax scores on every empty square.</p>
+        </div>
+      </aside>
+    </main>
+
+    <details class="explainer" id="how-the-ai-works">
+      <summary class="explainer__summary">
+        <span class="explainer__heading">
+          <span class="label">Three opponents, one game tree</span>
+          <h2 class="explainer__title">How the AI works</h2>
+        </span>
+        <span class="explainer__icon" aria-hidden="true"></span>
+      </summary>
+
+      <div class="explainer__body">
+        <p class="explainer__intro">
+          All three opponents look at the same board. What changes is how far ahead
+          they look before they move.
+        </p>
+
+        <div class="explainer__grid">
+          <article class="strategy">
+            <p class="label strategy__num">01 · Easy</p>
+            <h3 class="strategy__name">Mostly random</h3>
+            <p>
+              Easy picks a random empty square. About half the time it first checks
+              whether any square wins on the spot, and takes it if one does, so it can
+              still pounce. It never blocks you.
+            </p>
+          </article>
+
+          <article class="strategy">
+            <p class="label strategy__num">02 · Medium</p>
+            <h3 class="strategy__name">Lily’s original</h3>
+            <p>
+              This is the rule-based AI from Lily’s Unit 10 “Play with AI” assignment,
+              kept exactly as she wrote it. It runs down five rules in order: win if it
+              can, block your winning move, take the center, take a random corner, take
+              a side. It only ever looks one move ahead, so it can’t see a fork coming:
+              start in a corner, answer its center with the opposite corner, then block
+              the corner it takes. That block gives you two ways to win, and it can only
+              stop one.
+            </p>
+          </article>
+
+          <article class="strategy">
+            <p class="label strategy__num">03 · Hard</p>
+            <h3 class="strategy__name">Minimax · unbeatable</h3>
+            <p>
+              Hard searches the whole game tree with minimax: it plays out every
+              possible continuation, assuming you always find your best reply. Each
+              finished game scores +10 for a win, −10 for a loss and 0 for a draw,
+              minus a point per move, so quicker wins and slower losses rank higher.
+              Alpha-beta pruning skips branches that can’t change its decision, so the
+              search takes milliseconds. Perfect play from both sides is a draw, so
+              against Hard the best you can do is draw.
+            </p>
+          </article>
+        </div>
+
+        <div class="explainer__scores">
+          <h3 class="label">Reading the scores</h3>
+          <p>
+            With <strong>Show AI thinking</strong> on, every empty square shows the
+            minimax score of the next move going there, from the AI’s side: positive
+            means the AI can force a win, 0 a draw, negative a loss. On its turn the AI
+            is the maximizer, and Hard always plays a top score while Easy and Medium
+            may not. On your turn you are the minimizer: the lowest number is your best
+            reply.
+          </p>
+        </div>
+      </div>
+    </details>
+
+    <footer class="colophon">
+      <p>Built by Xinyue (Lily) Feng · Unit 10 — Play with AI</p>
+      <span class="colophon__links">
+        <a class="colophon__link" href="../../work/tic-tac-toe/">About this project</a>
+        <a class="colophon__link" href="https://github.com/SamSi0322/xinyue-feng/tree/main/projects/tic-tac-toe" target="_blank" rel="noopener noreferrer">Source<svg viewBox="0 0 16 16" aria-hidden="true" focusable="false"><path d="M5 11 11 5M6 5h5v5" /></svg><span class="sr-only"> (opens in a new tab)</span></a>
+      </span>
+    </footer>
+  </div>
+
+  <script>
+    // If the game module never starts (usually because the page was opened from
+    // file://, where browsers block JavaScript modules), say so instead of
+    // leaving a board that silently ignores clicks.
+    window.addEventListener("load", function () {
+      window.setTimeout(function () {
+        if (document.documentElement.hasAttribute("data-ready")) {
+          return;
+        }
+        var notice = document.getElementById("bootNotice");
+        notice.textContent = location.protocol === "file:"
+          ? "The game can’t start from a file:// address, because browsers block JavaScript modules there. Serve this folder instead (for example, run “npx serve .”) and open the address it prints."
+          : "The game script didn’t load. Try reloading the page.";
+        notice.hidden = false;
+      }, 600);
+    });
+  </script>
+</body>
+</html>

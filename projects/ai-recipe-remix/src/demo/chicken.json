@@ -1,0 +1,214 @@
+{
+  "recipes": [
+    {
+      "title": "Garlic Soy Chicken and Broccoli Rice Bowls",
+      "summary": "Glossy garlic-soy chicken and crisp-tender broccoli crown fluffy rice in a hearty weeknight bowl.",
+      "timeMinutes": 30,
+      "servings": 2,
+      "difficulty": "easy",
+      "ingredients": [
+        {
+          "item": "boneless skinless chicken thighs",
+          "amount": "12 ounces (340 g), cut into 1-inch pieces",
+          "optional": false
+        },
+        {
+          "item": "white jasmine rice",
+          "amount": "3/4 cup, dry",
+          "optional": false
+        },
+        {
+          "item": "broccoli",
+          "amount": "3 cups small florets",
+          "optional": false
+        },
+        {
+          "item": "garlic",
+          "amount": "3 cloves, minced",
+          "optional": false
+        },
+        {
+          "item": "soy sauce",
+          "amount": "2 tablespoons",
+          "optional": false
+        },
+        {
+          "item": "neutral oil",
+          "amount": "1 tablespoon",
+          "optional": false
+        },
+        {
+          "item": "water",
+          "amount": "1 1/4 cups for rice plus 3 tablespoons for skillet",
+          "optional": false
+        },
+        {
+          "item": "brown sugar",
+          "amount": "1 teaspoon",
+          "optional": true
+        }
+      ],
+      "steps": [
+        "Rinse the rice and combine with 1 1/4 cups water in a small saucepan.",
+        "Bring to a boil, cover, reduce the heat to low, and simmer for 15 minutes; remove from the heat and rest covered for 5 minutes.",
+        "Meanwhile, heat the oil in a large skillet over medium-high heat.",
+        "Add the chicken and cook for 7–9 minutes, turning occasionally, until browned.",
+        "Add the broccoli and 3 tablespoons water, cover, and steam for 3 minutes.",
+        "Uncover, add the garlic, soy sauce, and sugar if using, and stir for 2–3 minutes until the chicken reaches 165°F and the broccoli is tender.",
+        "Fluff the rice and divide between bowls, then spoon the chicken and broccoli over it."
+      ],
+      "substitutions": [
+        "Use boneless chicken breast cut into small pieces instead of thighs.",
+        "Replace soy sauce with gluten-free tamari."
+      ],
+      "allergens": [
+        "soy",
+        "wheat/gluten"
+      ],
+      "tips": [
+        "Cut the broccoli small so it cooks quickly.",
+        "Check the thickest chicken piece with an instant-read thermometer."
+      ]
+    },
+    {
+      "title": "Chicken and Broccoli Garlic Fried Rice",
+      "summary": "Sizzling rice mingles with golden chicken, chopped broccoli, and savory garlic-soy seasoning.",
+      "timeMinutes": 25,
+      "servings": 2,
+      "difficulty": "easy",
+      "ingredients": [
+        {
+          "item": "boneless skinless chicken thighs",
+          "amount": "10 ounces (285 g), cut into 1/2-inch pieces",
+          "optional": false
+        },
+        {
+          "item": "cooked rice",
+          "amount": "3 cups, chilled or ready-to-heat",
+          "optional": false
+        },
+        {
+          "item": "broccoli",
+          "amount": "2 cups, finely chopped",
+          "optional": false
+        },
+        {
+          "item": "garlic",
+          "amount": "3 cloves, minced",
+          "optional": false
+        },
+        {
+          "item": "soy sauce",
+          "amount": "2 tablespoons",
+          "optional": false
+        },
+        {
+          "item": "neutral oil",
+          "amount": "2 tablespoons, divided",
+          "optional": false
+        },
+        {
+          "item": "water",
+          "amount": "2 tablespoons",
+          "optional": false
+        },
+        {
+          "item": "green onion",
+          "amount": "1, thinly sliced",
+          "optional": true
+        }
+      ],
+      "steps": [
+        "Break up any clumps in the cooked rice.",
+        "Heat 1 tablespoon oil in a wide skillet over medium-high heat.",
+        "Cook the chicken for 6–8 minutes, stirring occasionally, until it reaches 165°F; transfer to a clean plate.",
+        "Add the broccoli and water to the skillet, cover, and steam for 2 minutes.",
+        "Uncover, let excess water evaporate, and stir in the remaining oil and garlic for 30 seconds.",
+        "Add the rice and stir-fry for 3–4 minutes until hot, then add the chicken and soy sauce and stir for 2 minutes until steaming throughout.",
+        "Divide between plates and scatter with green onion if using."
+      ],
+      "substitutions": [
+        "Use ready-to-heat brown rice instead of cooked white rice.",
+        "Use gluten-free tamari instead of soy sauce."
+      ],
+      "allergens": [
+        "soy",
+        "wheat/gluten"
+      ],
+      "tips": [
+        "This timing requires cooked rice, not dry rice.",
+        "Use a wide pan to fry the rice rather than steam it."
+      ]
+    },
+    {
+      "title": "Chicken, Broccoli, and Rice Soup",
+      "summary": "Tender chicken, rice, and bright broccoli simmer in a light garlic broth with a savory splash of soy sauce.",
+      "timeMinutes": 30,
+      "servings": 2,
+      "difficulty": "easy",
+      "ingredients": [
+        {
+          "item": "boneless skinless chicken thighs",
+          "amount": "10 ounces (285 g), cut into 1/2-inch pieces",
+          "optional": false
+        },
+        {
+          "item": "white jasmine rice",
+          "amount": "1/3 cup, dry",
+          "optional": false
+        },
+        {
+          "item": "broccoli",
+          "amount": "2 cups small florets",
+          "optional": false
+        },
+        {
+          "item": "garlic",
+          "amount": "3 cloves, minced",
+          "optional": false
+        },
+        {
+          "item": "soy sauce",
+          "amount": "1 tablespoon",
+          "optional": false
+        },
+        {
+          "item": "low-sodium chicken broth",
+          "amount": "4 cups",
+          "optional": false
+        },
+        {
+          "item": "neutral oil",
+          "amount": "1 teaspoon",
+          "optional": false
+        },
+        {
+          "item": "black pepper",
+          "amount": "1/8 teaspoon",
+          "optional": true
+        }
+      ],
+      "steps": [
+        "Rinse the rice and cut the chicken and broccoli into small pieces.",
+        "Heat the oil in a medium saucepan over medium heat.",
+        "Add the garlic and stir for 30 seconds without browning.",
+        "Pour in the broth, add the rice, and bring to a boil.",
+        "Add the chicken, return to a simmer, and cook partially covered for 12 minutes.",
+        "Add the broccoli and simmer for 4–5 minutes until the rice is tender and the chicken reaches 165°F.",
+        "Stir in the soy sauce and pepper if using and ladle into bowls."
+      ],
+      "substitutions": [
+        "Replace chicken broth with vegetable broth.",
+        "Replace soy sauce with gluten-free tamari."
+      ],
+      "allergens": [
+        "soy",
+        "wheat/gluten"
+      ],
+      "tips": [
+        "Keep the soup at a gentle simmer after adding the chicken.",
+        "Add a splash of water when reheating because the rice absorbs broth."
+      ]
+    }
+  ]
+}

@@ -1,0 +1,83 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    color-scheme: light;
+  }
+
+  html {
+    -webkit-text-size-adjust: 100%;
+    scroll-padding-top: 1.5rem;
+  }
+
+  body {
+    @apply bg-cream font-sans text-ink antialiased;
+    text-rendering: optimizeLegibility;
+    /* a whisper of warmth at the top of the page */
+    background-image: radial-gradient(ellipse 80% 50% at 50% -10%, rgb(250 220 211 / 0.45), transparent 70%);
+    background-repeat: no-repeat;
+  }
+
+  ::selection {
+    @apply bg-tomato-100 text-ink;
+  }
+
+  /* One visible, consistent focus style for keyboard users. */
+  :focus-visible {
+    outline: 2px solid theme('colors.tomato.600');
+    outline-offset: 2px;
+  }
+}
+
+@layer components {
+  .card {
+    @apply rounded-2xl border border-line bg-paper shadow-soft;
+  }
+
+  .btn {
+    @apply inline-flex items-center justify-center gap-2 rounded-xl font-semibold transition-colors duration-150 disabled:cursor-not-allowed;
+  }
+
+  .btn-primary {
+    @apply btn bg-tomato-600 px-5 py-3 text-white shadow-sm hover:bg-tomato-700;
+  }
+
+  .btn-secondary {
+    @apply btn border border-line-strong/70 bg-paper px-3.5 py-2 text-sm text-ink hover:border-tomato-600 hover:bg-tomato-50;
+  }
+
+  .section-label {
+    @apply text-xs font-semibold uppercase tracking-[0.08em];
+  }
+
+  /* Placeholder while something loads; turns static with reduced motion (see below). */
+  .shimmer {
+    background-color: theme('colors.cream.100');
+    background-image: linear-gradient(
+      100deg,
+      transparent 20%,
+      rgb(255 253 249 / 0.85) 50%,
+      transparent 80%
+    );
+    background-size: 200% 100%;
+    background-repeat: no-repeat;
+    @apply animate-shimmer;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+
+  .shimmer {
+    background-image: none;
+  }
+}

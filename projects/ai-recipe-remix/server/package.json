@@ -1,0 +1,24 @@
+{
+  "name": "ai-recipe-remix-server",
+  "version": "1.0.0",
+  "private": true,
+  "description": "AI Recipe Remix backend: a small Express API that asks OpenAI for recipes and food photos",
+  "type": "module",
+  "main": "server.js",
+  "engines": {
+    "node": ">=22"
+  },
+  "scripts": {
+    "dev": "node --watch server.js",
+    "start": "node server.js",
+    "test": "node --test \"test/**/*.test.js\""
+  },
+  "license": "ISC",
+  "dependencies": {
+    "cors": "^2.8.6",
+    "dotenv": "^18.0.5",
+    "express": "^5.2.1",
+    "express-rate-limit": "^8.7.0",
+    "openai": "^7.25.0"
+  }
+}

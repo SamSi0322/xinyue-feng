@@ -1,0 +1,237 @@
+{
+  "recipes": [
+    {
+      "title": "Garlic Tofu and Mushroom Noodle Stir-Fry",
+      "summary": "Golden tofu, browned mushrooms, and silky spinach tangle with noodles in a savory garlic sauce.",
+      "timeMinutes": 25,
+      "servings": 2,
+      "difficulty": "easy",
+      "ingredients": [
+        {
+          "item": "extra-firm tofu",
+          "amount": "14 ounces (400 g), drained and cut into 3/4-inch cubes",
+          "optional": false
+        },
+        {
+          "item": "baby spinach",
+          "amount": "3 cups (90 g)",
+          "optional": false
+        },
+        {
+          "item": "mushrooms",
+          "amount": "8 ounces (225 g), sliced",
+          "optional": false
+        },
+        {
+          "item": "garlic",
+          "amount": "3 cloves, minced",
+          "optional": false
+        },
+        {
+          "item": "egg-free wheat noodles",
+          "amount": "6 ounces (170 g), dry, with an 8-minute or shorter cook time",
+          "optional": false
+        },
+        {
+          "item": "soy sauce",
+          "amount": "2 tablespoons",
+          "optional": false
+        },
+        {
+          "item": "neutral oil",
+          "amount": "2 tablespoons, divided",
+          "optional": false
+        },
+        {
+          "item": "water",
+          "amount": "2 tablespoons, plus enough to boil noodles",
+          "optional": false
+        },
+        {
+          "item": "rice vinegar",
+          "amount": "1 teaspoon",
+          "optional": true
+        }
+      ],
+      "steps": [
+        "Bring a pot of water to a boil and pat the tofu thoroughly dry.",
+        "Cook the noodles according to the package directions, drain, and set aside.",
+        "Meanwhile, heat 1 tablespoon oil in a large nonstick skillet over medium-high heat and cook the tofu for 7–8 minutes, turning to brown several sides.",
+        "Transfer the tofu to a plate, add the remaining oil, and cook the mushrooms for 4 minutes.",
+        "Add the garlic and stir for 30 seconds, then add the spinach and let it wilt for 1 minute.",
+        "Return the tofu, add the noodles, soy sauce, water, and vinegar if using, and toss for 2 minutes until hot."
+      ],
+      "substitutions": [
+        "Replace wheat noodles with rice noodles and soy sauce with gluten-free tamari for a gluten-free version.",
+        "Replace spinach with thinly sliced bok choy."
+      ],
+      "allergens": [
+        "soy",
+        "wheat/gluten"
+      ],
+      "tips": [
+        "Use egg-free noodles to keep the dish vegan.",
+        "Dry tofu well so it browns rather than steams."
+      ]
+    },
+    {
+      "title": "Tofu, Spinach, and Mushroom Noodle Soup",
+      "summary": "Soft tofu and tender noodles float with mushrooms and spinach in a fragrant garlic vegetable broth.",
+      "timeMinutes": 20,
+      "servings": 2,
+      "difficulty": "easy",
+      "ingredients": [
+        {
+          "item": "firm tofu",
+          "amount": "10 ounces (285 g), drained and cubed",
+          "optional": false
+        },
+        {
+          "item": "baby spinach",
+          "amount": "3 cups (90 g)",
+          "optional": false
+        },
+        {
+          "item": "mushrooms",
+          "amount": "6 ounces (170 g), thinly sliced",
+          "optional": false
+        },
+        {
+          "item": "garlic",
+          "amount": "3 cloves, minced",
+          "optional": false
+        },
+        {
+          "item": "rice noodles",
+          "amount": "4 ounces (115 g), dry, with a 5-minute or shorter cook time",
+          "optional": false
+        },
+        {
+          "item": "vegan vegetable broth",
+          "amount": "4 cups",
+          "optional": false
+        },
+        {
+          "item": "olive oil",
+          "amount": "1 tablespoon",
+          "optional": false
+        },
+        {
+          "item": "salt",
+          "amount": "1/4 teaspoon, or to taste",
+          "optional": false
+        },
+        {
+          "item": "lemon juice",
+          "amount": "2 teaspoons",
+          "optional": true
+        }
+      ],
+      "steps": [
+        "Heat the oil in a medium pot over medium-high heat.",
+        "Add the mushrooms and cook for 4 minutes until softened and lightly browned.",
+        "Stir in the garlic for 30 seconds.",
+        "Add the broth and tofu and bring to a gentle boil.",
+        "Add the rice noodles and simmer according to the package directions, up to 5 minutes.",
+        "Stir in the spinach and simmer for 1 minute until wilted.",
+        "Taste, add salt as needed and lemon juice if using, and divide between bowls."
+      ],
+      "substitutions": [
+        "Replace firm tofu with silken tofu, adding it gently with the spinach.",
+        "Use quick-cooking egg-free wheat noodles instead of rice noodles; these add wheat/gluten."
+      ],
+      "allergens": [
+        "soy"
+      ],
+      "tips": [
+        "Choose rice noodles that cook directly in simmering liquid.",
+        "Serve promptly so the noodles do not absorb all the broth."
+      ]
+    },
+    {
+      "title": "Creamy Garlic Tofu Pasta with Mushrooms and Spinach",
+      "summary": "A velvety blended tofu sauce coats pasta with golden mushrooms and tender spinach for a comforting vegan meal.",
+      "timeMinutes": 25,
+      "servings": 2,
+      "difficulty": "easy",
+      "ingredients": [
+        {
+          "item": "firm tofu",
+          "amount": "8 ounces (225 g), drained and crumbled",
+          "optional": false
+        },
+        {
+          "item": "baby spinach",
+          "amount": "3 cups (90 g)",
+          "optional": false
+        },
+        {
+          "item": "mushrooms",
+          "amount": "8 ounces (225 g), sliced",
+          "optional": false
+        },
+        {
+          "item": "garlic",
+          "amount": "3 cloves, minced",
+          "optional": false
+        },
+        {
+          "item": "egg-free spaghetti",
+          "amount": "6 ounces (170 g), dry, with a 10-minute or shorter cook time",
+          "optional": false
+        },
+        {
+          "item": "olive oil",
+          "amount": "1 tablespoon",
+          "optional": false
+        },
+        {
+          "item": "lemon juice",
+          "amount": "1 tablespoon",
+          "optional": false
+        },
+        {
+          "item": "salt",
+          "amount": "1/2 teaspoon, divided",
+          "optional": false
+        },
+        {
+          "item": "black pepper",
+          "amount": "1/4 teaspoon",
+          "optional": false
+        },
+        {
+          "item": "water",
+          "amount": "1/2 cup for sauce, plus enough to boil pasta",
+          "optional": false
+        },
+        {
+          "item": "nutritional yeast",
+          "amount": "2 tablespoons",
+          "optional": true
+        }
+      ],
+      "steps": [
+        "Bring a pot of water to a boil and cook the spaghetti according to the package directions.",
+        "Blend the tofu, 1/2 cup water, lemon juice, half the salt, pepper, and nutritional yeast if using until completely smooth.",
+        "Meanwhile, heat the oil in a large skillet over medium-high heat and cook the mushrooms with the remaining salt for 5–6 minutes.",
+        "Add the garlic and stir for 30 seconds, then add the spinach and stir until wilted.",
+        "Reserve 1/2 cup pasta cooking water and drain the spaghetti.",
+        "Reduce the skillet heat to low, add the tofu sauce and spaghetti, and toss for 2–3 minutes until heated through.",
+        "Loosen the sauce with reserved pasta water a tablespoon at a time and serve."
+      ],
+      "substitutions": [
+        "Use silken tofu instead of firm tofu and reduce the sauce water to 1/4 cup.",
+        "Replace spaghetti with gluten-free pasta."
+      ],
+      "allergens": [
+        "soy",
+        "wheat/gluten"
+      ],
+      "tips": [
+        "Blend thoroughly for the smoothest sauce.",
+        "Keep the sauce over low heat to prevent it from drying out."
+      ]
+    }
+  ]
+}

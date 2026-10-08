@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    <title>AI Recipe Remix · Cook with what you have</title>
+    <meta
+      name="description"
+      content="Type in the ingredients you already have, pick a diet and a time limit, and AI Recipe Remix suggests three recipes, each with its own AI-generated food photo."
+    />
+    <meta name="color-scheme" content="light" />
+    <meta name="theme-color" content="#fbf7f0" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="AI Recipe Remix" />
+    <meta
+      property="og:description"
+      content="Three recipes from what's already in your kitchen, each with an AI-generated photo."
+    />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <script>
+      // Relative-path builds (build:portfolio) must be opened with a trailing slash:
+      // at "/play/recipe-remix" the "./assets/..." URLs would resolve one folder too high.
+      if ('%BASE_URL%' === './' && !/\/$|\.html?$/i.test(location.pathname)) {
+        location.replace(location.pathname + '/' + location.search + location.hash);
+      }
+    </script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <noscript>AI Recipe Remix needs JavaScript to run.</noscript>
+    <script type="module" src="/src/main.jsx"></script>
+  </body>
+</html>

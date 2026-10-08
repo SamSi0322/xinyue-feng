@@ -1,0 +1,40 @@
+# Logs
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+# Dependencies
+node_modules/
+server/node_modules/
+
+# Build outputs
+dist/
+dist-ssr/
+coverage/
+
+# Environment files (real keys live here; never commit them)
+.env
+.env.*
+server/.env
+server/.env.*
+# ...but do commit the templates
+!.env.example
+!server/.env.example
+
+# Local-only files
+*.local
+
+# Editor / OS files
+.vscode/*
+!.vscode/extensions.json
+.idea
+.DS_Store
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?

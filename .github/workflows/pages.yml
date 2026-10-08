@@ -1,0 +1,76 @@
+name: Test and deploy
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: pages-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Edgeworth web edition
+        working-directory: projects/edgeworth/web
+        run: npm test
+
+      - name: Tic-tac-toe
+        working-directory: projects/tic-tac-toe
+        run: npm test
+
+      - name: AI Recipe Remix (front end)
+        working-directory: projects/ai-recipe-remix
+        run: |
+          npm ci
+          npm run lint
+          npm test
+          npm run build
+
+      - name: AI Recipe Remix (server)
+        working-directory: projects/ai-recipe-remix/server
+        run: |
+          npm ci
+          npm test
+
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: 21
+
+      - name: Edgeworth Java edition
+        working-directory: projects/edgeworth/java
+        run: |
+          ./build.sh
+          ./build.sh test
+
+  deploy:
+    if: github.event_name != 'pull_request' && github.ref == 'refs/heads/main'
+    needs: test
+    runs-on: ubuntu-latest
+    permissions:
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/configure-pages@v5
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: site
+      - id: deployment
+        uses: actions/deploy-pages@v4

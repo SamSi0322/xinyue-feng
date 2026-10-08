@@ -1,0 +1,144 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>The Adventures of Edgeworth — play in the browser</title>
+  <meta name="description" content="An Ace Attorney fan platformer by Xinyue (Lily) Feng, originally written in Java Swing and ported to the browser. Six levels, hand-drawn pixel sprites.">
+  <meta name="theme-color" content="#121212">
+  <link rel="icon" type="image/png" href="assets/img/ob12.png">
+  <link rel="preload" href="fonts/press-start-2p-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="fonts/fonts.css">
+  <link rel="stylesheet" href="style.css">
+  <script type="module" src="game.js"></script>
+</head>
+<body>
+  <nav class="topbar" aria-label="Site">
+    <a href="../../">Xinyue Feng</a>
+    <a href="../../work/edgeworth/">About this project <span aria-hidden="true">→</span></a>
+  </nav>
+
+  <header class="intro">
+    <p class="kicker">Java game · CPS 2231 · 2024 · web edition</p>
+    <h1>The Adventures of Edgeworth</h1>
+    <p class="lede">An <em>Ace Attorney</em> fan platformer: guide Miles Edgeworth through six levels to the ending. Originally written in Java Swing. This version runs in your browser, with the same levels, rules and sprites.</p>
+  </header>
+
+  <main class="game" data-game data-state="loading">
+    <div class="stage">
+      <div class="frame" tabindex="0" role="application" aria-roledescription="game" aria-label="The Adventures of Edgeworth. Arrow keys move and jump, P pauses, M toggles sound.">
+        <img class="bg-forest" src="assets/img/forest.gif" alt="" hidden>
+        <img class="bg-full" src="assets/img/start.webp" alt="">
+        <canvas aria-hidden="true"></canvas>
+
+        <div class="screen screen--loading" data-screen="loading">
+          <p>Loading</p>
+          <div class="bar" aria-hidden="true"><span data-progress></span></div>
+        </div>
+
+        <div class="screen screen--title" data-screen="title" hidden>
+          <button class="pill" type="button" data-action="start">
+            <span class="pill__icon" aria-hidden="true">▶</span>
+            <span class="only-keys">Press Space or click to start</span>
+            <span class="only-touch">Tap to start</span>
+          </button>
+        </div>
+
+        <div class="screen screen--dim" data-screen="paused" hidden>
+          <p class="big">Paused</p>
+          <button class="pill" type="button" data-action="resume">Resume</button>
+          <p class="hint only-keys">P or Esc to resume</p>
+        </div>
+
+        <div class="screen screen--dim" data-screen="gameover" hidden>
+          <p class="big big--red">Game over</p>
+          <p class="hint">Edgeworth's dead.</p>
+          <p class="score">Score <span data-score>0</span></p>
+          <button class="pill" type="button" data-action="restart">Play again</button>
+        </div>
+
+        <div class="screen screen--ending" data-screen="cleared" hidden>
+          <div class="ending-top">
+            <p class="big">The end</p>
+            <p class="score">Score <span data-score>0</span></p>
+            <button class="pill" type="button" data-action="restart">Play again</button>
+          </div>
+          <div class="dialog" role="presentation">
+            <p data-typewriter></p>
+          </div>
+        </div>
+
+        <div class="screen screen--dim" data-screen="error" hidden>
+          <p class="big big--red">Oops</p>
+          <p class="hint">The game files could not be loaded. Please refresh the page.</p>
+        </div>
+      </div>
+
+      <div class="controlbar">
+        <p class="keys only-keys">
+          <kbd>←</kbd><kbd>→</kbd> move
+          <span class="sep"></span><kbd>↑</kbd> jump
+          <span class="sep"></span><kbd>P</kbd> pause
+          <span class="sep"></span><kbd>M</kbd> sound
+        </p>
+        <div class="tools">
+          <button class="tool" type="button" data-action="pause" aria-label="Pause (P)" aria-pressed="false" disabled>
+            <svg class="i-pause" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 5h3.5v14H7zM13.5 5H17v14h-3.5z"/></svg>
+            <svg class="i-play" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5l11 7-11 7z"/></svg>
+          </button>
+          <button class="tool" type="button" data-action="mute" aria-label="Mute sound (M)" aria-pressed="false">
+            <svg class="i-sound" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 9h4l5-4v14l-5-4H4z"/><path d="M16 8.5a5 5 0 0 1 0 7M18.5 6a8.5 8.5 0 0 1 0 12" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+            <svg class="i-mute" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 9h4l5-4v14l-5-4H4z"/><path d="M16.5 9.5l5 5M21.5 9.5l-5 5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+          </button>
+          <button class="tool" type="button" data-action="fullscreen" aria-label="Full screen">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 9V4h5M15 4h5v5M20 15v5h-5M9 20H4v-5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+        </div>
+      </div>
+
+      <div class="pads" aria-hidden="true">
+        <div class="pads__group">
+          <button type="button" class="pad" data-pad="left" tabindex="-1"><svg viewBox="0 0 24 24"><path d="M15 5l-8 7 8 7z"/></svg></button>
+          <button type="button" class="pad" data-pad="right" tabindex="-1"><svg viewBox="0 0 24 24"><path d="M9 5l8 7-8 7z"/></svg></button>
+        </div>
+        <button type="button" class="pad pad--jump" data-pad="jump" tabindex="-1"><svg viewBox="0 0 24 24"><path d="M5 15l7-8 7 8z"/></svg></button>
+      </div>
+    </div>
+    <p class="rotate-hint">Tip: turn your phone sideways for a bigger screen.</p>
+    <p class="sr-only" aria-live="polite" data-status></p>
+  </main>
+
+  <section class="notes" aria-label="About the game">
+    <div class="note">
+      <h2>How to play</h2>
+      <ul class="cast">
+        <li><img src="assets/img/Winston1.png" alt="" width="60" height="60"><p><strong>Winston Payne</strong> walks back and forth. Land on his head to knock him out.</p></li>
+        <li><img src="assets/img/Karma4.png" alt="" width="60" height="60"><p><strong>Manfred von Karma</strong> can't be stomped. Jump over him.</p></li>
+        <li><img src="assets/img/Oldbag1.png" alt="" width="60" height="60"><p><strong>Wendy Oldbag</strong> rises out of pipes and floats away. Don't touch her.</p></li>
+        <li><img src="assets/img/ob5.png" alt="" width="60" height="60"><p><strong>Phoenix blocks</strong> are worth 10 points. Hit them from below.</p></li>
+        <li><img src="assets/img/npc2.png" alt="" width="60" height="60"><p><strong>Detective Gumshoe</strong> knows where an invisible block is hidden.</p></li>
+      </ul>
+      <p class="small">Three lives. Falling off the screen or touching an enemy costs one, and puts you back at the start of the scene.</p>
+    </div>
+
+    <div class="note">
+      <h2>About this edition</h2>
+      <p>Xinyue (Lily) Feng made the game in Java Swing for CPS 2231 at Wenzhou-Kean University (April–May 2024). She laid the levels out on a grid in Excel and made the sprites in Aseprite, based on characters from the <em>Ace Attorney</em> games.</p>
+      <p>This web edition ports her game logic from Java to JavaScript and the HTML canvas, keeping the movement speeds, jump timing, collision rules and all six levels unchanged. It also finishes two things she wrote about in her project report: the forest background is now animated, and sound effects play once, on cue.</p>
+      <p class="small">Also fixed: after a death, a level now resets cleanly (the original duplicated defeated enemies), and the falling and "knocked out" sprites she drew are shown in play.</p>
+    </div>
+
+    <div class="note note--credits">
+      <h2>Credits</h2>
+      <dl>
+        <dt>Game, level design, sprites, original code</dt><dd>Xinyue (Lily) Feng</dd>
+        <dt>Characters</dt><dd><em>Ace Attorney</em> series © Capcom. Fan work.</dd>
+        <dt>Title-screen art</dt><dd><em>Ace Attorney</em> © Capcom</dd>
+        <dt>Forest animation</dt><dd>Pixel art by Anas Abdin (@anasabdin)</dd>
+        <dt>Music &amp; sound effects</dt><dd>Third-party audio chosen by the author. All rights belong to their owners.</dd>
+      </dl>
+      <p class="small">A non-commercial student fan project, not affiliated with Capcom.</p>
+    </div>
+  </section>
+</body>
+</html>

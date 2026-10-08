@@ -1,0 +1,10 @@
+{
+  "name": "edgeworth-web",
+  "private": true,
+  "type": "module",
+  "description": "The Adventures of Edgeworth — web edition (no build step).",
+  "scripts": {
+    "test": "node --test",
+    "start": "npx --yes serve ."
+  }
+}

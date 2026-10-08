@@ -1,0 +1,198 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>The Adventures of Edgeworth — Xinyue Feng</title>
+  <meta name="description" content="An Ace Attorney fan platformer written from scratch in Java Swing for CPS 2231, now playable in the browser. Level design in Excel, sprites in Aseprite.">
+  <meta name="theme-color" content="#121212">
+  <link rel="icon" href="../../favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="../../assets/brand/apple-touch-icon.png">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="The Adventures of Edgeworth — an Ace Attorney platformer">
+  <meta property="og:description" content="A six-level Java platformer by Xinyue (Lily) Feng, now playable in the browser.">
+  <meta property="og:image" content="https://samsi0322.github.io/xinyue-feng/assets/img/edgeworth/cover.webp">
+  <link rel="preload" href="../../assets/fonts/playfair-display-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="../../assets/fonts/fonts.css">
+  <link rel="stylesheet" href="../../assets/css/site.css">
+  <script>document.documentElement.classList.add('js');</script>
+  <script type="module" src="../../assets/js/site.js"></script>
+</head>
+<body>
+  <a class="skip" href="#main">Skip to content</a>
+  <header class="site-header">
+    <div class="wrap">
+      <a class="brand" href="../../" aria-label="Xinyue Feng, home">
+        <img src="../../assets/brand/seal-light.svg" alt="" width="34" height="34">
+        <span>Xinyue Feng</span>
+      </a>
+      <nav aria-label="Main">
+        <ul class="nav">
+          <li><a href="../../#work" aria-current="page">Work</a></li>
+          <li><a href="../../about/">About</a></li>
+          <li><a href="../../#contact">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <header class="case-hero wrap">
+      <a class="crumb label" href="../../#work">← All work</a>
+      <p class="label label--gold">02 · Java game · CPS 2231 · Spring 2024</p>
+      <h1 class="display">The Adventures of Edgeworth</h1>
+      <p class="lede">A Mario-style platformer written from scratch in Java Swing for an introductory programming course: six hand-designed levels, three kinds of enemy, hidden blocks and an ending. It started as a desktop app and now runs in the browser.</p>
+      <div class="buttons">
+        <a class="btn btn--solid" href="../../play/edgeworth/">▶ Play full screen</a>
+        <a class="btn" href="https://github.com/SamSi0322/xinyue-feng/tree/main/projects/edgeworth">Source code ↗</a>
+      </div>
+      <dl class="facts">
+        <div><dt class="label">Role</dt><dd>Solo: game design, level design, sprites, code</dd></div>
+        <div><dt class="label">Timeline</dt><dd>26 Apr – 12 May 2024</dd></div>
+        <div><dt class="label">Context</dt><dd>CPS 2231 course project, Wenzhou-Kean University</dd></div>
+        <div><dt class="label">Tools</dt><dd>Java 8, Swing, Java Sound · Eclipse, Aseprite, Excel</dd></div>
+      </dl>
+    </header>
+
+    <div class="wrap">
+      <figure class="showcase">
+        <div class="embed embed--game">
+          <button class="embed__poster" type="button" data-src="../../play/edgeworth/?embed=1" data-small-href="../../play/edgeworth/" data-title="The Adventures of Edgeworth">
+            <img src="../../assets/img/edgeworth/cover.webp" alt="" width="1800" height="1200">
+            <span>▶ Play here</span>
+          </button>
+        </div>
+        <figcaption>The game, embedded. Arrow keys move and jump; P pauses; M mutes. On a phone it opens full screen with touch buttons.</figcaption>
+      </figure>
+    </div>
+
+    <div class="wrap story">
+      <section class="chapter reveal" aria-labelledby="c-idea">
+        <h2 id="c-idea" class="label">The idea</h2>
+        <div class="prose">
+          <p>The game grew out of two things Lily loved: the little monster-adventure games she played on the 4399 web-game site as a child, and Capcom’s <em>Ace Attorney</em> series, which she was playing at the time. So the hero is the prosecutor Miles Edgeworth, the enemies are courtroom regulars, and the blocks are the series’ famous “Hold it!” and “Objection!” speech bubbles.</p>
+          <ul class="cast">
+            <li><img src="../../assets/img/pixel/1.png" alt="" width="60" height="60"><b>Miles Edgeworth</b>The player. Walks, jumps, stomps.</li>
+            <li><img src="../../assets/img/pixel/Winston1.png" alt="" width="60" height="60"><b>Winston Payne</b>Paces back and forth. Land on his head for 10 points.</li>
+            <li><img src="../../assets/img/pixel/Karma4.png" alt="" width="60" height="60"><b>Manfred von Karma</b>Can’t be stomped. Jump over him.</li>
+            <li><img src="../../assets/img/pixel/Oldbag1.png" alt="" width="60" height="60"><b>Wendy Oldbag</b>Rises out of pipes and floats away.</li>
+            <li><img src="../../assets/img/pixel/npc2.png" alt="" width="60" height="60"><b>Dick Gumshoe</b>Points at an invisible block.</li>
+            <li><img src="../../assets/img/pixel/ob5.png" alt="" width="60" height="60"><b>Phoenix block</b>Hit it from below for 10 points.</li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="chapter reveal" aria-labelledby="c-levels">
+        <h2 id="c-levels" class="label">Level design</h2>
+        <div class="prose">
+          <p>Every scene is a 15 × 10 grid of 60-pixel tiles. Lily planned all six in a spreadsheet, one coloured cell per block, then typed the coordinates into <code>BackGround.java</code>. The shapes are deliberate: scene 3 is a face made of breakable blocks, scene 5 a heart, and the floor everywhere is a row of hearts.</p>
+          <div class="gallery">
+            <figure class="figure pixel">
+              <img src="../../assets/img/edgeworth/level-maps.webp" alt="Six level layouts drawn as coloured cells in a spreadsheet" width="385" height="1187" loading="lazy">
+              <figcaption>The six scenes planned in Excel.</figcaption>
+            </figure>
+            <div>
+              <figure class="figure">
+                <img src="../../assets/img/edgeworth/original-scene3.webp" alt="Scene 3 in the original Java version: a face built from blocks" width="1200" height="802" loading="lazy">
+                <figcaption>Scene 3, “the face”, running in the original Java build.</figcaption>
+              </figure>
+              <figure class="figure" style="margin-top: 20px">
+                <img src="../../assets/img/edgeworth/original-scene5.webp" alt="Scene 5 in the original Java version: a heart outlined in blocks, with Oldbags rising" width="1200" height="804" loading="lazy">
+                <figcaption>Scene 5, a heart, with Oldbags drifting up through it.</figcaption>
+              </figure>
+            </div>
+          </div>
+          <h3>A hint instead of a tutorial</h3>
+          <p>Scene 4 can’t be finished by jumping alone: the pillars are too tall. Detective Gumshoe stands at the exact spot where an invisible block hangs. Jump under it and an “Objection!” block appears, giving you the extra height to climb.</p>
+          <div class="gallery">
+            <figure class="figure">
+              <img src="../../assets/img/edgeworth/original-scene4.webp" alt="Scene 4 before the hidden block is found: Gumshoe stands beside the pillars" width="1200" height="804" loading="lazy">
+              <figcaption>Before: Gumshoe waits under the hidden block.</figcaption>
+            </figure>
+            <figure class="figure">
+              <img src="../../assets/img/edgeworth/original-scene4-block.webp" alt="Scene 4 after the hidden block is revealed above Gumshoe" width="1200" height="806" loading="lazy">
+              <figcaption>After: the block is revealed and the climb begins.</figcaption>
+            </figure>
+          </div>
+        </div>
+      </section>
+
+      <section class="chapter reveal" aria-labelledby="c-code">
+        <h2 id="c-code" class="label">How it works</h2>
+        <div class="prose">
+          <p>Nine classes, no game engine. <code>MyFrame</code> opens a fixed 900 × 600 window, listens to the keyboard and paints each frame into an off-screen image first (double buffering) to stop flicker. <code>BackGround</code> holds a scene’s blocks and enemies and can reset them after a death. The player, every enemy and the end-of-level flag each run on their own thread, updating every 50 or 100 milliseconds.</p>
+          <p>Collision works on the tile grid. Before each step, Edgeworth checks the blocks next to him:</p>
+<pre><code><span class="c">//Cannot move to the right</span>
+<span class="k">if</span>(ob.getX()==<span class="k">this</span>.x+60 &amp;&amp; (ob.getY()+50&gt;<span class="k">this</span>.y &amp;&amp; ob.getY()-50&lt;<span class="k">this</span>.y)){
+    <span class="k">if</span>(ob.getType() != 3){
+        canRight = <span class="k">false</span>;
+    }
+}</code></pre>
+          <p class="caption">From <code>Edgeworth.java</code>, unchanged. Type 3 is the hidden block, which you can walk through until it is revealed.</p>
+          <p>Landing, bumping a block from below and stomping an enemy are the same kind of check one tile up or down. A jump is 18 ticks of rising 10 pixels; a stomp gives a small 5-tick bounce.</p>
+        </div>
+      </section>
+
+      <section class="chapter reveal" aria-labelledby="c-reflect">
+        <h2 id="c-reflect" class="label">What she learned</h2>
+        <div class="prose">
+          <p>Her project report ends with two problems she couldn’t solve at the time. Sound effects misbehaved, so she ended up with two separate audio classes, one for music and one for effects. (The cause, found in 2026: the old applet audio API ignored a play request sent right after a loop request, so every effect kept looping until the game closed.) And Java’s <code>ImageIO</code> only reads the first frame of a GIF, so the animated forest she wanted behind the levels had to stay a still image.</p>
+          <p>Both are solved in the web edition below.</p>
+        </div>
+      </section>
+
+      <section class="chapter reveal" aria-labelledby="c-web">
+        <h2 id="c-web" class="label">Web edition · 2026</h2>
+        <div class="prose">
+          <p>To make the game playable on this site, its rules were ported from Java to JavaScript and the HTML canvas, keeping the same coordinates, speeds, jump timing and collision checks. The Java version was also updated so it still compiles and runs on current Java releases, which no longer include <code>Thread.suspend()</code> or the applet audio API it relied on.</p>
+          <div class="table-scroll">
+            <table class="compare">
+              <thead><tr><th scope="col"></th><th scope="col">Original, 2024</th><th scope="col">Web edition, 2026</th></tr></thead>
+              <tbody>
+                <tr><td>Runs on</td><td>Desktop Java (Swing window)</td><td>Any modern browser, including phones</td></tr>
+                <tr><td>Background</td><td>Still image</td><td>The animated forest she planned</td></tr>
+                <tr><td>Sound</td><td>Each effect looped until the game closed</td><td>Each effect plays once; mute button</td></tr>
+                <tr><td>Motion</td><td>Redrawn 20 times a second</td><td>Same 20 logic ticks, drawn smoothly in between</td></tr>
+                <tr><td>Ending</td><td>Dialog box, then the program closes</td><td>Ending screen with score and replay</td></tr>
+                <tr><td>Controls</td><td>Arrow keys, Space</td><td>Arrows or WASD, touch buttons, pause</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <h3>Bugs found along the way</h3>
+          <p>Porting code line by line is a good way to read it closely. Three bugs in the original turned up and are fixed in both versions:</p>
+          <ul>
+            <li>After a death, defeated enemies and broken blocks were restored but never removed from the “removed” lists, so every later death added duplicates (a stomped Winston could survive the next stomp).</li>
+            <li>Enemies kept their last direction after a reset, so an Oldbag on her way down could sink through the floor for good.</li>
+            <li>Manfred von Karma came back from a reset wearing Oldbag’s sprite.</li>
+          </ul>
+          <h3>Proving it can still be beaten</h3>
+          <p>The web edition has an automated test suite. One test runs a breadth-first search over every possible input sequence (left, right or nothing, jump or not, every 50 ms) and checks that each of the six scenes can still be finished. As a sanity check, it correctly fails if the hidden block in scene 4 is removed.</p>
+        </div>
+      </section>
+
+      <section class="chapter reveal" aria-labelledby="c-credits">
+        <h2 id="c-credits" class="label">Credits</h2>
+        <div class="prose">
+          <p><strong>Game, level design, sprites and original code:</strong> Xinyue (Lily) Feng.<br>
+          <strong>Characters:</strong> from Capcom’s <em>Ace Attorney</em> series; this is a non-commercial fan work.<br>
+          <strong>Title-screen art:</strong> <em>Ace Attorney</em> © Capcom.<br>
+          <strong>Forest animation:</strong> pixel art by Anas Abdin (@anasabdin).<br>
+          <strong>Music and sound effects:</strong> third-party audio chosen by the author; all rights belong to their owners.</p>
+        </div>
+      </section>
+    </div>
+
+    <a class="next wrap" href="../recipe-remix/">
+      <span class="label">Next project</span>
+      <span class="display" style="display:block">AI Recipe Remix →</span>
+    </a>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap">
+      <p>© 2026 Xinyue Feng</p>
+      <p>Fan projects are non-commercial and not affiliated with the rights holders. This site and the 2026 updates to these projects were made with the help of AI coding tools.</p>
+    </div>
+  </footer>
+</body>
+</html>

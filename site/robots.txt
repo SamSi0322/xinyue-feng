@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://samsi0322.github.io/xinyue-feng/sitemap.xml

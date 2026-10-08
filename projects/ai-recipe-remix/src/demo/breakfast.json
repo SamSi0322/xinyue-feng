@@ -1,0 +1,198 @@
+{
+  "recipes": [
+    {
+      "title": "Tomato and Egg Breakfast Sandwich",
+      "summary": "Golden toast sandwiches tender scrambled eggs and juicy tomato slices for a satisfying breakfast.",
+      "timeMinutes": 15,
+      "servings": 2,
+      "difficulty": "easy",
+      "ingredients": [
+        {
+          "item": "eggs",
+          "amount": "4 large",
+          "optional": false
+        },
+        {
+          "item": "tomato",
+          "amount": "1 medium, sliced",
+          "optional": false
+        },
+        {
+          "item": "bread",
+          "amount": "4 slices",
+          "optional": false
+        },
+        {
+          "item": "olive oil",
+          "amount": "2 teaspoons",
+          "optional": false
+        },
+        {
+          "item": "salt",
+          "amount": "1/4 teaspoon",
+          "optional": false
+        },
+        {
+          "item": "black pepper",
+          "amount": "1/8 teaspoon",
+          "optional": false
+        }
+      ],
+      "steps": [
+        "Toast the bread until golden.",
+        "Pat the tomato slices dry with a paper towel.",
+        "Whisk the eggs with the salt and pepper.",
+        "Heat the olive oil in a nonstick skillet over medium-low heat.",
+        "Add the eggs and gently stir for 3–4 minutes until set with no liquid egg remaining.",
+        "Layer the eggs and tomato between the toast slices and serve immediately."
+      ],
+      "substitutions": [
+        "Replace the bread with vegetarian English muffins.",
+        "Use halved cherry tomatoes instead of sliced tomato."
+      ],
+      "allergens": [
+        "eggs",
+        "wheat/gluten"
+      ],
+      "tips": [
+        "Dry the tomato well to keep the toast crisp.",
+        "Keep the heat low so the eggs stay tender."
+      ]
+    },
+    {
+      "title": "Skillet Tomato Eggs with Toast Soldiers",
+      "summary": "Eggs nestle in a quick garlicky tomato sauce alongside crisp toast strips for dipping.",
+      "timeMinutes": 20,
+      "servings": 2,
+      "difficulty": "easy",
+      "ingredients": [
+        {
+          "item": "eggs",
+          "amount": "4 large",
+          "optional": false
+        },
+        {
+          "item": "tomatoes",
+          "amount": "3 medium (about 450 g), finely chopped",
+          "optional": false
+        },
+        {
+          "item": "bread",
+          "amount": "4 slices",
+          "optional": false
+        },
+        {
+          "item": "olive oil",
+          "amount": "1 tablespoon",
+          "optional": false
+        },
+        {
+          "item": "garlic",
+          "amount": "1 clove, minced",
+          "optional": true
+        },
+        {
+          "item": "salt",
+          "amount": "1/4 teaspoon",
+          "optional": false
+        },
+        {
+          "item": "black pepper",
+          "amount": "1/8 teaspoon",
+          "optional": false
+        }
+      ],
+      "steps": [
+        "Heat the oil in a wide skillet over medium heat.",
+        "Add the garlic if using and stir for 30 seconds.",
+        "Add the tomatoes, salt, and pepper and simmer for 6–7 minutes, crushing the tomatoes with a spoon.",
+        "Make four wells in the sauce and crack an egg into each well.",
+        "Cover and cook over medium-low heat for 6–8 minutes until the whites and yolks are set.",
+        "Toast the bread while the eggs cook and cut it into strips.",
+        "Divide the eggs and sauce between plates and serve with the toast strips."
+      ],
+      "substitutions": [
+        "Replace the fresh tomatoes with one 14-ounce can of crushed tomatoes.",
+        "Use gluten-free bread instead of wheat bread."
+      ],
+      "allergens": [
+        "eggs",
+        "wheat/gluten"
+      ],
+      "tips": [
+        "Use a 10- or 12-inch skillet so the eggs have room.",
+        "Add a tablespoon of water if the sauce dries out before the eggs set."
+      ]
+    },
+    {
+      "title": "Savory Tomato French Toast",
+      "summary": "Peppery egg-soaked bread fries golden and crisp beneath a warm topping of juicy tomatoes.",
+      "timeMinutes": 18,
+      "servings": 2,
+      "difficulty": "easy",
+      "ingredients": [
+        {
+          "item": "eggs",
+          "amount": "3 large",
+          "optional": false
+        },
+        {
+          "item": "tomatoes",
+          "amount": "2 medium, diced",
+          "optional": false
+        },
+        {
+          "item": "bread",
+          "amount": "4 slices, about 1/2 inch thick",
+          "optional": false
+        },
+        {
+          "item": "water",
+          "amount": "2 tablespoons",
+          "optional": false
+        },
+        {
+          "item": "olive oil",
+          "amount": "1 tablespoon plus 1 teaspoon, divided",
+          "optional": false
+        },
+        {
+          "item": "salt",
+          "amount": "1/4 teaspoon, divided",
+          "optional": false
+        },
+        {
+          "item": "black pepper",
+          "amount": "1/4 teaspoon",
+          "optional": false
+        },
+        {
+          "item": "fresh basil",
+          "amount": "1 tablespoon, chopped",
+          "optional": true
+        }
+      ],
+      "steps": [
+        "Whisk the eggs, water, pepper, and half the salt in a shallow dish.",
+        "Heat 1 teaspoon oil in a large nonstick skillet over medium heat.",
+        "Cook the tomatoes with the remaining salt for 3 minutes, then transfer to a bowl.",
+        "Dip two bread slices in the egg mixture for 10 seconds per side.",
+        "Heat half the remaining oil and fry the soaked bread for 2–3 minutes per side until golden and the egg coating is fully set.",
+        "Repeat with the remaining bread and oil, discarding any leftover raw egg mixture.",
+        "Top the French toast with the warm tomatoes and basil if using."
+      ],
+      "substitutions": [
+        "Use stale baguette slices instead of sandwich bread.",
+        "Replace basil with chopped parsley."
+      ],
+      "allergens": [
+        "eggs",
+        "wheat/gluten"
+      ],
+      "tips": [
+        "Use slightly stale bread to avoid a soggy center.",
+        "Keep the first batch on a warm plate while cooking the second."
+      ]
+    }
+  ]
+}
