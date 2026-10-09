@@ -173,7 +173,8 @@ function runParade(canvas) {
     const dt = last ? Math.min(time - last, 50) / 1000 : 0;
     last = time;
 
-    hero.x += 64 * dt;
+    // Edgeworth moves faster in the air, so the hop carries him clear over Winston.
+    hero.x += (hero.jumpAt >= 0 ? 120 : 64) * dt;
     winston.x -= 38 * dt;
     if (hero.x > width + 80) hero.x = -80;
     if (winston.x < -80) winston.x = width + 40 + Math.random() * 200;
