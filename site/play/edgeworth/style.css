@@ -127,6 +127,7 @@ h1 {
 /* The game and its control bar always fit on screen together. */
 .frame,
 .controlbar {
+  width: min(100%, calc((100vh - var(--bar) - 24px) * 1.5)); /* before svh support */
   width: min(100%, calc((100svh - var(--bar) - 24px) * 1.5));
   margin-inline: auto;
 }
@@ -516,11 +517,11 @@ html.embed .rotate-hint {
 
 /* Phones held sideways: the game fills the height and the pads sit beside it. */
 @media (orientation: landscape) and (max-height: 560px) {
-  body:has(.game.touch) .intro {
+  .has-touch .intro {
     display: none;
   }
 
-  body:has(.game.touch) .topbar {
+  .has-touch .topbar {
     padding: 8px 0;
   }
 

@@ -709,11 +709,16 @@ class Game {
       pad.addEventListener('contextmenu', (e) => e.preventDefault());
     }
 
+    // .touch shows the pads; .has-touch on <html> lets the page around the game adapt too.
+    const enableTouch = () => {
+      this.root.classList.add('touch');
+      document.documentElement.classList.add('has-touch');
+    };
     const touchMode = () => {
-      if (coarsePointer.matches) this.root.classList.add('touch');
+      if (coarsePointer.matches) enableTouch();
     };
     if (coarsePointer.addEventListener) coarsePointer.addEventListener('change', touchMode);
-    window.addEventListener('touchstart', () => this.root.classList.add('touch'), { once: true, passive: true });
+    window.addEventListener('touchstart', enableTouch, { once: true, passive: true });
     touchMode();
   }
 
@@ -741,10 +746,13 @@ class Game {
 
   toggleFullscreen() {
     const el = this.root.querySelector('.stage') || this.frame;
-    if (document.fullscreenElement) {
+    if (document.fullscreenElement || document.webkitFullscreenElement) {
       if (document.exitFullscreen) document.exitFullscreen();
+      else if (document.webkitExitFullscreen) document.webkitExitFullscreen();
     } else if (el.requestFullscreen) {
       el.requestFullscreen().catch(() => {});
+    } else if (el.webkitRequestFullscreen) {
+      el.webkitRequestFullscreen(); // Safari on iPad before iPadOS 16.4
     }
   }
 }
@@ -765,7 +773,7 @@ if (EMBED) document.documentElement.classList.add('embed');
 const root = document.querySelector('[data-game]');
 const game = new Game(root);
 if (params.has('debug')) window.__game = game;
-if (!document.fullscreenEnabled) {
+if (!document.fullscreenEnabled && !document.webkitFullscreenEnabled) {
   const fullscreen = root.querySelector('[data-action="fullscreen"]');
   if (fullscreen) fullscreen.remove();
 }

@@ -325,7 +325,7 @@ img.pixelated,
 .hero {
   position: relative;
   display: grid;
-  min-height: calc(100svh - var(--header));
+  min-height: max(620px, calc(100vh - var(--header))); /* before svh support */
   min-height: max(620px, calc(100svh - var(--header)));
   padding: clamp(48px, 9vh, 96px) 0 0;
   overflow: hidden;
@@ -1293,6 +1293,7 @@ pre:focus-visible {
 .lost {
   display: grid;
   place-items: center;
+  min-height: calc(100vh - var(--header) - 120px);
   min-height: calc(100svh - var(--header) - 120px);
   text-align: center;
   padding: 48px 0;
