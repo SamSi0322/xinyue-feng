@@ -25,6 +25,22 @@
   <link rel="stylesheet" href="fonts/fonts.css" />
   <link rel="stylesheet" href="style.css" />
   <script>
+    // The portfolio's theme choice (same site, same storage), applied before first
+    // paint and kept in sync if it changes in another tab or the embedding page.
+    (function () {
+      function apply(theme) {
+        var light = theme === "light";
+        if (light) document.documentElement.setAttribute("data-theme", "light");
+        else document.documentElement.removeAttribute("data-theme");
+        var meta = document.querySelector('meta[name="theme-color"]');
+        if (meta) meta.content = light ? "#f7f3ec" : "#121212";
+      }
+      try { apply(localStorage.getItem("theme")); } catch (e) { /* storage blocked: stay dark */ }
+      window.addEventListener("storage", function (event) {
+        if (event.key === "theme") apply(event.newValue);
+      });
+    })();
+
     // ?embed=1 shows just the game (for an iframe); add &bg=transparent to drop
     // the page background. Flagged before first paint so the header never flashes.
     if (/[?&]embed=(1|true)(&|$)/.test(location.search)) {

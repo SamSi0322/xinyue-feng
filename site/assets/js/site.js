@@ -3,6 +3,35 @@ window.__siteReady = true;
 
 const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
 
+// Dark by default; the header toggle switches to the light theme and remembers it.
+// (An inline script in <head> applies a saved choice before the first paint.)
+const themeButton = document.querySelector('.theme-toggle');
+const themeColor = document.querySelector('meta[name="theme-color"]');
+function setTheme(theme, save) {
+  const light = theme === 'light';
+  if (light) document.documentElement.setAttribute('data-theme', 'light');
+  else document.documentElement.removeAttribute('data-theme');
+  if (themeColor) themeColor.content = light ? '#f7f3ec' : '#121212';
+  if (themeButton) {
+    const label = light ? 'Switch to dark theme' : 'Switch to light theme';
+    themeButton.setAttribute('aria-label', label);
+    themeButton.title = label;
+  }
+  if (save) {
+    try { localStorage.setItem('theme', theme); } catch { /* private mode: not remembered */ }
+  }
+}
+setTheme(document.documentElement.getAttribute('data-theme') === 'light' ? 'light' : 'dark', false);
+if (themeButton) {
+  themeButton.addEventListener('click', () => {
+    setTheme(document.documentElement.getAttribute('data-theme') === 'light' ? 'dark' : 'light', true);
+  });
+}
+// Another tab (or an embedded page) changed the theme.
+window.addEventListener('storage', (event) => {
+  if (event.key === 'theme') setTheme(event.newValue === 'light' ? 'light' : 'dark', false);
+});
+
 // Header gets a hairline once the page scrolls.
 const header = document.querySelector('.site-header');
 if (header) {

@@ -1,6 +1,7 @@
 /* ==========================================================================
    Play with AI — Tic-Tac-Toe
-   Dark editorial theme, matching Lily's portfolio.
+   Dark editorial theme, matching Lily's portfolio, with its light alternative
+   (html[data-theme="light"], chosen with the portfolio's theme toggle).
    ========================================================================== */
 
 :root {
@@ -24,8 +25,30 @@
   --radius: 2px;
   --ease: cubic-bezier(0.22, 1, 0.36, 1);
   --focus-ring: 2px solid var(--gold-bright);
+  --wash: rgba(243, 239, 231, 0.04);
+  --strike-mid: rgba(243, 239, 231, 0.45);
 
   color-scheme: dark;
+}
+
+/* Light theme. Gold and red are deepened so text stays above 4.5:1; "bright"
+   variants are the stronger (darker) ones here, since they mark emphasis. */
+:root[data-theme="light"] {
+  --bg: #f7f3ec;
+  --bg-raised: #efe9de;
+  --ink: #1d1a16;
+  --ink-muted: #57514a;
+  --ink-faint: #8a8378; /* decoration only, as in the dark theme */
+  --rule: rgba(29, 26, 22, 0.14);
+  --rule-strong: rgba(29, 26, 22, 0.32);
+  --gold: #875a0a;
+  --gold-bright: #6b4706;
+  --red: #b0372c;
+  --red-bright: #9a2e24;
+  --wash: rgba(29, 26, 22, 0.04);
+  --strike-mid: rgba(29, 26, 22, 0.3);
+
+  color-scheme: light;
 }
 
 /* ---------- Base ---------------------------------------------------------- */
@@ -695,7 +718,7 @@ a.masthead__author:hover {
   position: relative;
   height: 4px;
   border-radius: 2px;
-  background: linear-gradient(90deg, var(--red) 0%, rgba(217, 70, 59, 0.2) 44%, rgba(243, 239, 231, 0.45) 50%, rgba(214, 162, 62, 0.2) 56%, var(--gold) 100%);
+  background: linear-gradient(90deg, var(--red) 0%, rgba(217, 70, 59, 0.2) 44%, var(--strike-mid) 50%, rgba(214, 162, 62, 0.2) 56%, var(--gold) 100%);
 }
 
 .scale__zero {
@@ -975,7 +998,7 @@ a.masthead__author:hover {
 }
 
 .segment:hover .segment__face {
-  background: rgba(243, 239, 231, 0.04);
+  background: var(--wash);
 }
 
 .segment:hover .segment__name {

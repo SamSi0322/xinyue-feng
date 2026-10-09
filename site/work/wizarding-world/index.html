@@ -25,7 +25,7 @@
   <link rel="preload" href="../../assets/fonts/ibm-plex-sans-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="../../assets/fonts/fonts.css">
   <link rel="stylesheet" href="../../assets/css/site.css">
-  <script>document.documentElement.classList.add('js');setTimeout(function(){if(!window.__siteReady)document.documentElement.classList.remove('js')},3000);</script>
+  <script>(function(d){d.classList.add('js');try{if(localStorage.getItem('theme')==='light'){d.setAttribute('data-theme','light');document.querySelector('meta[name="theme-color"]').content='#f7f3ec'}}catch(e){}setTimeout(function(){if(!window.__siteReady)d.classList.remove('js')},3000)})(document.documentElement);</script>
   <script type="module" src="../../assets/js/site.js"></script>
 </head>
 <body>
@@ -41,6 +41,7 @@
           <li><a href="../../#work" class="is-active">Work</a></li>
           <li><a href="../../about/">About</a></li>
           <li><a href="../../#contact">Contact</a></li>
+          <li><button class="theme-toggle" type="button" aria-label="Switch to light theme" title="Switch to light theme"><svg class="i-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="4.2"/><path d="M12 2.5v2.2M12 19.3v2.2M2.5 12h2.2M19.3 12h2.2M5.3 5.3l1.6 1.6M17.1 17.1l1.6 1.6M5.3 18.7l1.6-1.6M17.1 6.9l1.6-1.6"/></svg><svg class="i-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round" aria-hidden="true"><path d="M20 14.6A8.2 8.2 0 0 1 9.4 4a8.2 8.2 0 1 0 10.6 10.6z"/></svg></button></li>
         </ul>
       </nav>
     </div>
@@ -81,7 +82,7 @@
             <div><b>24</b><span>Active wands</span></div>
             <div><b>78</b><span>Enemies</span></div>
             <div><b>16</b><span>Town NPCs</span></div>
-            <div><b>65</b><span>Accessories</span></div>
+            <div><b>64</b><span>Accessories</span></div>
             <div><b>3</b><span>Languages</span></div>
           </div>
           <p>Around the bosses sit the systems that make it feel like the books: wand lore with 18 woods, 5 cores and 9 spell schools; a Dark Arts corruption meter that makes dark magic tempting but costly; class quests for Defense Against the Dark Arts, Potions, Creatures and Charms; Quidditch seasons with Seeker ranks; Hogsmeade with the Shrieking Shack; and a three-zone Forbidden Forest that gets more dangerous the deeper you go.</p>
@@ -134,7 +135,7 @@
       <section class="chapter reveal">
         <h2 id="c-ship" class="label">Getting it release-ready</h2>
         <div class="prose">
-          <p>A mod this size (593 C# files, 606 sprites) breaks in quiet ways: a missing sprite, an untranslated line, a boss flag that doesn’t survive a save. Most of the late work went into making that visible and testable:</p>
+          <p>A mod this size (597 C# files, 624 sprites) breaks in quiet ways: a missing sprite, an untranslated line, a boss flag that doesn’t survive a save. Most of the late work went into making that visible and testable:</p>
           <ul>
             <li><strong>Route-by-route smoke tests.</strong> The main route, from the Hogwarts letter to the Hallows ending, was tested in tModLoader in ten stages, each written up as a QA record in the repository, including what was <em>not</em> verified. The tests used debug shortcuts such as god mode and item kits, so boss balance is still open.</li>
             <li><strong>Save and reload checks.</strong> Key boss and story flags were confirmed to persist after Save &amp; Exit.</li>
