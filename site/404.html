@@ -10,6 +10,69 @@
   <link rel="icon" href="favicon.svg" type="image/svg+xml">
   <link rel="stylesheet" href="assets/fonts/fonts.css">
   <link rel="stylesheet" href="assets/css/site.css">
+  <script>
+    // Links pasted from chats and Markdown often pick up extra characters, such as
+    // "/xinyue-feng/**" or "/xinyue-feng/about/。". Repair those and go straight to the
+    // page; otherwise suggest the closest one.
+    (function () {
+      var root = '/xinyue-feng/';
+      var pages = {
+        '': 'the home page',
+        'about/': 'About',
+        'work/wizarding-world/': 'Wizarding World',
+        'work/edgeworth/': 'The Adventures of Edgeworth',
+        'work/recipe-remix/': 'AI Recipe Remix',
+        'work/tic-tac-toe/': 'Tic-Tac-Toe vs. AI',
+        'play/edgeworth/': 'The Adventures of Edgeworth (play)',
+        'play/tic-tac-toe/': 'Tic-Tac-Toe vs. AI (play)',
+        'play/recipe-remix/': 'the AI Recipe Remix demo'
+      };
+      var has = function (key) { return Object.prototype.hasOwnProperty.call(pages, key); };
+      var path = location.pathname;
+      try { path = decodeURIComponent(path); } catch (e) { /* keep it encoded */ }
+      if (path.toLowerCase().indexOf(root) !== 0) return;
+
+      // Addresses on this site only use a-z, 0-9, "-", "_", "." and "/": cut at anything else.
+      var rest = path.slice(root.length).toLowerCase().split(/[^a-z0-9\/._-]/)[0]
+        .replace(/index\.html?$/, '').replace(/[._]+$/, '');
+      if (rest && rest.slice(-1) !== '/') rest += '/';
+      if (has(rest) && root + rest !== location.pathname) {
+        location.replace(root + rest + location.search + location.hash);
+        return;
+      }
+
+      var distance = function (a, b) {
+        var row = [], i, j, prev, next;
+        for (j = 0; j <= b.length; j++) row[j] = j;
+        for (i = 1; i <= a.length; i++) {
+          prev = row[0];
+          row[0] = i;
+          for (j = 1; j <= b.length; j++) {
+            next = row[j];
+            row[j] = Math.min(row[j] + 1, row[j - 1] + 1, prev + (a[i - 1] === b[j - 1] ? 0 : 1));
+            prev = next;
+          }
+        }
+        return row[b.length];
+      };
+      var slug = function (p) { return p.split('/').filter(Boolean).pop() || ''; };
+      var best = '';
+      var bestScore = Infinity;
+      Object.keys(pages).forEach(function (page) {
+        if (!page) return;
+        var score = rest.indexOf(page) === 0 ? 0 : Math.min(distance(rest, page), distance(slug(rest), slug(page)) + 1);
+        if (score < bestScore) { best = page; bestScore = score; }
+      });
+      if (!best || bestScore > 4) return;
+      document.addEventListener('DOMContentLoaded', function () {
+        var hint = document.querySelector('.lost__hint');
+        var link = hint.querySelector('a');
+        link.href = best;
+        link.textContent = pages[best];
+        hint.hidden = false;
+      });
+    })();
+  </script>
 </head>
 <body>
   <header class="site-header">
@@ -34,6 +97,7 @@
       <p class="label label--gold">404</p>
       <h1 class="display">Hold it!</h1>
       <p>This page doesn’t exist. Maybe it was never entered into evidence.</p>
+      <p class="lost__hint" hidden>Did you mean <a href="./">the home page</a>?</p>
       <div class="buttons buttons--center">
         <a class="btn btn--solid" href="./">Back to the portfolio</a>
       </div>

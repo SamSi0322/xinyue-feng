@@ -1312,3 +1312,7 @@ pre:focus-visible {
   margin-top: 16px;
   color: var(--ink-muted);
 }
+
+.lost__hint a {
+  color: var(--ink);
+}
