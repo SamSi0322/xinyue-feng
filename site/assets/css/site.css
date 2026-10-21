@@ -791,6 +791,11 @@ img.pixelated,
   font-size: clamp(42px, 7.2vw, 96px);
 }
 
+/* A one-word title (Otherworlds) shrinks to fit a narrow phone rather than break; it is about 8.2 em wide. */
+.case-hero h1.display--fit {
+  font-size: clamp(30px, min(max(42px, 7.2vw), (100vw - 2 * var(--gutter)) / 8.4), 96px);
+}
+
 .aka {
   margin: 14px 0 0;
   font: italic 400 clamp(20px, 2.4vw, 28px)/1.3 var(--serif);
@@ -1116,6 +1121,14 @@ img.pixelated,
 
 .figure.pixel img {
   image-rendering: pixelated;
+}
+
+.figure video {
+  display: block;
+  width: 100%;
+  height: auto;
+  border: 1px solid var(--rule);
+  background: #000;
 }
 
 .figure--span {

@@ -1,0 +1,14 @@
+{
+  "name": "xinyue-feng-scripts",
+  "private": true,
+  "description": "Tools for the portfolio: the social cards, the PDF portfolio and the layout checks (headless browsers via Playwright).",
+  "type": "module",
+  "scripts": {
+    "og": "node make-og.mjs",
+    "pdf": "node build-pdf.mjs",
+    "check": "node check-site.mjs"
+  },
+  "devDependencies": {
+    "playwright": "1.63.0"
+  }
+}

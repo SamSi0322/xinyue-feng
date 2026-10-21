@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Social card</title>
+  <!-- The 1200×630 card a case-study page shares (og:image). make-og.mjs opens this page, calls render() with
+       the card's words and picture, and saves a screenshot to site/assets/img/og/<slug>.jpg. -->
+  <style>
+    @font-face { font-family: "Playfair Display"; font-style: normal; font-weight: 400 900; src: url("../../site/assets/fonts/playfair-display-latin-wght-normal.woff2") format("woff2"); }
+    @font-face { font-family: "Playfair Display"; font-style: italic; font-weight: 400 900; src: url("../../site/assets/fonts/playfair-display-latin-wght-italic.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-style: normal; font-weight: 500; src: url("../../site/assets/fonts/ibm-plex-mono-latin-500-normal.woff2") format("woff2"); }
+
+    html, body, h1, p { margin: 0; }
+    body {
+      position: relative;
+      width: 1200px;
+      height: 630px;
+      overflow: hidden;
+      background: #121212;
+      color: #f3efe7;
+    }
+    canvas { position: absolute; inset: 0; }
+    .seal { position: absolute; left: 64px; top: 56px; width: 45px; height: 45px; }
+    .brand {
+      position: absolute; left: 125px; top: 71px;
+      font: 500 15px/18px "IBM Plex Mono", monospace;
+      letter-spacing: 0.08em;
+    }
+    .words { position: absolute; left: 64px; top: 158px; width: 520px; }
+    h1 {
+      margin: 0;
+      font: 700 63px/72px "Playfair Display", serif;
+      text-transform: uppercase;
+    }
+    .sub { margin-top: 6px; font: italic 400 28.5px/38px "Playfair Display", serif; }
+    .tag {
+      position: absolute; left: 65px; top: 551px;
+      font: 500 15px/18px "IBM Plex Mono", monospace;
+      letter-spacing: 0.5px;
+      color: #d6a23e;
+      text-transform: uppercase;
+    }
+    .frame {
+      position: absolute; left: 620px; top: 105px;
+      width: 518px; height: 418px;
+      border: 1px solid rgba(243, 239, 231, 0.3);
+      overflow: hidden;
+    }
+    .frame img { display: block; width: 100%; height: 100%; object-fit: cover; }
+  </style>
+</head>
+<body>
+  <canvas width="1200" height="630"></canvas>
+  <svg class="seal" viewBox="0 0 100 100" fill="none" aria-hidden="true">
+    <circle cx="50" cy="50" r="47.7" stroke="#e9bd62" stroke-width="4.5"/>
+    <text x="50" y="70.8" text-anchor="middle" fill="#f3efe7" font-family="Playfair Display" font-style="italic" font-size="46">XF</text>
+  </svg>
+  <p class="brand">XINYUE FENG</p>
+  <div class="words"><h1></h1><p class="sub"></p></div>
+  <p class="tag"></p>
+  <div class="frame"><img alt=""></div>
+  <script>
+    // The warm glow from the top left corner, as on the site's first cards: a soft-cornered ellipse,
+    // full to 0.3 of the way out and gone by 0.9, from #2d2413 to the page's #121212.
+    (function () {
+      const c = document.querySelector('canvas').getContext('2d');
+      const img = c.createImageData(1200, 630);
+      const smooth = (t) => t * t * (3 - 2 * t);
+      for (let y = 0; y < 630; y++) {
+        for (let x = 0; x < 1200; x++) {
+          const d = Math.cbrt((x / 1200) ** 3 + (y / 625) ** 3);
+          const g = 1 - smooth(Math.min(1, Math.max(0, (d - 0.3) / 0.6)));
+          const i = (y * 1200 + x) * 4;
+          img.data[i] = 18 + 27 * g;
+          img.data[i + 1] = 18 + 18 * g;
+          img.data[i + 2] = 18 + g;
+          img.data[i + 3] = 255;
+        }
+      }
+      c.putImageData(img, 0, 0);
+    })();
+
+    // card: { title: ['LINE', ...], sub: 'italic line', tag: 'A · B · C', picture: 'url' }
+    window.render = async function (card) {
+      document.querySelector('h1').innerHTML = card.title.map((l) => l.replace(/&/g, '&amp;').replace(/</g, '&lt;')).join('<br>');
+      document.querySelector('.sub').textContent = card.sub;
+      document.querySelector('.tag').textContent = card.tag;
+      const img = document.querySelector('.frame img');
+      img.src = card.picture;
+      await img.decode();
+      await document.fonts.ready;
+    };
+  </script>
+</body>
+</html>
