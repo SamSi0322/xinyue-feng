@@ -172,8 +172,7 @@ figcaption { margin-top: 1.5mm; font: italic 400 7.2pt/1.4 var(--serif); color: 
 .grid4 { display: grid; grid-template-columns: repeat(4, 1fr); gap: 4mm 5mm; margin-bottom: 5mm; }
 .row4 { display: grid; grid-template-columns: repeat(4, 1fr); gap: 5mm; margin-bottom: 6mm; }
 .grid2 img, .grid4 img, .row4 img { width: 100%; aspect-ratio: 16 / 9; object-fit: cover; border: 1px solid var(--rule); }
-.poster { margin-top: 4mm; }
-.poster img { height: 66mm; width: auto; border: 1px solid var(--rule); }
+.shot { margin-top: 4mm; }
 img.pixel { image-rendering: pixelated; }
 .play { position: relative; display: block; }
 .play::after {

@@ -6,11 +6,8 @@
   <title>Play with AI — Tic-Tac-Toe · Xinyue (Lily) Feng</title>
   <meta name="description" content="Tic-tac-toe against three AIs: a mostly random player, Lily’s original rule-based AI, and an unbeatable minimax search. Switch on “Show AI thinking” to see how it scores every square." />
   <meta name="author" content="Xinyue (Lily) Feng" />
-  <meta name="color-scheme" content="dark" />
-  <meta name="theme-color" content="#121212" />
-  <meta property="og:type" content="website" />
-  <meta property="og:title" content="Play with AI — Tic-Tac-Toe" />
-  <meta property="og:description" content="Three AI opponents, from coin-flip to unbeatable minimax, with a live view of the AI’s thinking." />
+  <meta name="color-scheme" content="light dark" />
+  <meta name="theme-color" content="#fbf7f0" />
   <link rel="icon" href="favicon.svg" type="image/svg+xml" />
   <meta property="og:type" content="website" />
   <meta property="og:title" content="Tic-Tac-Toe vs. AI" />
@@ -20,8 +17,8 @@
   <meta property="og:image:width" content="1200" />
   <meta property="og:image:height" content="630" />
   <meta name="twitter:card" content="summary_large_image" />
-  <link rel="preload" href="fonts/playfair-display-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin />
-  <link rel="preload" href="fonts/ibm-plex-mono-latin-500-normal.woff2" as="font" type="font/woff2" crossorigin />
+  <link rel="preload" href="fonts/fusion-pixel-latin.woff2" as="font" type="font/woff2" crossorigin />
+  <link rel="preload" href="fonts/ibm-plex-sans-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin />
   <link rel="stylesheet" href="fonts/fonts.css" />
   <link rel="stylesheet" href="style.css" />
   <script>
@@ -33,7 +30,7 @@
         if (light) document.documentElement.setAttribute("data-theme", "light");
         else document.documentElement.removeAttribute("data-theme");
         var meta = document.querySelector('meta[name="theme-color"]');
-        if (meta) meta.content = light ? "#f7f3ec" : "#121212";
+        if (meta) meta.content = light ? "#fbf7f0" : "#191613";
       }
       try { apply(localStorage.getItem("theme")); } catch (e) { apply(null); /* storage blocked: the light default */ }
       window.addEventListener("storage", function (event) {

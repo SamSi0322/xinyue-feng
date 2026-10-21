@@ -3,12 +3,11 @@
 <head>
   <meta charset="utf-8">
   <title>Social card</title>
-  <!-- The 1200×630 card a case-study page shares (og:image). make-og.mjs opens this page, calls render() with
-       the card's words and picture, and saves a screenshot to site/assets/img/og/<slug>.jpg. -->
+  <!-- The 1200×630 card a page shares (og:image), in the site's own look: ink on warm paper, names in the pixel font.
+       make-og.mjs opens this page, calls render() with the card's words and picture, and saves a screenshot. -->
   <style>
-    @font-face { font-family: "Playfair Display"; font-style: normal; font-weight: 400 900; src: url("../../site/assets/fonts/playfair-display-latin-wght-normal.woff2") format("woff2"); }
-    @font-face { font-family: "Playfair Display"; font-style: italic; font-weight: 400 900; src: url("../../site/assets/fonts/playfair-display-latin-wght-italic.woff2") format("woff2"); }
-    @font-face { font-family: "IBM Plex Mono"; font-style: normal; font-weight: 500; src: url("../../site/assets/fonts/ibm-plex-mono-latin-500-normal.woff2") format("woff2"); }
+    @font-face { font-family: "Fusion Pixel Latin"; font-style: normal; font-weight: 400; src: url("../../site/assets/fonts/fusion-pixel-latin.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Sans"; font-style: normal; font-weight: 100 700; src: url("../../site/assets/fonts/ibm-plex-sans-latin-wght-normal.woff2") format("woff2"); }
 
     html, body, h1, p { margin: 0; }
     body {
@@ -16,80 +15,98 @@
       width: 1200px;
       height: 630px;
       overflow: hidden;
-      background: #121212;
-      color: #f3efe7;
+      background: #fbf7f0;
+      color: #2a2420;
+      font-family: "IBM Plex Sans", sans-serif;
+      -webkit-font-smoothing: antialiased;
     }
-    canvas { position: absolute; inset: 0; }
-    .seal { position: absolute; left: 64px; top: 56px; width: 45px; height: 45px; }
-    .brand {
-      position: absolute; left: 125px; top: 71px;
-      font: 500 15px/18px "IBM Plex Mono", monospace;
-      letter-spacing: 0.08em;
+    /* The pixel font is drawn 12 pixels tall: only whole multiples of that stay sharp. */
+    .brand, h1 {
+      font-family: "Fusion Pixel Latin", sans-serif;
+      font-weight: 400;
+      font-synthesis: none;
     }
-    .words { position: absolute; left: 64px; top: 158px; width: 520px; }
-    h1 {
-      margin: 0;
-      font: 700 63px/72px "Playfair Display", serif;
-      text-transform: uppercase;
-    }
-    .sub { margin-top: 6px; font: italic 400 28.5px/38px "Playfair Display", serif; }
-    .tag {
-      position: absolute; left: 65px; top: 551px;
-      font: 500 15px/18px "IBM Plex Mono", monospace;
-      letter-spacing: 0.5px;
-      color: #d6a23e;
-      text-transform: uppercase;
-    }
+    .brand { position: absolute; left: 64px; top: 38px; font-size: 24px; line-height: 24px; }
+    .rule { position: absolute; left: 0; right: 0; top: 96px; height: 1px; background: #e3d9ca; }
+    .words { position: absolute; left: 64px; top: 150px; width: 480px; }
+    h1 span { display: block; white-space: nowrap; }
+    .sub { margin-top: 22px; font-size: 27px; line-height: 38px; font-weight: 500; color: #5d534a; }
+    .tag { position: absolute; left: 64px; top: 546px; font-size: 20px; line-height: 26px; color: #685e54; }
     .frame {
-      position: absolute; left: 620px; top: 105px;
-      width: 518px; height: 418px;
-      border: 1px solid rgba(243, 239, 231, 0.3);
+      position: absolute; left: 616px; top: 150px;
+      width: 520px; height: 420px;
+      background: #e9e1d3;
+      box-shadow: 0 0 0 1px rgba(42, 36, 32, 0.1);
       overflow: hidden;
     }
     .frame img { display: block; width: 100%; height: 100%; object-fit: cover; }
+
+    /* The home page's card: the name, the first lines of the page, and the row of hearts it opens with. */
+    .home .brand, .home .rule, .home .frame, .home .tag { display: none; }
+    .home .words { top: 108px; width: 1072px; }
+    .home .sub { margin-top: 26px; max-width: 900px; font-size: 32px; line-height: 44px; font-weight: 400; color: #2a2420; }
+    .home .meta { margin-top: 14px; font-size: 22px; line-height: 30px; color: #5d534a; }
+    .parade { position: absolute; left: 0; top: 446px; width: 1200px; height: 120px; }
+    .parade img { position: absolute; width: 60px; height: 60px; image-rendering: pixelated; }
+    body:not(.home) .parade, body:not(.home) .meta { display: none; }
   </style>
 </head>
 <body>
-  <canvas width="1200" height="630"></canvas>
-  <svg class="seal" viewBox="0 0 100 100" fill="none" aria-hidden="true">
-    <circle cx="50" cy="50" r="47.7" stroke="#e9bd62" stroke-width="4.5"/>
-    <text x="50" y="70.8" text-anchor="middle" fill="#f3efe7" font-family="Playfair Display" font-style="italic" font-size="46">XF</text>
-  </svg>
-  <p class="brand">XINYUE FENG</p>
-  <div class="words"><h1></h1><p class="sub"></p></div>
+  <p class="brand">Xinyue Feng</p>
+  <div class="rule"></div>
+  <div class="words"><h1></h1><p class="sub"></p><p class="meta"></p></div>
   <p class="tag"></p>
   <div class="frame"><img alt=""></div>
+  <div class="parade"></div>
   <script>
-    // The warm glow from the top left corner, as on the site's first cards: a soft-cornered ellipse,
-    // full to 0.3 of the way out and gone by 0.9, from #2d2413 to the page's #121212.
-    (function () {
-      const c = document.querySelector('canvas').getContext('2d');
-      const img = c.createImageData(1200, 630);
-      const smooth = (t) => t * t * (3 - 2 * t);
-      for (let y = 0; y < 630; y++) {
-        for (let x = 0; x < 1200; x++) {
-          const d = Math.cbrt((x / 1200) ** 3 + (y / 625) ** 3);
-          const g = 1 - smooth(Math.min(1, Math.max(0, (d - 0.3) / 0.6)));
-          const i = (y * 1200 + x) * 4;
-          img.data[i] = 18 + 27 * g;
-          img.data[i + 1] = 18 + 18 * g;
-          img.data[i + 2] = 18 + g;
-          img.data[i + 3] = 255;
-        }
-      }
-      c.putImageData(img, 0, 0);
-    })();
+    const sprites = '../../site/assets/img/pixel/';
 
-    // card: { title: ['LINE', ...], sub: 'italic line', tag: 'A · B · C', picture: 'url' }
+    // card: { title: ['Line', ...], sub, tag, picture } or, for the home page, { home: true, title: ['Name'], sub, meta }
     window.render = async function (card) {
-      document.querySelector('h1').innerHTML = card.title.map((l) => l.replace(/&/g, '&amp;').replace(/</g, '&lt;')).join('<br>');
+      document.body.classList.toggle('home', !!card.home);
+      const h1 = document.querySelector('h1');
+      h1.replaceChildren(...card.title.map((line) => Object.assign(document.createElement('span'), { textContent: line })));
       document.querySelector('.sub').textContent = card.sub;
-      document.querySelector('.tag').textContent = card.tag;
-      const img = document.querySelector('.frame img');
-      img.src = card.picture;
-      await img.decode();
+      document.querySelector('.meta').textContent = card.meta || '';
+      document.querySelector('.tag').textContent = card.tag || '';
+      const waits = [];
+      if (card.home) {
+        waits.push(...parade());
+      } else {
+        const img = document.querySelector('.frame img');
+        img.src = card.picture;
+        waits.push(img.decode());
+      }
+      await document.fonts.load('72px "Fusion Pixel Latin"');
+      await document.fonts.load('500 27px "IBM Plex Sans"');
+      await Promise.all(waits);
       await document.fonts.ready;
+      // The largest sharp size (a multiple of 12) at which the widest line fits.
+      const room = h1.parentElement.clientWidth;
+      for (const size of card.home ? [96, 84, 72] : [72, 60, 48]) {
+        h1.style.fontSize = `${size}px`;
+        h1.style.lineHeight = `${size + size / 6}px`;
+        if (Math.max(...[...h1.children].map((s) => s.getBoundingClientRect().width)) <= room) break;
+      }
     };
+
+    // Whole hearts across the card, Edgeworth walking along them and Winston Payne ahead of him, as on the home page.
+    function parade() {
+      const box = document.querySelector('.parade');
+      const add = (name, x, y) => {
+        const im = Object.assign(new Image(), { src: `${sprites}${name}.png`, alt: '' });
+        im.style.left = `${x}px`;
+        im.style.top = `${y}px`;
+        box.append(im);
+        return im.decode();
+      };
+      const hearts = Math.floor(1072 / 60);
+      const x0 = Math.round((1200 - hearts * 60) / 2);
+      const waits = [];
+      for (let i = 0; i < hearts; i++) waits.push(add('ob10', x0 + i * 60, 60));
+      waits.push(add('2', x0 + 4 * 60, 0), add('Winston1', x0 + 12 * 60, 0));
+      return waits;
+    }
   </script>
 </body>
 </html>
