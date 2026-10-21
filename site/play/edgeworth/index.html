@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <title>The Adventures of Edgeworth — play in the browser</title>
   <meta name="description" content="An Ace Attorney fan platformer by Xinyue (Lily) Feng, originally written in Java Swing and ported to the browser. Six levels, hand-drawn pixel sprites.">
-  <meta name="theme-color" content="#121212">
+  <meta name="theme-color" content="#fbf7f0">
   <link rel="icon" type="image/png" href="assets/img/ob12.png">
   <meta property="og:type" content="website">
   <meta property="og:title" content="The Adventures of Edgeworth: play in the browser">
@@ -16,8 +16,27 @@
   <meta property="og:image:height" content="630">
   <meta name="twitter:card" content="summary_large_image">
   <link rel="preload" href="fonts/press-start-2p-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="fonts/fusion-pixel-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="fonts/ibm-plex-sans-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="fonts/fonts.css">
   <link rel="stylesheet" href="style.css">
+  <script>
+    // The portfolio's theme choice (same site, same storage), applied before the first paint and kept
+    // in sync when it changes in another tab or on the case study this page is embedded in.
+    (function () {
+      function apply(theme) {
+        var dark = theme === "dark";
+        if (dark) document.documentElement.setAttribute("data-theme", "dark");
+        else document.documentElement.removeAttribute("data-theme");
+        var meta = document.querySelector('meta[name="theme-color"]');
+        if (meta) meta.content = dark ? "#191613" : "#fbf7f0";
+      }
+      try { apply(localStorage.getItem("theme")); } catch (e) { apply(null); /* storage blocked: paper */ }
+      window.addEventListener("storage", function (event) {
+        if (event.key === "theme") apply(event.newValue);
+      });
+    })();
+  </script>
   <script type="module" src="game.js"></script>
 </head>
 <body>
@@ -133,10 +152,8 @@
     </div>
 
     <div class="note">
-      <h2>About this edition</h2>
+      <h2>About the game</h2>
       <p>Xinyue (Lily) Feng made the game in Java Swing for CPS 2231 at Wenzhou-Kean University (April–May 2024). She laid the levels out on a grid in Excel and made the sprites in Aseprite, based on characters from the <em>Ace Attorney</em> games.</p>
-      <p>This web edition ports her game logic from Java to JavaScript and the HTML canvas, keeping the movement speeds, jump timing, collision rules and all six levels unchanged. It also solves two problems she described in her project report: the forest background is now animated, and sound effects play once, on cue.</p>
-      <p class="small">Also changed: after a death, a level now resets cleanly (the original duplicated defeated enemies), and two sprites she drew that the original never showed, a fallen Edgeworth and a knocked-out Winston, now appear in play.</p>
     </div>
 
     <div class="note note--credits">
