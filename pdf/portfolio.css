@@ -160,6 +160,7 @@ figcaption { margin-top: 1.5mm; font: italic 400 7.2pt/1.4 var(--serif); color: 
 
 .stats--grid { display: grid; grid-template-columns: repeat(3, 1fr); align-self: start; border-top: 1px solid var(--rule-strong); }
 .stats--grid > div { padding: 2.6mm 0; border-bottom: 1px solid var(--rule); }
+.stats--four { grid-template-columns: repeat(4, 1fr); }
 .stats b { display: block; font: 700 19pt/1 var(--serif); }
 .stats span { display: block; margin-top: 1.2mm; font: 500 5.6pt/1.35 var(--mono); letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted); }
 .stats--one { margin: 4mm 0; padding: 3mm 0; border-top: 1px solid var(--rule-strong); border-bottom: 1px solid var(--rule); }
@@ -223,7 +224,7 @@ pre { margin: 1mm 0 0; padding: 2.6mm 3mm; overflow: hidden; background: var(--c
 /* Recipe Remix */
 .row3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 6mm; margin-bottom: 6mm; }
 .row3 img { width: 100%; aspect-ratio: 1; object-fit: cover; border: 1px solid var(--rule); }
-.rr__text { display: grid; grid-template-columns: repeat(4, 1fr); gap: 7mm; }
+.rr__text { display: grid; grid-template-columns: repeat(3, 1fr); gap: 7mm; }
 .rr__text h3 { margin-top: 0; }
 .rr__text p { font-size: 8.3pt; line-height: 1.47; }
 .rr__text .note { grid-column: 1 / -1; margin: 0; }

@@ -50,16 +50,16 @@
   <main id="main">
     <header class="case-hero wrap">
       <a class="crumb label" href="../../#work"><span aria-hidden="true">←</span> All work</a>
-      <p class="label label--gold">06 · Game AI · Unit 10 “Play with AI” · April 2026</p>
+      <p class="label label--gold">06 · Game AI · April 2026</p>
       <h1 class="display">Tic-Tac-Toe vs. AI</h1>
-      <p class="lede">A small browser game made for a class unit on playing against AI, since extended into a side-by-side comparison of three opponents: one that plays loosely, one that follows five fixed rules, and one that searches ahead to the end of the game and never loses.</p>
+      <p class="lede">A browser game with three computer opponents: one that plays loosely, one that follows five fixed rules, and one that searches ahead to the end of the game and never loses. Switch on “Show AI thinking” to watch it weigh every square.</p>
       <div class="buttons">
         <a class="btn btn--solid" href="../../play/tic-tac-toe/"><span aria-hidden="true">▶</span> Play full screen</a>
         <a class="btn" href="https://github.com/SamSi0322/xinyue-feng/tree/main/projects/tic-tac-toe">Source code <span aria-hidden="true">↗</span></a>
       </div>
       <dl class="facts">
-        <div><dt class="label">Role</dt><dd>Solo: design and code. The 2026 extension was built with AI coding tools.</dd></div>
-        <div><dt class="label">Timeline</dt><dd>April 2026, extended for this portfolio</dd></div>
+        <div><dt class="label">Role</dt><dd>Solo: the original game and its rule-based AI. The 2026 portfolio edition (Easy and Hard, “Show AI thinking” and a new design) was built with AI coding tools.</dd></div>
+        <div><dt class="label">Timeline</dt><dd>April 2026</dd></div>
         <div><dt class="label">Context</dt><dd>Unit 10 class activity, “Play with AI”</dd></div>
         <div><dt class="label">Built with</dt><dd>HTML, CSS, JavaScript; no libraries</dd></div>
       </dl>
@@ -73,15 +73,15 @@
             <span><span aria-hidden="true">▶</span> Play here</span>
           </button>
         </div>
-        <figcaption>The game, embedded. Pick a difficulty, then switch on “Show AI thinking” to see how it scores every square.</figcaption>
+        <figcaption>Pick a difficulty, then switch on “Show AI thinking” to see how it scores every square.</figcaption>
       </figure>
     </div>
 
     <div class="wrap story">
       <section class="chapter reveal">
-        <h2 id="t-orig" class="label">The original</h2>
+        <h2 id="t-orig" class="label">Her rule-based AI</h2>
         <div class="prose">
-          <p>For the class activity “Play with AI,” Xinyue (Lily) Feng built a browser game against a computer opponent with five rules, checked in order: win if it can, block you if you’re about to win, take the center, take a free corner, otherwise take a side.</p>
+          <p>Xinyue (Lily) Feng’s opponent plays by five rules, checked in order: win if it can, block you if you’re about to win, take the center, take a free corner, otherwise take a side.</p>
 <!-- [html-validate-disable-next prefer-native-element -- a scrollable pre must be a named, focusable region] -->
 <pre tabindex="0" role="region" aria-label="JavaScript code: rules 3 and 4 of the original getBestMove()"><code><span class="c">// 3. Take center</span>
 <span class="k">if</span> (board[4] === <span class="k">""</span>) {
@@ -91,8 +91,8 @@
 <span class="c">// 4. Take a corner</span>
 <span class="k">const</span> corners = [0, 2, 6, 8];
 <span class="k">const</span> availableCorners = corners.filter(index =&gt; board[index] === <span class="k">""</span>);</code></pre>
-          <p class="caption">From her original <code>getBestMove()</code>, which the game still uses as its Medium opponent.</p>
-          <p>It plays sensibly and is fun to beat, and it <em>can</em> be beaten. Take a corner; when it takes the center, take the opposite corner. Its next move is always a corner, which threatens a line; block it, and your block creates a <strong>fork</strong>: two lines that each need one more X. It can only block one of them.</p>
+          <p class="caption">From her <code>getBestMove()</code>, the Medium opponent.</p>
+          <p>It plays sensibly, but it <em>can</em> be beaten. Take a corner; when it takes the center, take the opposite corner. Its next move is always a corner, which threatens a line; block it, and your block creates a <strong>fork</strong>: two lines that each need one more X. It can only block one of them.</p>
         </div>
       </section>
 
@@ -100,9 +100,9 @@
         <h2 id="t-three" class="label">Three opponents</h2>
         <div class="prose">
           <ul>
-            <li><strong>Easy</strong> mostly picks a random free square, but grabs a winning move about half the time, so it still feels like it’s trying.</li>
-            <li><strong>Medium</strong> is her original rule-based AI, kept rule for rule; a test checks that it makes the same move as the untouched original in every reachable position.</li>
-            <li><strong>Hard</strong> uses minimax. On each turn it searches ahead to the end of the game, assumes you will always make your best move, and picks the move with the best guaranteed result, preferring faster wins. Alpha-beta pruning skips branches that can’t change the answer, so each search takes a few milliseconds. The best you can do against it is a draw.</li>
+            <li><strong>Easy</strong> mostly picks a random free square, but pounces on a win about half the time.</li>
+            <li><strong>Medium</strong> plays by her five rules.</li>
+            <li><strong>Hard</strong> uses minimax. On each turn it searches ahead to the end of the game, assumes you will always make your best move, and picks the move with the best guaranteed result, preferring faster wins. Alpha-beta pruning skips branches that can’t change the answer, so each search takes a few milliseconds. The best you can do against it is a draw: in all 16,752 possible games, it never loses.</li>
           </ul>
         </div>
       </section>
@@ -110,22 +110,8 @@
       <section class="chapter reveal">
         <h2 id="t-explain" class="label">Seeing the AI think</h2>
         <div class="prose">
-          <p>With “Show AI thinking” switched on, every empty square shows the minimax verdict for it, from the computer’s side: a forced win, a draw, or a square that would let you win. It makes the algorithm visible. You can watch a move go from “draw” to “loss” for the AI the moment you set up a fork, and see why Medium’s corner move is a mistake.</p>
+          <p>With “Show AI thinking” switched on, every empty square shows the minimax verdict for it, from the computer’s side: a forced win, a draw, or a square that would let you win. You can watch a move go from “draw” to “loss” for the AI the moment you set up a fork, and see why Medium’s corner move is a mistake.</p>
           <p>After each AI move, a short note says which of Lily’s rules it just followed, or how minimax chose, and points out when the move was a mistake.</p>
-        </div>
-      </section>
-
-      <section class="chapter reveal">
-        <h2 id="t-2026" class="label">Portfolio edition · 2026</h2>
-        <div class="prose">
-          <p>The game was extended for this portfolio with AI coding tools. Her rule-based AI and the original files are kept in the repository; the additions are:</p>
-          <ul>
-            <li>Easy and Hard opponents, a choice of who moves first, and separate scores for each difficulty.</li>
-            <li>The “Show AI thinking” overlay, a note explaining each AI move, and a short explainer for each strategy.</li>
-            <li>A redesign that matches this site, with drawn-on X and O marks and an animated winning line.</li>
-            <li>Full keyboard play and screen-reader labels for every square.</li>
-            <li>Automated tests, including an exhaustive check that Hard never loses: they play all 16,752 possible games against it (6,112 with you moving first, 10,640 with the AI first).</li>
-          </ul>
         </div>
       </section>
     </div>
@@ -139,7 +125,7 @@
   <footer class="site-footer">
     <div class="wrap">
       <p>© 2026 Xinyue Feng</p>
-      <p>Fan projects are non-commercial and not affiliated with the rights holders. This site and the 2026 portfolio updates were built with AI coding tools, and each project page says how the project itself was made.</p>
+      <p>This site and the 2026 updates to the older projects were built with AI coding tools.</p>
     </div>
   </footer>
 </body>

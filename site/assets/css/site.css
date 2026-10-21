@@ -1065,7 +1065,7 @@ img.pixelated,
 
 .stats {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+  grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 1px;
   margin: 1.6em 0;
   border: 1px solid var(--rule);
@@ -1075,6 +1075,17 @@ img.pixelated,
 .stats div {
   padding: 18px 16px;
   background: var(--bg);
+}
+
+/* Rows of three (six numbers) or four, so no cell is left empty. */
+@media (min-width: 600px) {
+  .stats {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .stats--4 {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
 }
 
 .stats b {
