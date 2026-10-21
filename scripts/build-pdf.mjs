@@ -9,7 +9,8 @@
 //
 // Chromium keeps a JPEG as it is in a PDF but stores any other picture uncompressed-then-zipped, which made the
 // first build 34 MB. So before printing, each large picture is redrawn as a JPEG no bigger than its place on the
-// page needs (DPI below): small sprites, pixel-scaled pictures and the SVG seal are left alone.
+// page needs (DPI below). Pixel art (image-rendering: pixelated) is never smoothed: PDF viewers blur a small
+// picture they scale up, so pixel art drawn at under 300 dpi is enlarged by a whole number first (PIXEL_DPI).
 import { chromium } from 'playwright';
 import { fileURLToPath } from 'node:url';
 import { existsSync, statSync } from 'node:fs';
@@ -17,6 +18,7 @@ import path from 'node:path';
 
 const DPI = 200;
 const QUALITY = 0.86;
+const PIXEL_DPI = 600;
 
 const here = path.dirname(fileURLToPath(import.meta.url));
 const root = path.join(here, '..');
@@ -62,7 +64,7 @@ try {
   problems.push(...clipped);
   if (problems.length) throw new Error(problems.join('\n'));
 
-  const saved = await page.evaluate(async ({ dpi, quality }) => {
+  const saved = await page.evaluate(async ({ dpi, quality, pixelDpi }) => {
     const uses = new Map();
     for (const img of document.images) {
       const r = img.getBoundingClientRect();
@@ -76,7 +78,27 @@ try {
     const report = [];
     for (const [src, { scale, imgs }] of uses) {
       const img = imgs[0];
-      if (/\.svg$/i.test(src) || img.naturalWidth < 600 || imgs.some((i) => getComputedStyle(i).imageRendering === 'pixelated')) continue;
+      const was = `${src.split('/').slice(-2).join('/')} ${img.naturalWidth}px`;
+      if (/\.svg$/i.test(src)) continue;
+      if (imgs.some((i) => getComputedStyle(i).imageRendering === 'pixelated')) {
+        if (96 / scale >= 300) continue;
+        const k = Math.ceil(scale * pixelDpi / 96);
+        const canvas = document.createElement('canvas');
+        canvas.width = img.naturalWidth * k;
+        canvas.height = img.naturalHeight * k;
+        const ctx = canvas.getContext('2d');
+        ctx.imageSmoothingEnabled = false;
+        ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
+        const png = canvas.toDataURL('image/png');
+        for (const i of imgs) {
+          i.removeAttribute('srcset');
+          i.src = png;
+        }
+        await Promise.all(imgs.map((i) => i.decode()));
+        report.push(`${was} -> ${canvas.width}px (pixel art, x${k})`);
+        continue;
+      }
+      if (img.naturalWidth < 600) continue;
       const w = Math.min(img.naturalWidth, Math.ceil(img.naturalWidth * scale * dpi / 96));
       const h = Math.round(img.naturalHeight * w / img.naturalWidth);
       const canvas = document.createElement('canvas');
@@ -91,11 +113,12 @@ try {
         i.src = jpeg;
       }
       await Promise.all(imgs.map((i) => i.decode()));
-      report.push(`${src.split('/').slice(-2).join('/')} ${img.naturalWidth}px -> ${w}px`);
+      report.push(`${was} -> ${w}px`);
     }
     return report;
-  }, { dpi: DPI, quality: QUALITY });
-  console.log(`${saved.length} pictures redrawn as JPEG for print`);
+  }, { dpi: DPI, quality: QUALITY, pixelDpi: PIXEL_DPI });
+  console.log(`${saved.length} pictures redrawn for print`);
+  if (process.env.VERBOSE) console.log(saved.join('\n'));
 
   await page.pdf({ path: out, preferCSSPageSize: true, printBackground: true, tagged: true, outline: true });
   const pages = await page.evaluate(() => document.querySelectorAll('.page').length);
