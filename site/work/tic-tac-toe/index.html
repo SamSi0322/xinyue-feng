@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Tic-Tac-Toe vs. AI — Xinyue Feng</title>
   <meta name="description" content="A browser tic-tac-toe game with three AI opponents: a mostly random player, a rule-based AI and an unbeatable minimax search, with an overlay that shows how the AI scores each move.">
-  <meta name="theme-color" content="#121212">
+  <meta name="theme-color" content="#fbf7f0">
   <link rel="icon" href="../../favicon.ico" sizes="48x48">
   <link rel="icon" href="../../favicon.svg" type="image/svg+xml">
   <link rel="canonical" href="https://samsi0322.github.io/xinyue-feng/work/tic-tac-toe/">
@@ -21,47 +21,43 @@
   <meta name="twitter:image:alt" content="Tic-Tac-Toe vs. AI: a board showing the AI’s minimax scores">
   <meta name="twitter:card" content="summary_large_image">
   <link rel="apple-touch-icon" href="../../assets/brand/apple-touch-icon.png">
-  <link rel="preload" href="../../assets/fonts/playfair-display-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="../../assets/fonts/fusion-pixel-latin.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="../../assets/fonts/ibm-plex-sans-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="../../assets/fonts/fonts.css">
   <link rel="stylesheet" href="../../assets/css/site.css">
-  <script>(function(d){d.classList.add('js');try{if(localStorage.getItem('theme')==='light'){d.setAttribute('data-theme','light');document.querySelector('meta[name="theme-color"]').content='#f7f3ec'}}catch(e){}setTimeout(function(){if(!window.__siteReady)d.classList.remove('js')},3000)})(document.documentElement);</script>
+  <script>(function(d){d.classList.add('js');try{if(localStorage.getItem('theme')==='dark'){d.setAttribute('data-theme','dark');document.querySelector('meta[name="theme-color"]').content='#191613'}}catch(e){}setTimeout(function(){if(!window.__siteReady)d.classList.remove('js')},3000)})(document.documentElement);</script>
   <script type="module" src="../../assets/js/site.js"></script>
 </head>
 <body>
   <a class="skip" href="#main">Skip to content</a>
   <header class="site-header">
     <div class="wrap">
-      <a class="brand" href="../../" aria-label="Xinyue Feng, home">
-        <img src="../../assets/brand/seal-light.svg" alt="" width="34" height="34">
-        <span>Xinyue Feng</span>
-      </a>
+      <a class="brand" href="../../" aria-label="Xinyue Feng, home">Xinyue Feng</a>
       <nav aria-label="Main">
         <ul class="nav">
           <li><a href="../../#work" class="is-active">Work</a></li>
           <li><a href="../../about/">About</a></li>
-          <li><a href="../../#contact">Contact</a></li>
-          <li><button class="theme-toggle" type="button" aria-label="Switch to light theme" title="Switch to light theme"><svg class="i-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="4.2"/><path d="M12 2.5v2.2M12 19.3v2.2M2.5 12h2.2M19.3 12h2.2M5.3 5.3l1.6 1.6M17.1 17.1l1.6 1.6M5.3 18.7l1.6-1.6M17.1 6.9l1.6-1.6"/></svg><svg class="i-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round" aria-hidden="true"><path d="M20 14.6A8.2 8.2 0 0 1 9.4 4a8.2 8.2 0 1 0 10.6 10.6z"/></svg></button></li>
+          <li class="nav__contact"><a href="../../#contact">Contact</a></li>
+          <li><button class="theme-toggle" type="button" aria-label="Switch to dark theme" title="Switch to dark theme"><svg class="i-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="4.2"/><path d="M12 2.5v2.2M12 19.3v2.2M2.5 12h2.2M19.3 12h2.2M5.3 5.3l1.6 1.6M17.1 17.1l1.6 1.6M5.3 18.7l1.6-1.6M17.1 6.9l1.6-1.6"/></svg><svg class="i-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round" aria-hidden="true"><path d="M20 14.6A8.2 8.2 0 0 1 9.4 4a8.2 8.2 0 1 0 10.6 10.6z"/></svg></button></li>
         </ul>
       </nav>
     </div>
   </header>
 
   <main id="main">
-    <header class="case-hero wrap">
-      <a class="crumb label" href="../../#work"><span aria-hidden="true">←</span> All work</a>
-      <p class="label label--gold">06 · Game AI · April 2026</p>
-      <h1 class="display">Tic-Tac-Toe vs. AI</h1>
+    <header class="page-head wrap">
+      <a class="crumb" href="../../#work"><span aria-hidden="true">←</span> All work</a>
+      <h1>Tic-Tac-Toe vs. AI</h1>
       <p class="lede">A browser game with three computer opponents: one that plays loosely, one that follows five fixed rules, and one that searches ahead to the end of the game and never loses. Switch on “Show AI thinking” to watch it weigh every square.</p>
-      <div class="buttons">
-        <a class="btn btn--solid" href="../../play/tic-tac-toe/"><span aria-hidden="true">▶</span> Play full screen</a>
-        <a class="btn" href="https://github.com/SamSi0322/xinyue-feng/tree/main/projects/tic-tac-toe">Source code <span aria-hidden="true">↗</span></a>
+      <div class="actions">
+        <a class="button" href="../../play/tic-tac-toe/"><span aria-hidden="true">▶</span> Play full screen</a>
+        <a href="https://github.com/SamSi0322/xinyue-feng/tree/main/projects/tic-tac-toe">Source code <span aria-hidden="true">↗</span></a>
       </div>
       <dl class="facts">
-        <div><dt class="label">Role</dt><dd>Solo: the original game and its rule-based AI. The 2026 portfolio edition (Easy and Hard, “Show AI thinking” and a new design) was built with AI coding tools.</dd></div>
-        <div><dt class="label">Timeline</dt><dd>April 2026</dd></div>
-        <div><dt class="label">Context</dt><dd>Unit 10 class activity, “Play with AI”</dd></div>
-        <div><dt class="label">Built with</dt><dd>HTML, CSS, JavaScript; no libraries</dd></div>
+        <div><dt>Role</dt><dd>Solo: the original game and its rule-based AI. The 2026 portfolio edition (Easy and Hard, “Show AI thinking” and a new design) was built with AI coding tools.</dd></div>
+        <div><dt>Timeline</dt><dd>April 2026</dd></div>
+        <div><dt>Context</dt><dd>Unit 10 class activity, “Play with AI”</dd></div>
+        <div><dt>Built with</dt><dd>HTML, CSS, JavaScript; no libraries</dd></div>
       </dl>
     </header>
 
@@ -69,7 +65,7 @@
       <figure class="showcase">
         <div class="embed embed--tall">
           <button class="embed__poster" type="button" data-src="../../play/tic-tac-toe/?embed=1" data-small-href="../../play/tic-tac-toe/" data-title="Tic-Tac-Toe vs. AI">
-            <img fetchpriority="high" src="../../assets/img/ttt/cover.webp" srcset="../../assets/img/ttt/cover-800.webp 800w, ../../assets/img/ttt/cover.webp 1600w" sizes="(max-width: 1232px) calc(100vw - 32px), 1200px" alt="" width="1600" height="1000">
+            <img fetchpriority="high" src="../../assets/img/ttt/cover.webp" srcset="../../assets/img/ttt/cover-800.webp 800w, ../../assets/img/ttt/cover.webp 1600w" sizes="(max-width: 1160px) calc(100vw - 32px), 1080px" alt="" width="1600" height="1000">
             <span><span aria-hidden="true">▶</span> Play here</span>
           </button>
         </div>
@@ -78,8 +74,8 @@
     </div>
 
     <div class="wrap story">
-      <section class="chapter reveal">
-        <h2 id="t-orig" class="label">Her rule-based AI</h2>
+      <section class="chapter">
+        <h2 id="t-orig">Her rule-based AI</h2>
         <div class="prose">
           <p>Xinyue (Lily) Feng’s opponent plays by five rules, checked in order: win if it can, block you if you’re about to win, take the center, take a free corner, otherwise take a side.</p>
 <!-- [html-validate-disable-next prefer-native-element -- a scrollable pre must be a named, focusable region] -->
@@ -96,8 +92,8 @@
         </div>
       </section>
 
-      <section class="chapter reveal">
-        <h2 id="t-three" class="label">Three opponents</h2>
+      <section class="chapter">
+        <h2 id="t-three">Three opponents</h2>
         <div class="prose">
           <ul>
             <li><strong>Easy</strong> mostly picks a random free square, but pounces on a win about half the time.</li>
@@ -107,8 +103,8 @@
         </div>
       </section>
 
-      <section class="chapter reveal">
-        <h2 id="t-explain" class="label">Seeing the AI think</h2>
+      <section class="chapter">
+        <h2 id="t-explain">Seeing the AI think</h2>
         <div class="prose">
           <p>With “Show AI thinking” switched on, every empty square shows the minimax verdict for it, from the computer’s side: a forced win, a draw, or a square that would let you win. You can watch a move go from “draw” to “loss” for the AI the moment you set up a fork, and see why Medium’s corner move is a mistake.</p>
           <p>After each AI move, a short note says which of Lily’s rules it just followed, or how minimax chose, and points out when the move was a mistake.</p>
@@ -117,14 +113,14 @@
     </div>
 
     <a class="next wrap" href="../yuzu-onsen-capybaras/">
-      <span class="label">Next project</span>
-      <span class="display" style="display:block">Yuzu Onsen Capybaras&nbsp;<span aria-hidden="true">→</span></span>
+      <span class="next__label">Next project</span>
+      <span class="next__title">Yuzu Onsen Capybaras <span aria-hidden="true">→</span></span>
     </a>
   </main>
 
   <footer class="site-footer">
     <div class="wrap">
-      <p>© 2026 Xinyue Feng</p>
+      <p>© 2026 Xinyue Feng · <a href="mailto:lily.china@outlook.com">lily.china@outlook.com</a></p>
       <p>This site and the 2026 updates to the older projects were built with AI coding tools.</p>
     </div>
   </footer>

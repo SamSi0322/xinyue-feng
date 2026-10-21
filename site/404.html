@@ -6,7 +6,7 @@
   <base href="/xinyue-feng/">
   <title>Page not found — Xinyue Feng</title>
   <meta name="robots" content="noindex">
-  <meta name="theme-color" content="#121212">
+  <meta name="theme-color" content="#fbf7f0">
   <link rel="icon" href="favicon.svg" type="image/svg+xml">
   <link rel="stylesheet" href="assets/fonts/fonts.css">
   <link rel="stylesheet" href="assets/css/site.css">
@@ -75,22 +75,19 @@
       });
     })();
   </script>
-  <script>(function(d){d.classList.add('js');try{if(localStorage.getItem('theme')==='light'){d.setAttribute('data-theme','light');document.querySelector('meta[name="theme-color"]').content='#f7f3ec'}}catch(e){}setTimeout(function(){if(!window.__siteReady)d.classList.remove('js')},3000)})(document.documentElement);</script>
+  <script>(function(d){d.classList.add('js');try{if(localStorage.getItem('theme')==='dark'){d.setAttribute('data-theme','dark');document.querySelector('meta[name="theme-color"]').content='#191613'}}catch(e){}setTimeout(function(){if(!window.__siteReady)d.classList.remove('js')},3000)})(document.documentElement);</script>
   <script type="module" src="assets/js/site.js"></script>
 </head>
 <body>
   <header class="site-header">
     <div class="wrap">
-      <a class="brand" href="./" aria-label="Xinyue Feng, home">
-        <img src="assets/brand/seal-light.svg" alt="" width="34" height="34">
-        <span>Xinyue Feng</span>
-      </a>
+      <a class="brand" href="./" aria-label="Xinyue Feng, home">Xinyue Feng</a>
       <nav aria-label="Main">
         <ul class="nav">
           <li><a href="./#work">Work</a></li>
           <li><a href="about/">About</a></li>
-          <li><a href="./#contact">Contact</a></li>
-          <li><button class="theme-toggle" type="button" aria-label="Switch to light theme" title="Switch to light theme"><svg class="i-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="4.2"/><path d="M12 2.5v2.2M12 19.3v2.2M2.5 12h2.2M19.3 12h2.2M5.3 5.3l1.6 1.6M17.1 17.1l1.6 1.6M5.3 18.7l1.6-1.6M17.1 6.9l1.6-1.6"/></svg><svg class="i-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round" aria-hidden="true"><path d="M20 14.6A8.2 8.2 0 0 1 9.4 4a8.2 8.2 0 1 0 10.6 10.6z"/></svg></button></li>
+          <li class="nav__contact"><a href="./#contact">Contact</a></li>
+          <li><button class="theme-toggle" type="button" aria-label="Switch to dark theme" title="Switch to dark theme"><svg class="i-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="4.2"/><path d="M12 2.5v2.2M12 19.3v2.2M2.5 12h2.2M19.3 12h2.2M5.3 5.3l1.6 1.6M17.1 17.1l1.6 1.6M5.3 18.7l1.6-1.6M17.1 6.9l1.6-1.6"/></svg><svg class="i-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round" aria-hidden="true"><path d="M20 14.6A8.2 8.2 0 0 1 9.4 4a8.2 8.2 0 1 0 10.6 10.6z"/></svg></button></li>
         </ul>
       </nav>
     </div>
@@ -98,12 +95,11 @@
   <main class="lost wrap">
     <div>
       <img src="assets/img/pixel/over.png" alt="" width="120" height="120">
-      <p class="label label--gold">404</p>
-      <h1 class="display">Hold it!</h1>
+      <h1>Hold it!</h1>
       <p>This page doesn’t exist. Maybe it was never entered into evidence.</p>
       <p class="lost__hint" hidden>Did you mean <a href="./">the home page</a>?</p>
-      <div class="buttons buttons--center">
-        <a class="btn btn--solid" href="./">Back to the portfolio</a>
+      <div class="actions">
+        <a class="button" href="./">Back to the portfolio</a>
       </div>
     </div>
   </main>

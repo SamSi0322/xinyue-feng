@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Xinyue Feng — games, mods &amp; interactive web</title>
   <meta name="description" content="Portfolio of Xinyue (Lily) Feng, Computer Science student at Kean University: a cozy pixel-art life sim, two Terraria mods, a Java platformer, an AI recipe app and a tic-tac-toe AI.">
-  <meta name="theme-color" content="#121212">
+  <meta name="theme-color" content="#fbf7f0">
   <link rel="icon" href="favicon.ico" sizes="48x48">
   <link rel="icon" href="favicon.svg" type="image/svg+xml">
   <link rel="canonical" href="https://samsi0322.github.io/xinyue-feng/">
@@ -22,11 +22,11 @@
   <meta name="twitter:card" content="summary_large_image">
   <script type="application/ld+json">{"@context": "https://schema.org", "@type": "Person", "name": "Xinyue Feng", "alternateName": "Lily Feng", "url": "https://samsi0322.github.io/xinyue-feng/", "email": "mailto:lily.china@outlook.com", "jobTitle": "Computer Science student", "affiliation": {"@type": "CollegeOrUniversity", "name": "Kean University"}, "knowsAbout": ["Human-computer interaction", "Game development", "Web development", "Java", "JavaScript", "React"]}</script>
   <link rel="apple-touch-icon" href="assets/brand/apple-touch-icon.png">
-  <link rel="preload" href="assets/fonts/playfair-display-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="assets/fonts/fusion-pixel-latin.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="assets/fonts/ibm-plex-sans-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="assets/fonts/fonts.css">
   <link rel="stylesheet" href="assets/css/site.css">
-  <script>(function(d){d.classList.add('js');try{if(localStorage.getItem('theme')==='light'){d.setAttribute('data-theme','light');document.querySelector('meta[name="theme-color"]').content='#f7f3ec'}}catch(e){}setTimeout(function(){if(!window.__siteReady)d.classList.remove('js')},3000)})(document.documentElement);</script>
+  <script>(function(d){d.classList.add('js');try{if(localStorage.getItem('theme')==='dark'){d.setAttribute('data-theme','dark');document.querySelector('meta[name="theme-color"]').content='#191613'}}catch(e){}setTimeout(function(){if(!window.__siteReady)d.classList.remove('js')},3000)})(document.documentElement);</script>
   <script type="module" src="assets/js/site.js"></script>
 </head>
 <body>
@@ -34,201 +34,141 @@
 
   <header class="site-header">
     <div class="wrap">
-      <a class="brand" href="./" aria-label="Xinyue Feng, home">
-        <img src="assets/brand/seal-light.svg" alt="" width="34" height="34">
-        <span>Xinyue Feng</span>
-      </a>
+      <a class="brand" href="./" aria-label="Xinyue Feng, home">Xinyue Feng</a>
       <nav aria-label="Main">
         <ul class="nav">
           <li><a href="#work">Work</a></li>
           <li><a href="about/">About</a></li>
-          <li><a href="#contact">Contact</a></li>
-          <li><button class="theme-toggle" type="button" aria-label="Switch to light theme" title="Switch to light theme"><svg class="i-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="4.2"/><path d="M12 2.5v2.2M12 19.3v2.2M2.5 12h2.2M19.3 12h2.2M5.3 5.3l1.6 1.6M17.1 17.1l1.6 1.6M5.3 18.7l1.6-1.6M17.1 6.9l1.6-1.6"/></svg><svg class="i-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round" aria-hidden="true"><path d="M20 14.6A8.2 8.2 0 0 1 9.4 4a8.2 8.2 0 1 0 10.6 10.6z"/></svg></button></li>
+          <li class="nav__contact"><a href="#contact">Contact</a></li>
+          <li><button class="theme-toggle" type="button" aria-label="Switch to dark theme" title="Switch to dark theme"><svg class="i-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="4.2"/><path d="M12 2.5v2.2M12 19.3v2.2M2.5 12h2.2M19.3 12h2.2M5.3 5.3l1.6 1.6M17.1 17.1l1.6 1.6M5.3 18.7l1.6-1.6M17.1 6.9l1.6-1.6"/></svg><svg class="i-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round" aria-hidden="true"><path d="M20 14.6A8.2 8.2 0 0 1 9.4 4a8.2 8.2 0 1 0 10.6 10.6z"/></svg></button></li>
         </ul>
       </nav>
     </div>
   </header>
 
   <main>
-    <section class="hero" aria-labelledby="name">
-      <div class="hero__inner wrap">
-        <img class="seal" src="assets/brand/seal-light.svg" alt="" width="88" height="88">
-        <h1 id="name" class="display">Xinyue Feng</h1>
-        <p class="hero__role"><span>Computer Science student</span> · <span>HCI &amp; user-centered design</span></p>
-        <p class="hero__lede">I make games and interactive web apps, and I care most about how they feel to use. Kean University, class of 2027.</p>
-        <div class="buttons">
-          <a class="btn btn--solid" href="#work">See the work</a>
-          <a class="btn" href="about/">About me</a>
-          <a class="btn" href="assets/xinyue-feng-portfolio.pdf" download="Xinyue-Feng-Portfolio.pdf">Portfolio PDF <span aria-hidden="true">↓</span></a>
-        </div>
+    <section class="intro wrap" aria-labelledby="name">
+      <h1 id="name" class="name">Xinyue Feng</h1>
+      <p class="intro__lede">I make games and interactive web apps, and I care most about how they feel to use.</p>
+      <p class="intro__meta">Computer Science student at Kean University, class of 2027 · HCI and user-centered design</p>
+      <div class="actions">
+        <a class="button" href="assets/xinyue-feng-portfolio.pdf" download="Xinyue-Feng-Portfolio.pdf">Portfolio (PDF) <span aria-hidden="true">↓</span></a>
+        <a href="mailto:lily.china@outlook.com">lily.china@outlook.com</a>
+        <a href="about/">About me</a>
       </div>
       <div class="parade" aria-hidden="true"><canvas data-sprites="assets/img/pixel/"></canvas></div>
-      <a class="parade__link" href="play/edgeworth/"><span aria-hidden="true">▶</span> Play <span class="long">The Adventures of Edgeworth</span><span class="short">the game</span></a>
+      <a class="parade__link" href="play/edgeworth/"><span aria-hidden="true">▶</span> Play The Adventures of Edgeworth</a>
     </section>
 
-    <section id="work" aria-labelledby="work-title">
-      <div class="wrap section-head">
-        <h2 id="work-title" class="display">Selected work</h2>
-        <p class="label">2024–2026</p>
-      </div>
-
-      <article class="band" aria-labelledby="p-capy">
-        <div class="wrap reveal">
-          <a class="band__media" href="work/yuzu-onsen-capybaras/" tabindex="-1" aria-hidden="true">
-            <img src="assets/img/capy/hot-spring.webp" srcset="assets/img/capy/hot-spring-800.webp 800w, assets/img/capy/hot-spring.webp 1600w" sizes="(max-width: 860px) calc(100vw - 32px), 640px" alt="" width="1600" height="900" loading="lazy">
+    <section id="work" class="section wrap" aria-labelledby="work-title">
+      <h2 id="work-title">Work</h2>
+      <div class="projects">
+        <article class="project" aria-labelledby="p-capy">
+          <a class="project__media" href="work/yuzu-onsen-capybaras/" tabindex="-1" aria-hidden="true">
+            <img src="assets/img/capy/hot-spring.webp" srcset="assets/img/capy/hot-spring-800.webp 800w, assets/img/capy/hot-spring.webp 1600w" sizes="(max-width: 700px) calc(100vw - 32px), 580px" alt="" width="1600" height="900" loading="lazy">
           </a>
-          <div class="band__text">
-            <p class="label label--gold band__num">01 · Pixel-art life sim · 2026</p>
-            <h3 id="p-capy" class="display">Yuzu Onsen Capybaras</h3>
-            <p class="subtitle">A cozy life sim in a hot-spring town</p>
-            <p class="desc">Look after seven capybaras at a pet shop in a little hot-spring town, make friends, grow a garden, explore thirty cave floors and celebrate sixteen festivals through four seasons. I led its development with AI tools.</p>
-            <ul class="tags"><li>JavaScript</li><li>HTML canvas</li><li>Web Audio</li><li>Electron</li><li>Claude Code</li></ul>
-            <div class="buttons">
-              <a class="btn btn--solid" href="https://capybara.sam-si.cn/"><span aria-hidden="true">▶</span> Play the demo<span class="sr-only"> of Yuzu Onsen Capybaras</span> <span aria-hidden="true">↗</span></a>
-              <a class="btn" href="work/yuzu-onsen-capybaras/">View project<span class="sr-only">: Yuzu Onsen Capybaras</span></a>
-            </div>
-            <p class="caption">Play the first winter free in your browser, from Snow Lantern Night to New Year’s Eve.</p>
+          <h3 id="p-capy"><a href="work/yuzu-onsen-capybaras/">Yuzu Onsen Capybaras</a></h3>
+          <p class="project__meta">Pixel-art life sim · 2026</p>
+          <p class="project__desc">Look after seven capybaras at a pet shop in a little hot-spring town, make friends, grow a garden, explore thirty cave floors and celebrate sixteen festivals through four seasons. I led its development with AI tools.</p>
+          <p class="project__stack">JavaScript, HTML canvas, Web Audio, Electron, Claude Code</p>
+          <div class="actions">
+            <a href="https://capybara.sam-si.cn/"><span aria-hidden="true">▶</span> Play the free winter demo<span class="sr-only"> of Yuzu Onsen Capybaras</span> <span aria-hidden="true">↗</span></a>
+            <a href="work/yuzu-onsen-capybaras/">View project<span class="sr-only">: Yuzu Onsen Capybaras</span> <span aria-hidden="true">→</span></a>
           </div>
-        </div>
-      </article>
+        </article>
 
-      <article class="band band--flip" aria-labelledby="p-ow">
-        <div class="wrap reveal">
-          <a class="band__media" href="work/otherworlds/" tabindex="-1" aria-hidden="true">
-            <img src="assets/img/otherworlds/cover.webp" srcset="assets/img/otherworlds/cover-800.webp 800w, assets/img/otherworlds/cover.webp 1600w" sizes="(max-width: 860px) calc(100vw - 32px), 640px" alt="" width="1600" height="900" loading="lazy">
+        <article class="project" aria-labelledby="p-ow">
+          <a class="project__media" href="work/otherworlds/" tabindex="-1" aria-hidden="true">
+            <img src="assets/img/otherworlds/cover.webp" srcset="assets/img/otherworlds/cover-800.webp 800w, assets/img/otherworlds/cover.webp 1600w" sizes="(max-width: 700px) calc(100vw - 32px), 580px" alt="" width="1600" height="900" loading="lazy">
           </a>
-          <div class="band__text">
-            <p class="label label--gold band__num">02 · Terraria mod · In development</p>
-            <h3 id="p-ow" class="display">Otherworlds</h3>
-            <p class="subtitle">A crossover boss mod for Terraria</p>
-            <p class="desc">Thirty-eight bosses from Hollow Knight, Silksong, Dead Cells, Cuphead and The Binding of Isaac come to Terraria with their signature moves, along with weapons and gear from each game. I’m leading its development with AI tools.</p>
-            <ul class="tags"><li>C#</li><li>tModLoader</li><li>Claude Code</li><li>Codex</li></ul>
-            <div class="buttons">
-              <a class="btn btn--solid" href="work/otherworlds/">View project<span class="sr-only">: Otherworlds</span></a>
-            </div>
-            <p class="caption">Parry anything pink, face the Devil on his throne, and drop through a trapdoor to meet Monstro.</p>
+          <h3 id="p-ow"><a href="work/otherworlds/">Otherworlds</a></h3>
+          <p class="project__meta">Terraria mod · In development</p>
+          <p class="project__desc">Thirty-eight bosses from Hollow Knight, Silksong, Dead Cells, Cuphead and The Binding of Isaac come to Terraria with their signature moves, along with weapons and gear from each game. I’m leading its development with AI tools.</p>
+          <p class="project__stack">C#, tModLoader, Claude Code, Codex</p>
+          <div class="actions">
+            <a href="work/otherworlds/">View project<span class="sr-only">: Otherworlds</span> <span aria-hidden="true">→</span></a>
           </div>
-        </div>
-      </article>
+        </article>
 
-      <article class="band" aria-labelledby="p-ww">
-        <div class="wrap reveal">
-          <a class="band__media" href="work/wizarding-world/" tabindex="-1" aria-hidden="true">
-            <img src="assets/img/ww/cover.webp" srcset="assets/img/ww/cover-800.webp 800w, assets/img/ww/cover.webp 1600w" sizes="(max-width: 860px) calc(100vw - 32px), 640px" alt="" width="1600" height="900" loading="lazy">
+        <article class="project" aria-labelledby="p-ww">
+          <a class="project__media" href="work/wizarding-world/" tabindex="-1" aria-hidden="true">
+            <img src="assets/img/ww/cover.webp" srcset="assets/img/ww/cover-800.webp 800w, assets/img/ww/cover.webp 1600w" sizes="(max-width: 700px) calc(100vw - 32px), 580px" alt="" width="1600" height="900" loading="lazy">
           </a>
-          <div class="band__text">
-            <p class="label label--gold band__num">03 · Terraria mod · 2026</p>
-            <h3 id="p-ww" class="display">Wizarding World</h3>
-            <p class="subtitle">A Harry Potter mod for Terraria</p>
-            <p class="desc">Start at Hogwarts with your first wand and fight through 12 bosses, from the Mountain Troll to Lord Voldemort, with 24 wands across 9 spell schools and a Horcrux hunt along the way. I developed it with AI tools.</p>
-            <ul class="tags"><li>C#</li><li>tModLoader</li><li>.NET 8</li><li>Claude Code</li></ul>
-            <div class="buttons">
-              <a class="btn btn--solid" href="work/wizarding-world/">View project<span class="sr-only">: Wizarding World</span></a>
-              <a class="btn" href="https://github.com/SamSi0322/WizardingWorld">GitHub<span class="sr-only"> repository for Wizarding World</span> <span aria-hidden="true">↗</span></a>
-            </div>
-            <p class="caption">Then claim the Deathly Hallows and become Master of Death.</p>
+          <h3 id="p-ww"><a href="work/wizarding-world/">Wizarding World</a></h3>
+          <p class="project__meta">Terraria mod · 2026</p>
+          <p class="project__desc">Start at Hogwarts with your first wand and fight through 12 bosses, from the Mountain Troll to Lord Voldemort, with 24 wands across 9 spell schools and a Horcrux hunt along the way. I developed it with AI tools.</p>
+          <p class="project__stack">C#, tModLoader, .NET 8, Claude Code</p>
+          <div class="actions">
+            <a href="work/wizarding-world/">View project<span class="sr-only">: Wizarding World</span> <span aria-hidden="true">→</span></a>
+            <a href="https://github.com/SamSi0322/WizardingWorld">GitHub<span class="sr-only"> repository for Wizarding World</span> <span aria-hidden="true">↗</span></a>
           </div>
-        </div>
-      </article>
+        </article>
 
-      <article class="band band--flip" aria-labelledby="p-ed">
-        <div class="wrap reveal">
-          <a class="band__media pixel" href="play/edgeworth/" tabindex="-1" aria-hidden="true">
+        <article class="project" aria-labelledby="p-ed">
+          <a class="project__media pixel" href="play/edgeworth/" tabindex="-1" aria-hidden="true">
             <video muted loop playsinline preload="none" poster="assets/video/edgeworth-demo-poster.webp" width="1440" height="960" data-autoplay>
               <source src="assets/video/edgeworth-demo.mp4" type="video/mp4">
             </video>
           </a>
-          <div class="band__text">
-            <p class="label label--gold band__num">04 · Java game · 2024</p>
-            <h3 id="p-ed" class="display">The Adventures of Edgeworth</h3>
-            <p class="subtitle">An Ace Attorney platformer</p>
-            <p class="desc">My 2024 Java game: Miles Edgeworth jumps and stomps his way through six levels of courtroom regulars and “Objection!” blocks. I designed the levels, drew the sprites and wrote the code.</p>
-            <ul class="tags"><li>Java</li><li>Swing</li><li>Multithreading</li><li>Aseprite</li></ul>
-            <div class="buttons">
-              <a class="btn btn--solid" href="play/edgeworth/"><span aria-hidden="true">▶</span> Play<span class="sr-only"> The Adventures of Edgeworth</span></a>
-              <a class="btn" href="work/edgeworth/">View project<span class="sr-only">: The Adventures of Edgeworth</span></a>
-            </div>
-            <p class="caption">Stomp Winston, dodge von Karma, find Gumshoe’s hidden block.</p>
+          <h3 id="p-ed"><a href="work/edgeworth/">The Adventures of Edgeworth</a></h3>
+          <p class="project__meta">Java game · 2024</p>
+          <p class="project__desc">My 2024 Java game: Miles Edgeworth jumps and stomps his way through six levels of courtroom regulars and “Objection!” blocks. I designed the levels, drew the sprites and wrote the code.</p>
+          <p class="project__stack">Java, Swing, multithreading, Aseprite</p>
+          <div class="actions">
+            <a href="play/edgeworth/"><span aria-hidden="true">▶</span> Play<span class="sr-only"> The Adventures of Edgeworth</span></a>
+            <a href="work/edgeworth/">View project<span class="sr-only">: The Adventures of Edgeworth</span> <span aria-hidden="true">→</span></a>
           </div>
-        </div>
-      </article>
+        </article>
 
-      <article class="band" aria-labelledby="p-rr">
-        <div class="wrap reveal">
-          <a class="band__media" href="work/recipe-remix/" tabindex="-1" aria-hidden="true">
-            <img src="assets/img/recipe/cover.webp" srcset="assets/img/recipe/cover-800.webp 800w, assets/img/recipe/cover.webp 1600w" sizes="(max-width: 860px) calc(100vw - 32px), 640px" alt="" width="1600" height="1000" loading="lazy">
+        <article class="project" aria-labelledby="p-rr">
+          <a class="project__media" href="work/recipe-remix/" tabindex="-1" aria-hidden="true">
+            <img src="assets/img/recipe/cover.webp" srcset="assets/img/recipe/cover-800.webp 800w, assets/img/recipe/cover.webp 1600w" sizes="(max-width: 700px) calc(100vw - 32px), 540px" alt="" width="1600" height="1000" loading="lazy">
           </a>
-          <div class="band__text">
-            <p class="label label--gold band__num">05 · Full-stack web · 2026</p>
-            <h3 id="p-rr" class="display">AI Recipe Remix</h3>
-            <p class="subtitle">From leftovers to plated recipes</p>
-            <p class="desc">My February 2026 class project: tell it what’s in your kitchen, your diet and how much time you have, and it suggests three recipes, each with a generated photo of the dish.</p>
-            <ul class="tags"><li>React</li><li>Tailwind CSS</li><li>Express</li><li>OpenAI API</li><li>Vite</li></ul>
-            <div class="buttons">
-              <a class="btn btn--solid" href="play/recipe-remix/">Try the demo<span class="sr-only"> of AI Recipe Remix</span></a>
-              <a class="btn" href="work/recipe-remix/">View project<span class="sr-only">: AI Recipe Remix</span></a>
-            </div>
-            <p class="caption">Most recipe sites start from a dish. This one starts from your fridge.</p>
+          <h3 id="p-rr"><a href="work/recipe-remix/">AI Recipe Remix</a></h3>
+          <p class="project__meta">Full-stack web app · 2026</p>
+          <p class="project__desc">My February 2026 class project: tell it what’s in your kitchen, your diet and how much time you have, and it suggests three recipes, each with a generated photo of the dish.</p>
+          <p class="project__stack">React, Tailwind CSS, Express, OpenAI API, Vite</p>
+          <div class="actions">
+            <a href="play/recipe-remix/">Try the demo<span class="sr-only"> of AI Recipe Remix</span></a>
+            <a href="work/recipe-remix/">View project<span class="sr-only">: AI Recipe Remix</span> <span aria-hidden="true">→</span></a>
           </div>
-        </div>
-      </article>
+        </article>
 
-      <article class="band band--flip" aria-labelledby="p-ttt">
-        <div class="wrap reveal">
-          <a class="band__media" href="play/tic-tac-toe/" tabindex="-1" aria-hidden="true">
-            <img src="assets/img/ttt/cover.webp" srcset="assets/img/ttt/cover-800.webp 800w, assets/img/ttt/cover.webp 1600w" sizes="(max-width: 860px) calc(100vw - 32px), 640px" alt="" width="1600" height="1000" loading="lazy">
+        <article class="project" aria-labelledby="p-ttt">
+          <a class="project__media" href="play/tic-tac-toe/" tabindex="-1" aria-hidden="true">
+            <img src="assets/img/ttt/cover.webp" srcset="assets/img/ttt/cover-800.webp 800w, assets/img/ttt/cover.webp 1600w" sizes="(max-width: 700px) calc(100vw - 32px), 540px" alt="" width="1600" height="1000" loading="lazy">
           </a>
-          <div class="band__text">
-            <p class="label label--gold band__num">06 · Game AI · 2026</p>
-            <h3 id="p-ttt" class="display">Tic-Tac-Toe vs. AI</h3>
-            <p class="subtitle">Three opponents, one unbeatable</p>
-            <p class="desc">A browser game that shows how the computer thinks. Easy plays loosely, Medium plays by my five rules, and Hard is a minimax search that cannot lose. Switch on “Show AI thinking” to see its score for every square.</p>
-            <ul class="tags"><li>JavaScript</li><li>Minimax</li><li>Alpha-beta pruning</li></ul>
-            <div class="buttons">
-              <a class="btn btn--solid" href="play/tic-tac-toe/"><span aria-hidden="true">▶</span> Play<span class="sr-only"> Tic-Tac-Toe vs. AI</span></a>
-              <a class="btn" href="work/tic-tac-toe/">View project<span class="sr-only">: Tic-Tac-Toe vs. AI</span></a>
-            </div>
-            <p class="caption">Beat Medium with a fork. Then try Hard.</p>
+          <h3 id="p-ttt"><a href="work/tic-tac-toe/">Tic-Tac-Toe vs. AI</a></h3>
+          <p class="project__meta">Game AI · 2026</p>
+          <p class="project__desc">A browser game that shows how the computer thinks. Easy plays loosely, Medium plays by my five rules, and Hard is a minimax search that cannot lose. Switch on “Show AI thinking” to see its score for every square.</p>
+          <p class="project__stack">JavaScript, minimax, alpha-beta pruning</p>
+          <div class="actions">
+            <a href="play/tic-tac-toe/"><span aria-hidden="true">▶</span> Play<span class="sr-only"> Tic-Tac-Toe vs. AI</span></a>
+            <a href="work/tic-tac-toe/">View project<span class="sr-only">: Tic-Tac-Toe vs. AI</span> <span aria-hidden="true">→</span></a>
           </div>
-        </div>
-      </article>
-    </section>
-
-    <section class="about-band" aria-labelledby="about-title">
-      <div class="wrap reveal">
-        <div class="statement">
-          <p class="label label--gold">About</p>
-          <h2 id="about-title" class="display">“Player one”</h2>
-          <p>I’m Xinyue Feng, also known as Lily. I study Computer Science at Kean University, and I’m most interested in human–computer interaction: the point where software meets the person using it.</p>
-          <p class="muted">My Java platformer grew out of two things I loved: the little adventure games I played as a kid on the 4399 web-game site, and Capcom’s <em>Ace Attorney</em>. Outside class I’ve interned in computer-vision data processing and at a game technology company, and helped ship a prototype in a 48-hour game jam.</p>
-          <div class="buttons"><a class="btn" href="about/">More about me</a></div>
-        </div>
-        <div class="cover" aria-hidden="true">
-          <div class="cover__frame"></div>
-          <p class="cover__name">Xinyue<br>Feng</p>
-          <p class="cover__meta">Computer Science<br>Kean University · 2027</p>
-          <p class="cover__line">games, mods &amp; small AI tools</p>
-          <img class="cover__sprite cover__sprite--flip" src="assets/img/pixel/ob5.png" alt="" width="60" height="60">
-        </div>
+        </article>
       </div>
     </section>
 
-    <section id="contact" class="contact" aria-labelledby="contact-title">
-      <div class="wrap reveal">
-        <p class="label label--gold">Contact</p>
-        <h2 id="contact-title" class="display">Say hello</h2>
-        <a class="mail" href="mailto:lily.china@outlook.com">lily.china@outlook.com</a>
-        <div class="buttons">
-          <a class="btn" href="about/">Experience &amp; awards</a>
-          <a class="btn" href="assets/xinyue-feng-portfolio.pdf" download="Xinyue-Feng-Portfolio.pdf">Download the portfolio (PDF) <span aria-hidden="true">↓</span></a>
-        </div>
+    <section id="about" class="section wrap" aria-labelledby="about-title">
+      <h2 id="about-title">About</h2>
+      <div class="prose">
+        <p>I’m Xinyue Feng, also known as Lily. I study Computer Science at Kean University, and I’m most interested in human–computer interaction: the point where software meets the person using it.</p>
+        <p>My Java platformer grew out of two things I loved: the little adventure games I played as a kid on the 4399 web-game site, and Capcom’s <em>Ace Attorney</em>. Outside class I’ve interned in computer-vision data processing and at a game technology company, and helped ship a prototype in a 48-hour game jam.</p>
+        <p><a href="about/">More about me: experience, awards and skills <span aria-hidden="true">→</span></a></p>
       </div>
+    </section>
+
+    <section id="contact" class="section section--last wrap" aria-labelledby="contact-title">
+      <h2 id="contact-title">Contact</h2>
+      <p><a class="mail" href="mailto:lily.china@outlook.com">lily.china@outlook.com</a></p>
+      <p><a href="assets/xinyue-feng-portfolio.pdf" download="Xinyue-Feng-Portfolio.pdf">Download the portfolio (PDF) <span aria-hidden="true">↓</span></a></p>
     </section>
   </main>
 
   <footer class="site-footer">
     <div class="wrap">
-      <p>© 2026 Xinyue Feng</p>
+      <p>© 2026 Xinyue Feng · <a href="mailto:lily.china@outlook.com">lily.china@outlook.com</a></p>
       <p><em>Ace Attorney</em> © Capcom, <em>Harry Potter</em> © Warner Bros. Entertainment / J.K. Rowling, <em>Terraria</em> © Re-Logic, <em>Hollow Knight</em> and <em>Silksong</em> © Team Cherry, <em>Dead Cells</em> © Motion Twin, <em>Cuphead</em> © StudioMDHR, <em>The Binding of Isaac</em> © Edmund McMillen. This site and the 2026 updates to the older projects were built with AI coding tools.</p>
     </div>
   </footer>

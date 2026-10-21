@@ -29,13 +29,13 @@
     // paint and kept in sync if it changes in another tab or the embedding page.
     (function () {
       function apply(theme) {
-        var light = theme === "light";
+        var light = theme !== "dark";
         if (light) document.documentElement.setAttribute("data-theme", "light");
         else document.documentElement.removeAttribute("data-theme");
         var meta = document.querySelector('meta[name="theme-color"]');
         if (meta) meta.content = light ? "#f7f3ec" : "#121212";
       }
-      try { apply(localStorage.getItem("theme")); } catch (e) { /* storage blocked: stay dark */ }
+      try { apply(localStorage.getItem("theme")); } catch (e) { apply(null); /* storage blocked: the light default */ }
       window.addEventListener("storage", function (event) {
         if (event.key === "theme") apply(event.newValue);
       });

@@ -28,7 +28,7 @@ const PAGES = ['', 'about/', 'work/yuzu-onsen-capybaras/', 'work/otherworlds/', 
   'work/recipe-remix/', 'work/tic-tac-toe/', '404.html'];
 const SIZES = SELF_TEST ? [[390, 664]] : FLAKY ? [[390, 664], [1440, 900]]
   : [[320, 568], [375, 553], [390, 600], [390, 664], [393, 659], [844, 390], [768, 1024], [1366, 657], [1440, 900]];
-const THEMES = SELF_TEST || FLAKY ? ['dark'] : ['dark', 'light'];
+const THEMES = SELF_TEST || FLAKY ? ['light'] : ['light', 'dark'];
 
 // The site as GitHub Pages serves it, under /xinyue-feng/, without a server.
 const ORIGIN = 'http://site.local';
@@ -91,7 +91,7 @@ try {
       const phone = width < 768;
       const context = await browser.newContext({ viewport: { width, height }, reducedMotion: 'reduce', hasTouch: phone,
         ...(ENGINE === 'firefox' ? {} : { isMobile: phone }) });
-      if (theme === 'light') await context.addInitScript(() => { try { localStorage.setItem('theme', 'light'); } catch { /* none */ } });
+      if (theme === 'dark') await context.addInitScript(() => { try { localStorage.setItem('theme', 'dark'); } catch { /* none */ } });
       const refused = new Set();
       await context.route('**/*', (route) => {
         const url = route.request().url();
@@ -122,7 +122,7 @@ try {
         }, FLAKY);
         if (SELF_TEST && p === '') {
           await page.evaluate(() => {
-            const r = document.querySelector('.btn').getBoundingClientRect();
+            const r = document.querySelector('.button').getBoundingClientRect();
             const a = Object.assign(document.createElement('a'), { href: '#', textContent: 'Planted link' });
             Object.assign(a.style, { position: 'absolute', left: `${r.left + 4}px`, top: `${r.top + scrollY + 4}px` });
             document.body.append(a);
@@ -133,7 +133,7 @@ try {
           broken: [...document.images].filter((i) => !i.naturalWidth).map((i) => i.currentSrc || i.getAttribute('src')),
           anchors: [...document.querySelectorAll('a[href^="#"]')].map((a) => a.getAttribute('href'))
             .filter((h) => h.length > 1 && !document.getElementById(h.slice(1))),
-          theme: document.documentElement.getAttribute('data-theme') || 'dark',
+          theme: document.documentElement.getAttribute('data-theme') || 'light',
           links: [
             ...[...document.querySelectorAll('a[href], link[href]')].map((el) => el.href),
             ...[...document.querySelectorAll('img[src], source[src], script[src]')].map((el) => el.src),

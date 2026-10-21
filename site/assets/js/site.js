@@ -3,17 +3,17 @@ window.__siteReady = true;
 
 const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
 
-// Dark by default; the header toggle switches to the light theme and remembers it.
+// Paper by default; the header toggle switches to the dark theme and remembers it.
 // (An inline script in <head> applies a saved choice before the first paint.)
 const themeButton = document.querySelector('.theme-toggle');
 const themeColor = document.querySelector('meta[name="theme-color"]');
 function setTheme(theme, save) {
-  const light = theme === 'light';
-  if (light) document.documentElement.setAttribute('data-theme', 'light');
+  const dark = theme === 'dark';
+  if (dark) document.documentElement.setAttribute('data-theme', 'dark');
   else document.documentElement.removeAttribute('data-theme');
-  if (themeColor) themeColor.content = light ? '#f7f3ec' : '#121212';
+  if (themeColor) themeColor.content = dark ? '#191613' : '#fbf7f0';
   if (themeButton) {
-    const label = light ? 'Switch to dark theme' : 'Switch to light theme';
+    const label = dark ? 'Switch to light theme' : 'Switch to dark theme';
     themeButton.setAttribute('aria-label', label);
     themeButton.title = label;
   }
@@ -21,15 +21,15 @@ function setTheme(theme, save) {
     try { localStorage.setItem('theme', theme); } catch { /* private mode: not remembered */ }
   }
 }
-setTheme(document.documentElement.getAttribute('data-theme') === 'light' ? 'light' : 'dark', false);
+setTheme(document.documentElement.getAttribute('data-theme') === 'dark' ? 'dark' : 'light', false);
 if (themeButton) {
   themeButton.addEventListener('click', () => {
-    setTheme(document.documentElement.getAttribute('data-theme') === 'light' ? 'dark' : 'light', true);
+    setTheme(document.documentElement.getAttribute('data-theme') === 'dark' ? 'light' : 'dark', true);
   });
 }
 // Another tab (or an embedded page) changed the theme.
 window.addEventListener('storage', (event) => {
-  if (event.key === 'theme') setTheme(event.newValue === 'light' ? 'light' : 'dark', false);
+  if (event.key === 'theme') setTheme(event.newValue === 'dark' ? 'dark' : 'light', false);
 });
 
 // On a slow or patchy connection a picture can fail to arrive and show as a broken icon.
@@ -60,30 +60,6 @@ document.addEventListener('error', (event) => {
 // Pictures that failed before this script ran.
 for (const img of document.images) {
   if (img.complete && img.naturalWidth === 0 && img.getAttribute('src')) retryPicture(img);
-}
-
-// Header gets a hairline once the page scrolls.
-const header = document.querySelector('.site-header');
-if (header) {
-  const onScroll = () => header.classList.toggle('is-scrolled', window.scrollY > 8);
-  window.addEventListener('scroll', onScroll, { passive: true });
-  onScroll();
-}
-
-// Fade sections in as they enter the viewport.
-const revealables = document.querySelectorAll('.reveal');
-if ('IntersectionObserver' in window && revealables.length) {
-  const io = new IntersectionObserver((entries) => {
-    for (const entry of entries) {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('is-in');
-        io.unobserve(entry.target);
-      }
-    }
-  }, { rootMargin: '0px 0px -8% 0px' });
-  revealables.forEach((el) => io.observe(el));
-} else {
-  revealables.forEach((el) => el.classList.add('is-in'));
 }
 
 // Gameplay clips play only while on screen, and never with reduced motion.
@@ -230,7 +206,10 @@ function runParade(canvas) {
     ctx.imageSmoothingEnabled = false;
     const ground = height - 60;
 
-    for (let x = 0; x < width; x += 60) ctx.drawImage(img.ob10, x, ground);
+    // whole hearts only, centred in the strip
+    const hearts = Math.floor(width / 60);
+    const x0 = Math.round((width - hearts * 60) / 2);
+    for (let i = 0; i < hearts; i++) ctx.drawImage(img.ob10, x0 + i * 60, ground);
 
     const wFrame = Math.floor(time / 220) % 2 ? img.Winston2 : img.Winston1;
     ctx.drawImage(wFrame, Math.round(winston.x), ground - 60);
