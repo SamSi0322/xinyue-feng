@@ -32,6 +32,36 @@ window.addEventListener('storage', (event) => {
   if (event.key === 'theme') setTheme(event.newValue === 'light' ? 'light' : 'dark', false);
 });
 
+// On a slow or patchy connection a picture can fail to arrive and show as a broken icon.
+// Ask for it again, up to three times, under a fresh URL so no cache hands back the failure.
+const withRetry = (url, n) => `${url}${url.includes('?') ? '&' : '?'}retry=${n}`;
+function retryPicture(img) {
+  const n = Number(img.dataset.retries || 0) + 1;
+  if (n > 3) return;
+  img.dataset.retries = String(n);
+  if (img.dataset.src0 === undefined) {
+    img.dataset.src0 = img.getAttribute('src') || '';
+    img.dataset.srcset0 = img.getAttribute('srcset') || '';
+  }
+  setTimeout(() => {
+    const { src0, srcset0 } = img.dataset;
+    if (srcset0) {
+      img.srcset = srcset0.split(',').map((candidate) => {
+        const [url, ...descriptor] = candidate.trim().split(/\s+/);
+        return [withRetry(url, n), ...descriptor].join(' ');
+      }).join(', ');
+    }
+    if (src0) img.src = withRetry(src0, n);
+  }, 1500 * n * n);
+}
+document.addEventListener('error', (event) => {
+  if (event.target instanceof HTMLImageElement) retryPicture(event.target);
+}, true);
+// Pictures that failed before this script ran.
+for (const img of document.images) {
+  if (img.complete && img.naturalWidth === 0 && img.getAttribute('src')) retryPicture(img);
+}
+
 // Header gets a hairline once the page scrolls.
 const header = document.querySelector('.site-header');
 if (header) {
@@ -118,6 +148,11 @@ function runParade(canvas) {
     im.onload = () => {
       loaded++;
       if (loaded === names.length) start();
+    };
+    let retries = 0;
+    im.onerror = () => {
+      retries++;
+      if (retries <= 3) setTimeout(() => { im.src = withRetry(`${base}${name}.png`, retries); }, 1500 * retries * retries);
     };
     im.src = `${base}${name}.png`;
     img[name] = im;
