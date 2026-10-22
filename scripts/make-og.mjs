@@ -18,8 +18,7 @@ const CARDS = {
   home: {
     home: true,
     title: ['Xinyue Feng'],
-    sub: 'I make games and interactive web apps, and I care most about how they feel to use.',
-    meta: 'Computer Science student at Kean University, class of 2027 · HCI and user-centered design',
+    sub: 'Computer Science student at Kean University, class of 2027 · HCI and user-centered design',
   },
   'yuzu-onsen-capybaras': {
     title: ['Yuzu Onsen', 'Capybaras'],
