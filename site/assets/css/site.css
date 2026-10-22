@@ -159,6 +159,11 @@ h3 {
   white-space: nowrap;
 }
 
+/* keeps a hyphenated name on one line, e.g. "Tic-Tac-Toe" */
+.nowrap {
+  white-space: nowrap;
+}
+
 .skip {
   position: absolute;
   left: 16px;
@@ -626,34 +631,22 @@ img.pixelated,
 }
 
 .about-band .wrap {
-  display: grid;
-  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
-  gap: clamp(32px, 6vw, 88px);
+  display: flex;
+  flex-direction: column;
   align-items: center;
-  padding: clamp(64px, 9vw, 112px) 0;
+  padding: clamp(56px, 8vw, 96px) 0;
 }
 
-.statement h2 {
-  font-size: clamp(30px, 4vw, 46px);
-  margin-bottom: 28px;
-}
-
-.statement p {
-  font: 400 clamp(15px, 1.35vw, 17px)/1.85 var(--mono);
-  color: var(--ink);
-}
-
-.statement p.muted {
-  color: var(--ink-muted);
+.about-band .buttons {
+  margin-top: 32px;
 }
 
 /* Typographic "cover" standing in for a portrait */
 .cover {
   position: relative;
   aspect-ratio: 4 / 5;
-  max-width: 460px;
+  max-width: 360px;
   width: 100%;
-  margin-left: auto;
   padding: clamp(22px, 3vw, 34px);
   border: 1px solid var(--rule-strong);
   background:
@@ -671,7 +664,7 @@ img.pixelated,
 
 .cover__name {
   position: relative;
-  font: 800 clamp(40px, 6vw, 78px)/0.9 var(--serif);
+  font: 800 clamp(40px, 4.2vw, 58px)/0.9 var(--serif);
   letter-spacing: 0.02em;
   text-transform: uppercase;
 }
@@ -685,14 +678,6 @@ img.pixelated,
   color: var(--ink-muted);
 }
 
-.cover__line {
-  position: absolute;
-  left: clamp(22px, 3vw, 34px);
-  bottom: clamp(22px, 3vw, 34px);
-  max-width: 48%;
-  font: italic 400 clamp(20px, 2.3vw, 30px)/1.15 var(--serif);
-}
-
 .cover__sprite {
   position: absolute;
   right: 5%;
@@ -703,16 +688,6 @@ img.pixelated,
 
 .cover__sprite--flip {
   transform: scaleX(-1);
-}
-
-@media (max-width: 860px) {
-  .about-band .wrap {
-    grid-template-columns: 1fr;
-  }
-
-  .cover {
-    margin: 0 auto;
-  }
 }
 
 /* ---------- contact */
