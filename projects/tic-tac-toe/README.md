@@ -3,7 +3,7 @@
 Tic-tac-toe against three AI opponents, from coin-flip to unbeatable, with a
 live view of how the AI scores every square.
 
-By **Xinyue (Lily) Feng**, for Unit 10 AS1 “Play with AI” (April 2026), and
+By **Xinyue (Lily) Feng** (April 2026), and
 extended for her portfolio with AI coding tools (see [Credits](#credits)).
 Plain HTML, CSS and JavaScript: no frameworks, no build step, no external
 requests.
@@ -49,7 +49,7 @@ never blocks you.
 
 ### Medium: Lily’s original (`ruleBasedMove`)
 
-This is the AI from the Unit 10 assignment, preserved rule for rule with its
+This is the AI from Lily’s original game, preserved rule for rule with its
 original comments. Only the plumbing changed: the board and players come in
 as arguments instead of globals, moves are tried on a copy of the board, and
 the random source can be swapped out for tests. It tries five rules in
@@ -171,13 +171,13 @@ tests/ai.test.js    node:test suite for ai.js
 package.json        "type": "module" and the test script (no dependencies)
 favicon.svg
 fonts/              self-hosted Playfair Display, IBM Plex Sans and IBM Plex Mono, with their licenses
-original/           the original Unit 10 files, untouched
+original/           the original files, untouched
 ```
 
 ## Credits
 
-- Originally created by Xinyue (Lily) Feng for Unit 10 AS1 “Play with AI”,
-  April 2026. The original files are preserved in [`original/`](original/),
+- Originally created by Xinyue (Lily) Feng in April 2026. The original files
+  are preserved in [`original/`](original/),
   and her AI lives on as Medium.
 - 2026 portfolio edition (Easy and Hard, “Show AI thinking”, the redesign and
   the tests): built with AI coding tools.

@@ -14,7 +14,7 @@
  *
  * Three opponents:
  *   easy   → easyMove       mostly random, sometimes spots a win
- *   medium → ruleBasedMove  Lily's original Unit 10 algorithm, unchanged
+ *   medium → ruleBasedMove  Lily's original algorithm, unchanged
  *   hard   → minimaxMove    searches the whole game tree and never loses
  *
  * Every move function returns a cell index (0–8), or -1 if no move is left.
@@ -126,9 +126,9 @@ export function easyMove(board, aiPlayer = "O", random = Math.random) {
 /* ---------- Medium: Lily's original rule-based AI ------------------------ */
 
 /**
- * MEDIUM — the original Unit 10 algorithm.
+ * MEDIUM — the original algorithm.
  *
- * This is getBestMove() from Lily's Unit 10 AS1 "Play with AI" assignment
+ * This is getBestMove() from Lily's original game
  * (April 2026, preserved in original/script.js), kept rule for rule and
  * comment for comment. Only the plumbing changed:
  *   - the board and the players arrive as arguments instead of globals;
