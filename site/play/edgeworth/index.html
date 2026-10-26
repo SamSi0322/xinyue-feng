@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <title>The Adventures of Edgeworth — play in the browser</title>
   <meta name="description" content="An Ace Attorney fan platformer by Xinyue (Lily) Feng, originally written in Java Swing and ported to the browser. Six levels, hand-drawn pixel sprites.">
-  <meta name="theme-color" content="#fbf7f0">
+  <meta name="theme-color" content="#f3f5fb">
   <link rel="icon" type="image/png" href="assets/img/ob12.png">
   <meta property="og:type" content="website">
   <meta property="og:title" content="The Adventures of Edgeworth: play in the browser">
@@ -29,7 +29,7 @@
         if (dark) document.documentElement.setAttribute("data-theme", "dark");
         else document.documentElement.removeAttribute("data-theme");
         var meta = document.querySelector('meta[name="theme-color"]');
-        if (meta) meta.content = dark ? "#191613" : "#fbf7f0";
+        if (meta) meta.content = dark ? "#141829" : "#f3f5fb";
       }
       try { apply(localStorage.getItem("theme")); } catch (e) { apply(null); /* storage blocked: paper */ }
       window.addEventListener("storage", function (event) {

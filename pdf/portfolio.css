@@ -1,4 +1,4 @@
-/* The PDF portfolio: A4 landscape pages in the website's look (site/assets/css/site.css): ink on warm paper,
+/* The PDF portfolio: A4 landscape pages in the website's look (site/assets/css/site.css): navy ink on pale blue,
    names and titles in the pixel font from Yuzu Onsen Capybaras, everything else in IBM Plex Sans. */
 @font-face { font-family: "Fusion Pixel Latin"; font-style: normal; font-weight: 400; src: url("../site/assets/fonts/fusion-pixel-latin.woff2") format("woff2"); }
 @font-face { font-family: "IBM Plex Sans"; font-style: normal; font-weight: 100 700; src: url("../site/assets/fonts/ibm-plex-sans-latin-wght-normal.woff2") format("woff2"); }
@@ -8,17 +8,17 @@
 @page { size: 297mm 210mm; margin: 0; }
 
 :root {
-  --paper: #fbf7f0;
-  --paper-2: #f2ebdf;
-  --ink: #2a2420;
-  --ink-2: #5d534a;
-  --ink-3: #685e54;
-  --rule: #e3d9ca;
-  --accent: #a34a17;
-  --fill: #b15e20;
-  --frame: rgba(42, 36, 32, 0.1);
-  --pic-bg: #e9e1d3;
-  --code-bg: #f4eee4;
+  --paper: #f3f5fb;
+  --paper-2: #e7ebf6;
+  --ink: #1a1f3d;
+  --ink-2: #464d72;
+  --ink-3: #535a7e;
+  --rule: #d9deee;
+  --accent: #3446b8;
+  --fill: #ac3232;
+  --frame: rgba(26, 31, 61, 0.12);
+  --pic-bg: #e3e7f3;
+  --code-bg: #eceff8;
   --sans: "IBM Plex Sans", Helvetica, Arial, sans-serif;
   --pixel: "Fusion Pixel Latin", "IBM Plex Sans", sans-serif;
   --mono: "IBM Plex Mono", Menlo, monospace;
@@ -224,7 +224,7 @@ pre { margin: 1mm 0 0; padding: 2.6mm 3mm; overflow: hidden; background: var(--c
 .rules li::marker { font-size: 8pt; font-weight: 500; color: var(--ink-3); }
 .board { margin-top: 4mm; }
 .board svg { display: block; width: 46mm; height: 46mm; }
-.board__grid { fill: none; stroke: rgba(42, 36, 32, 0.3); stroke-width: 0.8; }
+.board__grid { fill: none; stroke: rgba(26, 31, 61, 0.3); stroke-width: 0.8; }
 .board__line { fill: none; stroke: var(--accent); stroke-width: 1.4; stroke-dasharray: 3 2.4; stroke-linecap: round; }
 .board__x { fill: none; stroke: var(--ink); stroke-width: 2.4; stroke-linecap: round; }
 .board__o { fill: none; stroke: var(--accent); stroke-width: 2.4; }

@@ -11,7 +11,7 @@ function setTheme(theme, save) {
   const dark = theme === 'dark';
   if (dark) document.documentElement.setAttribute('data-theme', 'dark');
   else document.documentElement.removeAttribute('data-theme');
-  if (themeColor) themeColor.content = dark ? '#191613' : '#fbf7f0';
+  if (themeColor) themeColor.content = dark ? '#141829' : '#f3f5fb';
   if (themeButton) {
     const label = dark ? 'Switch to light theme' : 'Switch to dark theme';
     themeButton.setAttribute('aria-label', label);

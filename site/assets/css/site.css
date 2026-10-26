@@ -1,24 +1,27 @@
-/* Xinyue Feng — portfolio. Ink on warm paper, with the pixel font from Yuzu Onsen Capybaras for names and
-   titles; a dark version through the toggle in the header (html[data-theme="dark"]). No build step.
+/* Xinyue Feng — portfolio. Navy ink on a pale courtroom blue, with the red and blue of the hearts in The
+   Adventures of Edgeworth: blue for links, red for the one button that matters. The pixel font from Yuzu Onsen
+   Capybaras sets names and titles; a dark version through the toggle in the header (html[data-theme="dark"]).
+   No build step.
 
    The pixel font is drawn 12 pixels tall and stays sharp only at whole multiples of that: 24, 36 or 48px. */
 
 :root {
   color-scheme: light;
-  --bg: #fbf7f0;
-  --bg-2: #f2ebdf;
-  --ink: #2a2420;
-  --ink-2: #5d534a;
-  --ink-3: #685e54;
-  --rule: #e3d9ca;
-  --accent: #a34a17;
-  --accent-2: #7e3810;
-  --fill: #b15e20;
-  --fill-2: #96501b;
+  --bg: #f3f5fb;
+  --bg-2: #e7ebf6;
+  --ink: #1a1f3d;
+  --ink-2: #464d72;
+  --ink-3: #535a7e;
+  --rule: #d9deee;
+  --accent: #3446b8;
+  --accent-2: #22308a;
+  --fill: #ac3232;
+  --fill-2: #8f2626;
   --fill-ink: #ffffff;
-  --frame: rgba(42, 36, 32, 0.1);
-  --pic-bg: #e9e1d3;
-  --code-bg: #f4eee4;
+  --frame: rgba(26, 31, 61, 0.12);
+  --pic-bg: #e3e7f3;
+  --code-bg: #eceff8;
+  --selection: rgba(91, 110, 225, 0.25);
 
   --sans: "IBM Plex Sans", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
   --pixel: "Fusion Pixel Latin", "IBM Plex Sans", system-ui, sans-serif;
@@ -32,20 +35,21 @@
 /* Every text colour keeps at least 4.5:1 on both backgrounds, in both themes. */
 :root[data-theme="dark"] {
   color-scheme: dark;
-  --bg: #191613;
-  --bg-2: #24201c;
-  --ink: #f2ebe0;
-  --ink-2: #bcb0a2;
-  --ink-3: #a99d90;
-  --rule: #3a322b;
-  --accent: #f2a46c;
-  --accent-2: #ffc596;
-  --fill: #f2a46c;
-  --fill-2: #ffbb88;
-  --fill-ink: #1b1410;
-  --frame: rgba(242, 235, 224, 0.1);
-  --pic-bg: #2b2621;
-  --code-bg: #211d19;
+  --bg: #141829;
+  --bg-2: #1c2136;
+  --ink: #eceef8;
+  --ink-2: #b4b9d2;
+  --ink-3: #9ca2bf;
+  --rule: #2c3350;
+  --accent: #9fb0ff;
+  --accent-2: #c3cdff;
+  --fill: #ff8f86;
+  --fill-2: #ffaaa3;
+  --fill-ink: #2a0d0b;
+  --frame: rgba(236, 238, 248, 0.1);
+  --pic-bg: #20263d;
+  --code-bg: #181d31;
+  --selection: rgba(159, 176, 255, 0.3);
 }
 
 *,
@@ -104,7 +108,7 @@ a:hover {
 }
 
 ::selection {
-  background: rgba(177, 94, 32, 0.22);
+  background: var(--selection);
 }
 
 p {
@@ -918,8 +922,8 @@ figcaption,
   gap: 10px;
   padding: 12px 20px;
   border-radius: 4px;
-  background: #b15e20;
-  color: #fff;
+  background: var(--fill);
+  color: var(--fill-ink);
   font: 600 16px/1.2 var(--sans);
 }
 

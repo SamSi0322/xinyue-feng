@@ -2,17 +2,17 @@
    (html[data-theme="dark"], set from the same saved choice). The game frame keeps its own night colours. */
 :root {
   color-scheme: light;
-  --bg: #fbf7f0;
-  --bg-raised: #f2ebdf;
-  --ink: #2a2420;
-  --ink-muted: #5d534a;
-  --ink-faint: #685e54;
-  --rule: #e3d9ca;
-  --rule-strong: rgba(42, 36, 32, 0.28);
-  --accent: #a34a17;
-  --fill: #b15e20;
+  --bg: #f3f5fb;
+  --bg-raised: #e7ebf6;
+  --ink: #1a1f3d;
+  --ink-muted: #464d72;
+  --ink-faint: #535a7e;
+  --rule: #d9deee;
+  --rule-strong: rgba(26, 31, 61, 0.28);
+  --accent: #3446b8;
+  --fill: #ac3232;
   --fill-ink: #ffffff;
-  --frame-line: rgba(42, 36, 32, 0.1);
+  --frame-line: rgba(26, 31, 61, 0.12);
 
   --night: #031021;
   --game-ink: #f3efe7;
@@ -28,17 +28,17 @@
 
 :root[data-theme="dark"] {
   color-scheme: dark;
-  --bg: #191613;
-  --bg-raised: #24201c;
-  --ink: #f2ebe0;
-  --ink-muted: #bcb0a2;
-  --ink-faint: #a99d90;
-  --rule: #3a322b;
-  --rule-strong: rgba(242, 235, 224, 0.3);
-  --accent: #f2a46c;
-  --fill: #f2a46c;
-  --fill-ink: #1b1410;
-  --frame-line: rgba(242, 235, 224, 0.1);
+  --bg: #141829;
+  --bg-raised: #1c2136;
+  --ink: #eceef8;
+  --ink-muted: #b4b9d2;
+  --ink-faint: #9ca2bf;
+  --rule: #2c3350;
+  --rule-strong: rgba(236, 238, 248, 0.3);
+  --accent: #9fb0ff;
+  --fill: #ff8f86;
+  --fill-ink: #2a0d0b;
+  --frame-line: rgba(236, 238, 248, 0.1);
 }
 
 *,

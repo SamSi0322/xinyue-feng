@@ -7,7 +7,7 @@
   <meta name="description" content="Tic-tac-toe against three AIs: a mostly random player, Lily’s original rule-based AI, and an unbeatable minimax search. Switch on “Show AI thinking” to see how it scores every square." />
   <meta name="author" content="Xinyue (Lily) Feng" />
   <meta name="color-scheme" content="light dark" />
-  <meta name="theme-color" content="#fbf7f0" />
+  <meta name="theme-color" content="#f3f5fb" />
   <link rel="icon" href="favicon.svg" type="image/svg+xml" />
   <meta property="og:type" content="website" />
   <meta property="og:title" content="Tic-Tac-Toe vs. AI" />
@@ -30,7 +30,7 @@
         if (light) document.documentElement.setAttribute("data-theme", "light");
         else document.documentElement.removeAttribute("data-theme");
         var meta = document.querySelector('meta[name="theme-color"]');
-        if (meta) meta.content = light ? "#fbf7f0" : "#191613";
+        if (meta) meta.content = light ? "#f3f5fb" : "#141829";
       }
       try { apply(localStorage.getItem("theme")); } catch (e) { apply(null); /* storage blocked: the light default */ }
       window.addEventListener("storage", function (event) {

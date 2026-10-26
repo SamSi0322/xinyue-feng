@@ -1,22 +1,22 @@
 /* ==========================================================================
    Play with AI — Tic-Tac-Toe
-   Ink on paper like the portfolio (html[data-theme="light"], the default),
+   Navy on pale blue like the portfolio (html[data-theme="light"], the default),
    with its dark alternative, chosen with the portfolio's theme toggle.
    ========================================================================== */
 
 :root {
-  --bg: #191613;
-  --bg-raised: #24201c;
-  --ink: #f2ebe0;
-  --ink-muted: #bcb0a2;
-  --ink-faint: #7d7166; /* decoration only, never small text */
-  --rule: rgba(242, 235, 224, 0.14);
-  --rule-strong: rgba(242, 235, 224, 0.32);
-  --accent: #f2a46c;
-  --accent-strong: #ffc596;
-  --accent-rgb: 242, 164, 108;
-  --red: #e0584d;
-  --red-bright: #f07a70; /* lifted so it can be used for small text */
+  --bg: #141829;
+  --bg-raised: #1c2136;
+  --ink: #eceef8;
+  --ink-muted: #b4b9d2;
+  --ink-faint: #6f7697; /* decoration only, never small text */
+  --rule: rgba(236, 238, 248, 0.14);
+  --rule-strong: rgba(236, 238, 248, 0.32);
+  --accent: #9fb0ff;
+  --accent-strong: #c3cdff;
+  --accent-rgb: 159, 176, 255;
+  --red: #f0716a;
+  --red-bright: #ff8f86; /* lifted so it can be used for small text */
 
   /* (the pixel face is the Latin cut of Fusion Pixel 12px, sharp at multiples of 12px) */
   --font-pixel: "Fusion Pixel Latin", ui-monospace, Menlo, Consolas, monospace;
@@ -26,29 +26,29 @@
   --radius: 4px;
   --ease: cubic-bezier(0.22, 1, 0.36, 1);
   --focus-ring: 2px solid var(--accent-strong);
-  --wash: rgba(242, 235, 224, 0.04);
-  --strike-mid: rgba(242, 235, 224, 0.45);
+  --wash: rgba(236, 238, 248, 0.04);
+  --strike-mid: rgba(236, 238, 248, 0.45);
 
   color-scheme: dark;
 }
 
-/* Paper (the default). The accent and red are deep enough for text above 4.5:1;
+/* Light (the default). The accent and red are deep enough for text above 4.5:1;
    the "strong" and "bright" variants are the darker ones here, as they mark emphasis. */
 :root[data-theme="light"] {
-  --bg: #fbf7f0;
-  --bg-raised: #f2ebdf;
-  --ink: #2a2420;
-  --ink-muted: #5d534a;
-  --ink-faint: #8a7f73; /* decoration only, as in the dark theme */
-  --rule: rgba(42, 36, 32, 0.14);
-  --rule-strong: rgba(42, 36, 32, 0.32);
-  --accent: #a34a17;
-  --accent-strong: #7e3810;
-  --accent-rgb: 163, 74, 23;
-  --red: #b0372c;
-  --red-bright: #9a2e24;
-  --wash: rgba(42, 36, 32, 0.04);
-  --strike-mid: rgba(42, 36, 32, 0.3);
+  --bg: #f3f5fb;
+  --bg-raised: #e7ebf6;
+  --ink: #1a1f3d;
+  --ink-muted: #464d72;
+  --ink-faint: #7f86a6; /* decoration only, as in the dark theme */
+  --rule: rgba(26, 31, 61, 0.14);
+  --rule-strong: rgba(26, 31, 61, 0.32);
+  --accent: #3446b8;
+  --accent-strong: #22308a;
+  --accent-rgb: 52, 70, 184;
+  --red: #ac3232;
+  --red-bright: #8f2626;
+  --wash: rgba(26, 31, 61, 0.04);
+  --strike-mid: rgba(26, 31, 61, 0.3);
 
   color-scheme: light;
 }
@@ -698,7 +698,7 @@ a.masthead__author:hover {
   position: relative;
   height: 4px;
   border-radius: 2px;
-  background: linear-gradient(90deg, var(--red) 0%, rgba(176, 55, 44, 0.2) 44%, var(--strike-mid) 50%, rgba(var(--accent-rgb), 0.2) 56%, var(--accent) 100%);
+  background: linear-gradient(90deg, var(--red) 0%, color-mix(in srgb, var(--red) 20%, transparent) 44%, var(--strike-mid) 50%, rgba(var(--accent-rgb), 0.2) 56%, var(--accent) 100%);
 }
 
 .scale__zero {
