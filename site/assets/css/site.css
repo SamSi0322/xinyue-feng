@@ -26,7 +26,7 @@
 
   --gutter: clamp(16px, 4vw, 40px);
   --wide: 1080px;
-  --text: 680px;
+  --text: 640px;
 }
 
 /* Every text colour keeps at least 4.5:1 on both backgrounds, in both themes. */
@@ -111,12 +111,26 @@ p {
   margin: 0 0 1em;
 }
 
+p,
+li,
+figcaption {
+  text-wrap: pretty;
+}
+
 h1,
 h2,
 h3 {
   margin: 0;
   font-weight: 600;
   line-height: 1.3;
+}
+
+/* Headings and short facts break into lines of even length. */
+h1,
+h2,
+h3,
+dd {
+  text-wrap: balance;
 }
 
 .wrap {
@@ -337,7 +351,7 @@ h3 {
 .parade {
   position: relative;
   height: 188px;
-  margin-top: 28px;
+  margin-top: 8px;
 }
 
 .parade canvas {
@@ -358,6 +372,10 @@ h3 {
 
 .section {
   padding: clamp(56px, 8vw, 88px) 0 0;
+}
+
+.intro + .section {
+  padding-top: clamp(40px, 6vw, 64px);
 }
 
 .section > h2 {
@@ -415,7 +433,8 @@ h3 {
   text-decoration: none;
 }
 
-.project h3 a:hover {
+.project h3 a:hover,
+.project:has(.project__media:hover) h3 a {
   color: var(--accent);
 }
 
@@ -480,7 +499,7 @@ h3 {
 
 .crumb {
   display: inline-block;
-  margin-bottom: clamp(12px, 3vw, 28px);
+  margin-bottom: clamp(20px, 3vw, 28px);
   padding: 10px 0;
   font-size: 15px;
   font-weight: 500;
